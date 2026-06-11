@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX Robotics Academy – Learn · Build · Innovate</title>
+<meta name="description" content="Empowering the Next Generation of Engineers, Innovators, and Technology Leaders through structured project-based learning in Robotics, AI, Electronics, and IoT.">
+<meta property="og:title" content="APEX Robotics Academy">
+<meta property="og:description" content="Learn · Build · Innovate — India's Premier Robotics & AI Education Platform">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://apexroboticsacademy.in/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+<style>
+/* ── Hero always visible ────────────────────── */
+.hero-left>*{opacity:1!important}
+.hero-visual{opacity:1!important}
+.hero-orb,.hero-orb-inner,.hero-fc{opacity:1!important}
+/* ── Hero ─────────────────────────────────── */
+.hero{position:relative;z-index:1;min-height:100vh;padding:var(--nav-h) 2rem 3rem;display:flex;align-items:center}
+.hero-inner{max-width:1440px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:3.5rem 0 2rem}
+.hero-left{display:flex;flex-direction:column;gap:1.5rem}
+.hero-btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.hero-stats{display:flex;gap:2rem;flex-wrap:wrap}
+.h-stat-num{font-size:clamp(24px,2.5vw,32px);font-weight:700;line-height:1}
+.h-stat-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+
+/* ── Hero Visual (right side) ─────────────── */
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:520px}
+
+/* Central orb */
+.hero-orb{position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(16,185,129,.13) 0%,rgba(14,165,233,.07) 50%,transparent 70%);border:1px solid rgba(16,185,129,.18);display:flex;align-items:center;justify-content:center;animation:float 6s ease-in-out infinite}
+.hero-orb::before{content:'';position:absolute;inset:-18px;border-radius:50%;border:1px solid rgba(16,185,129,.08);animation:rotateSlow 18s linear infinite}
+.hero-orb::after{content:'';position:absolute;inset:-36px;border-radius:50%;border:1px dashed rgba(14,165,233,.07);animation:rotateSlow 30s linear infinite reverse}
+.hero-orb-inner{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(16,185,129,.22),rgba(5,5,7,.8));display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(16,185,129,.25),0 0 80px rgba(16,185,129,.1)}
+
+/* Floating cards */
+.hero-fc{position:absolute;background:rgba(24,24,27,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:.85rem 1.1rem;transition:border-color .2s;white-space:nowrap}
+.hero-fc:hover{border-color:rgba(16,185,129,.3)}
+.hero-fc-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:.55rem}
+.hero-fc-label{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:.2rem}
+.hero-fc-val{font-size:13.5px;font-weight:600;color:var(--text)}
+.hero-fc-sub{font-size:11px;color:var(--muted);margin-top:.15rem}
+
+/* Positions */
+.hero-fc-1{top:5%;left:0;animation:float 5s 0s ease-in-out infinite}
+.hero-fc-2{top:5%;right:0;animation:float 5s .8s ease-in-out infinite}
+.hero-fc-3{bottom:10%;left:2%;animation:float 5s 1.6s ease-in-out infinite}
+.hero-fc-4{bottom:10%;right:2%;animation:float 5s 2.4s ease-in-out infinite}
+.hero-fc-5{top:42%;left:-2%;animation:float 5s 3.2s ease-in-out infinite}
+.hero-fc-6{top:42%;right:-2%;animation:float 5s .4s ease-in-out infinite}
+
+/* Connecting lines SVG */
+.hero-lines{position:absolute;inset:0;pointer-events:none;opacity:.35}
+
+/* ── Partnership ──────────────────────────── */
+.partner-pair{display:grid;grid-template-columns:1fr 180px 1fr;align-items:center;gap:0}
+.partner-card{padding:2rem;position:relative;overflow:hidden}
+.partner-top-line{position:absolute;top:0;left:0;right:0;height:2px;border-radius:var(--r-card) var(--r-card) 0 0}
+.partner-icon{width:44px;height:44px;border-radius:var(--r-ctrl);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.partner-name{font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:.25rem}
+.partner-sub{font-size:12.5px;color:var(--muted);margin-bottom:1rem}
+.partner-stats{display:flex;gap:1.5rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.partner-stat-n{font-size:20px;font-weight:700}
+.partner-stat-l{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.connector{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem}
+.trust-badge{text-align:center;margin-top:2.5rem}
+
+/* ── Curriculum Preview ───────────────────── */
+.levels-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.85rem}
+.level-card{padding:1.1rem;cursor:pointer;text-decoration:none;border-radius:var(--r-card);background:var(--surface);border:1px solid var(--border);transition:border-color .2s,transform .2s,box-shadow .2s;display:block}
+.level-card:hover{border-color:rgba(255,255,255,.12);transform:translateY(-3px);box-shadow:var(--shadow)}
+.level-num{font-family:var(--mono);font-size:28px;font-weight:700;line-height:1;margin-bottom:.5rem}
+.level-num.g{color:var(--primary)}
+.level-num.b{color:var(--secondary)}
+.level-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:.25rem}
+.level-age{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em;margin-bottom:.5rem}
+.level-topics{font-size:11.5px;color:var(--dim);line-height:1.5;margin-bottom:.6rem}
+.level-capstone{font-size:11px;color:var(--primary);font-family:var(--mono);letter-spacing:.04em}
+
+/* ── CTA ──────────────────────────────────── */
+.cta-band{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:3.5rem;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;top:-50%;left:-10%;width:60%;height:200%;background:radial-gradient(ellipse,var(--pglow) 0%,transparent 60%);pointer-events:none}
+.cta-band::after{content:'';position:absolute;top:-50%;right:-10%;width:60%;height:200%;background:radial-gradient(ellipse,var(--sglow) 0%,transparent 60%);pointer-events:none}
+.cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:1.75rem;position:relative;z-index:1}
+
+/* ── Responsive ───────────────────────────── */
+@media(max-width:1200px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem}
+  .hero-visual{min-height:400px}
+  .levels-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:900px){
+  .partner-pair{grid-template-columns:1fr}
+  .connector{display:none}
+  .levels-grid{grid-template-columns:repeat(3,1fr)}
+  .hero-inner{padding:2.5rem 0 1rem}
+  .hero-visual{min-height:360px}
+  .hero-fc-1{top:2%;left:2%}
+  .hero-fc-2{top:2%;right:2%}
+  .hero-fc-3{bottom:2%;left:2%}
+  .hero-fc-4{bottom:2%;right:2%}
+  .hero-fc-5{top:44%;left:0}
+  .hero-fc-6{top:44%;right:0}
+}
+@media(max-width:640px){
+  .hero-visual{display:none}
+  .hero-inner{grid-template-columns:1fr}
+  .levels-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-stats{gap:1.25rem}
+  .hero-btns{flex-direction:column}
+  .hero-btns .btn{width:100%;justify-content:center}
+  .cta-band{padding:2rem 1.25rem}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cta-btns .btn{width:100%;max-width:320px;justify-content:center}
+  .partner-pair{gap:1rem}
+  .partner-card{padding:1.5rem}
+}
+@media(max-width:480px){
+  .hero{min-height:auto;padding-bottom:2.5rem}
+  .hero-inner{gap:2rem;padding-top:1.5rem}
+  .levels-grid{grid-template-columns:1fr 1fr;gap:.6rem}
+  .level-card{padding:.85rem}
+  .level-num{font-size:22px}
+  .level-title{font-size:12px}
+  .level-age{font-size:9px}
+  .level-topics{font-size:11px}
+  .level-capstone{font-size:10px}
+  .hero-stats{gap:1rem;flex-wrap:wrap}
+  .h-stat-num{font-size:24px}
+  .h-stat-label{font-size:9px}
+  .grid-3.mt-4{grid-template-columns:1fr}
+}
+</style>
+
+<style id="mantra-style">
+.mantra-bar{position:relative;z-index:1;padding:3rem 2rem;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(16,185,129,.03);overflow:hidden}
+.mantra-bar::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(16,185,129,.06),transparent 70%);pointer-events:none}
+.mantra-inner{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-bottom:.75rem;flex-wrap:wrap;position:relative;z-index:1}
+.mantra-line{flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,.35),transparent)}
+.mantra-text{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;justify-content:center}
+.mantra-icon{color:var(--primary);font-size:10px;opacity:.6}
+.mantra-quote{font-size:clamp(18px,3vw,26px);font-weight:600;color:var(--text);letter-spacing:-.02em;line-height:1.2}
+.mantra-highlight{color:var(--primary)}
+.mantra-sub{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);position:relative;z-index:1}
+@media(max-width:480px){.mantra-line{display:none}.mantra-bar{padding:2.25rem 1.25rem}}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- ── HERO ─────────────────────────────────────────────────────── -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <!-- Left -->
+    <div class="hero-left">
+      <span class="badge badge-g">
+        <span class="badge-dot"></span>
+        500+ Students Enrolled Across India
+      </span>
+      <h1 class="t-display">
+        Building the<br>
+        <span class="t-green">Engineers</span><br>
+        of Tomorrow
+      </h1>
+      <p class="t-body" style="max-width:46ch">
+        A structured project-based learning journey transforming students into innovators through Robotics, Electronics, AI, IoT, Embedded Systems, Computer Vision, and Engineering Design.
+      </p>
+      <div class="hero-btns">
+        <a href="curriculum.html" class="btn btn-primary btn-lg">Explore Curriculum</a>
+        <a href="book-demo.html" class="btn btn-ghost btn-lg">Book Demo</a>
+        <a href="enroll.html" class="btn btn-outline-p btn-lg">Enroll Now →</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="h-stat-num t-green" data-count="500" data-suffix="+">500+</div>
+          <div class="h-stat-label">Students</div>
+        </div>
+        <div>
+          <div class="h-stat-num t-blue">10</div>
+          <div class="h-stat-label">Levels</div>
+        </div>
+        <div>
+          <div class="h-stat-num t-green" data-count="50" data-suffix="+">50+</div>
+          <div class="h-stat-label">Capstone Projects</div>
+        </div>
+        <div>
+          <div class="h-stat-num" style="color:var(--muted)">4+</div>
+          <div class="h-stat-label">Years Active</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Premium hero visual -->
+    <div class="hero-visual">
+
+      <!-- Connecting lines (subtle SVG) -->
+      <svg class="hero-lines" viewBox="0 0 480 520" preserveAspectRatio="xMidYMid meet">
+        <line x1="240" y1="260" x2="60" y2="50" stroke="rgba(16,185,129,.18)" stroke-width="1" stroke-dasharray="4 6"></line>
+        <line x1="240" y1="260" x2="420" y2="50" stroke="rgba(14,165,233,.18)" stroke-width="1" stroke-dasharray="4 6"></line>
+        <line x1="240" y1="260" x2="60" y2="460" stroke="rgba(14,165,233,.18)" stroke-width="1" stroke-dasharray="4 6"></line>
+        <line x1="240" y1="260" x2="420" y2="460" stroke="rgba(16,185,129,.18)" stroke-width="1" stroke-dasharray="4 6"></line>
+        <line x1="240" y1="260" x2="30" y2="260" stroke="rgba(16,185,129,.14)" stroke-width="1" stroke-dasharray="4 6"></line>
+        <line x1="240" y1="260" x2="450" y2="260" stroke="rgba(14,165,233,.14)" stroke-width="1" stroke-dasharray="4 6"></line>
+      </svg>
+
+      <!-- Central glowing orb -->
+      <div class="hero-orb">
+        <div class="hero-orb-inner">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="12" cy="8" r="3"></circle>
+            <path d="M6 20v-2a6 6 0 0112 0v2"></path>
+            <path d="M3 10h2M19 10h2M12 3V1"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Floating card 1: Robotics -->
+      <div class="hero-fc hero-fc-1">
+        <div class="hero-fc-icon" style="background:rgba(16,185,129,.12)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="3"></circle><path d="M6 20v-2a6 6 0 0112 0v2"></path><path d="M3 10h2M19 10h2"></path></svg>
+        </div>
+        <div class="hero-fc-label">Program</div>
+        <div class="hero-fc-val">Robotics</div>
+        <div class="hero-fc-sub">Levels 1 – 7</div>
+      </div>
+
+      <!-- Floating card 2: AI & ML -->
+      <div class="hero-fc hero-fc-2">
+        <div class="hero-fc-icon" style="background:rgba(14,165,233,.12)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><circle cx="8.5" cy="9.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        </div>
+        <div class="hero-fc-label">Program</div>
+        <div class="hero-fc-val">AI &amp; Machine Learning</div>
+        <div class="hero-fc-sub">Levels 9 – 10</div>
+      </div>
+
+      <!-- Floating card 3: Electronics -->
+      <div class="hero-fc hero-fc-3">
+        <div class="hero-fc-icon" style="background:rgba(16,185,129,.12)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        </div>
+        <div class="hero-fc-label">Program</div>
+        <div class="hero-fc-val">Electronics</div>
+        <div class="hero-fc-sub">Levels 1 – 5</div>
+      </div>
+
+      <!-- Floating card 4: IoT -->
+      <div class="hero-fc hero-fc-4">
+        <div class="hero-fc-icon" style="background:rgba(14,165,233,.12)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+        </div>
+        <div class="hero-fc-label">Program</div>
+        <div class="hero-fc-val">IoT &amp; Cloud</div>
+        <div class="hero-fc-sub">Level 8</div>
+      </div>
+
+      <!-- Floating card 5: Students -->
+      <div class="hero-fc hero-fc-5">
+        <div class="hero-fc-label">Enrolled</div>
+        <div class="hero-fc-val" style="font-size:20px;font-weight:700;color:var(--primary)">500+</div>
+        <div class="hero-fc-sub">Students Across India</div>
+      </div>
+
+      <!-- Floating card 6: Age range -->
+      <div class="hero-fc hero-fc-6">
+        <div class="hero-fc-label">Age Range</div>
+        <div class="hero-fc-val" style="font-size:20px;font-weight:700;color:var(--secondary)">6 – 16</div>
+        <div class="hero-fc-sub">Years Old</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTNERSHIP ────────────────────────────────────────────────── -->
+<section class="section" id="partnership">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="t-eyebrow">Educational Collaboration Partner</span>
+      <h2 class="t-h2">APEX <span class="t-green">×</span> Play and Learn</h2>
+      <div class="section-sep"></div>
+      <p class="t-body" style="max-width:58ch">APEX Robotics Academy proudly collaborates with Play and Learn to provide engaging, practical, and future-focused educational experiences that make STEM accessible for every student.</p>
+    </div>
+
+    <div class="partner-pair">
+      <!-- APEX Card -->
+      <div class="partner-card card-glass">
+        <div class="partner-top-line" style="background:linear-gradient(90deg,var(--primary),transparent)"></div>
+        <div class="partner-icon" style="background:var(--pdim)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"></circle><path d="M6 20v-2a6 6 0 0112 0v2"></path><path d="M3 10h2M19 10h2M12 3V1"></path></svg>
+        </div>
+        <div class="partner-name">APEX ROBOTICS ACADEMY</div>
+        <div class="partner-sub">India's Premier Robotics &amp; AI Education Platform</div>
+        <div class="partner-stats">
+          <div><div class="partner-stat-n t-green">500+</div><div class="partner-stat-l">Students</div></div>
+          <div><div class="partner-stat-n t-green">10</div><div class="partner-stat-l">Levels</div></div>
+          <div><div class="partner-stat-n t-green">4+</div><div class="partner-stat-l">Years</div></div>
+        </div>
+        <span class="badge badge-g">Premium Robotics Education</span>
+      </div>
+
+      <!-- Connector -->
+      <div class="connector">
+        <svg viewBox="0 0 120 200" width="120" height="200" style="overflow:visible">
+          <defs>
+            <linearGradient id="connGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#10B981"></stop>
+              <stop offset="50%" stop-color="#0EA5E9"></stop>
+              <stop offset="100%" stop-color="#10B981"></stop>
+            </linearGradient>
+          </defs>
+          <path d="M60 10 Q 20 60 60 100 Q 100 140 60 190" stroke="rgba(255,255,255,.07)" stroke-width="2" fill="none"></path>
+          <path d="M60 10 Q 20 60 60 100 Q 100 140 60 190" stroke="url(#connGrad)" stroke-width="1.5" fill="none" opacity="0.6" stroke-dasharray="6 4">
+            <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1.2s" repeatCount="indefinite"></animate>
+          </path>
+          <circle r="3.5" fill="#10B981">
+            <animateMotion dur="2.5s" repeatCount="indefinite" path="M60 10 Q 20 60 60 100 Q 100 140 60 190"></animateMotion>
+          </circle>
+          <circle r="2.5" fill="#0EA5E9">
+            <animateMotion dur="2.5s" begin="1.25s" repeatCount="indefinite" path="M60 10 Q 20 60 60 100 Q 100 140 60 190"></animateMotion>
+          </circle>
+        </svg>
+        <div class="trust-badge">
+          <span class="badge badge-b" style="font-size:10px;white-space:nowrap">Official Partner</span>
+        </div>
+      </div>
+
+      <!-- Play and Learn Card -->
+      <div class="partner-card card-glass">
+        <div class="partner-top-line" style="background:linear-gradient(90deg,transparent,var(--secondary))"></div>
+        <div class="partner-icon" style="background:var(--sdim)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        </div>
+        <div class="partner-name">PLAY AND LEARN</div>
+        <div class="partner-sub">Engaging, Practical &amp; Future-Focused Education</div>
+        <div class="partner-stats">
+          <div><div class="partner-stat-n t-blue">STEM</div><div class="partner-stat-l">Focus</div></div>
+          <div><div class="partner-stat-n t-blue">6–16</div><div class="partner-stat-l">Age Range</div></div>
+          <div><div class="partner-stat-n t-blue">2018</div><div class="partner-stat-l">Est.</div></div>
+        </div>
+        <span class="badge badge-b">Trusted Educational Partner</span>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <div class="grid-3 mt-4">
+      <div class="card card-p" style="text-align:center">
+        <div class="t-eyebrow" style="margin-bottom:.75rem">Curriculum</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center">
+          <span class="tag tag-g">STEM Education</span><span class="tag tag-d">Robotics</span>
+          <span class="tag tag-b">Electronics</span><span class="tag tag-d">Coding</span>
+          <span class="tag tag-g">AI</span>
+        </div>
+      </div>
+      <div class="card card-p" style="text-align:center">
+        <div class="t-eyebrow" style="margin-bottom:.75rem">Methodology</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center">
+          <span class="tag tag-b">Project-Based</span><span class="tag tag-d">Hands-On</span>
+          <span class="tag tag-g">Innovation</span><span class="tag tag-d">Engineering Thinking</span>
+        </div>
+      </div>
+      <div class="card card-p" style="text-align:center">
+        <div class="t-eyebrow" style="margin-bottom:.75rem">Outcomes</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center">
+          <span class="tag tag-g">Critical Thinking</span><span class="tag tag-b">Creativity</span>
+          <span class="tag tag-d">Problem Solving</span><span class="tag tag-g">Future Ready</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CURRICULUM PREVIEW ─────────────────────────────────────────── -->
+<section class="section" id="curriculum-preview" style="padding-top:0">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="t-eyebrow">The APEX Learning Journey</span>
+      <h2 class="t-h2">From <span class="t-green">Little Inventor</span> to <span class="t-blue">AI Robotics Master</span></h2>
+      <div class="section-sep"></div>
+      <p class="t-body">10 progressive levels designed to take students from basic electronics to advanced AI robotics — each with real capstone projects.</p>
+    </div>
+    <div class="levels-grid">
+      <a href="curriculum.html#level-1" class="level-card">
+        <div class="level-num g">01</div>
+        <div class="level-title">Little Inventor</div>
+        <div class="level-age">AGES 6–8</div>
+        <div class="level-topics">STEM · LED · Motors · Buzzer</div>
+        <div class="level-capstone">Smart Home Alarm</div>
+      </a>
+      <a href="curriculum.html#level-2" class="level-card">
+        <div class="level-num b">02</div>
+        <div class="level-title">Junior Maker</div>
+        <div class="level-age">AGES 7–9</div>
+        <div class="level-topics">Voltage · Breadboards · Components</div>
+        <div class="level-capstone">Auto Night Lamp</div>
+      </a>
+      <a href="curriculum.html#level-3" class="level-card">
+        <div class="level-num g">03</div>
+        <div class="level-title">Electronics Explorer</div>
+        <div class="level-age">AGES 8–10</div>
+        <div class="level-topics">Analog · Digital · Sensors</div>
+        <div class="level-capstone">Smart Intruder Alert</div>
+      </a>
+      <a href="curriculum.html#level-4" class="level-card">
+        <div class="level-num b">04</div>
+        <div class="level-title">Coding Explorer</div>
+        <div class="level-age">AGES 9–11</div>
+        <div class="level-topics">Arduino · Logic · Functions</div>
+        <div class="level-capstone">Classroom Automation</div>
+      </a>
+      <a href="curriculum.html#level-5" class="level-card">
+        <div class="level-num g">05</div>
+        <div class="level-title">Sensor Master</div>
+        <div class="level-age">AGES 10–12</div>
+        <div class="level-topics">Ultrasonic · Servo · Automation</div>
+        <div class="level-capstone">Smart Dustbin</div>
+      </a>
+      <a href="curriculum.html#level-6" class="level-card">
+        <div class="level-num b">06</div>
+        <div class="level-title">Robot Builder</div>
+        <div class="level-age">AGES 10–12</div>
+        <div class="level-topics">Motors · Bluetooth · Wireless</div>
+        <div class="level-capstone">RC Controlled Robot</div>
+      </a>
+      <a href="curriculum.html#level-7" class="level-card">
+        <div class="level-num g">07</div>
+        <div class="level-title">Autonomous Robotics</div>
+        <div class="level-age">AGES 11–13</div>
+        <div class="level-topics">Navigation · Obstacle Avoidance</div>
+        <div class="level-capstone">Delivery Robot</div>
+      </a>
+      <a href="curriculum.html#level-8" class="level-card">
+        <div class="level-num b">08</div>
+        <div class="level-title">IoT Explorer</div>
+        <div class="level-age">AGES 12–14</div>
+        <div class="level-topics">ESP32 · Firebase · MQTT</div>
+        <div class="level-capstone">Smart Home System</div>
+      </a>
+      <a href="curriculum.html#level-9" class="level-card">
+        <div class="level-num g">09</div>
+        <div class="level-title">AI Explorer</div>
+        <div class="level-age">AGES 13–15</div>
+        <div class="level-topics">ML · OpenCV · YOLO</div>
+        <div class="level-capstone">AI Object Detection</div>
+      </a>
+      <a href="curriculum.html#level-10" class="level-card">
+        <div class="level-num b">10</div>
+        <div class="level-title">AI Robotics Master</div>
+        <div class="level-age">AGES 14–16</div>
+        <div class="level-topics">TF Lite · Edge AI · Tracking</div>
+        <div class="level-capstone">AI Following Robot</div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:2rem">
+      <a href="curriculum.html" class="btn btn-outline-p btn-lg">View Full Curriculum Details →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ──────────────────────────────────────────────────────── -->
+<div class="section-sm">
+  <div class="section-inner">
+    <div class="card stats-strip">
+      <div class="stat-item">
+        <div class="stat-num green">500+</div>
+        <div class="stat-label">Students Trained</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num blue">10</div>
+        <div class="stat-label">Curriculum Levels</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num green">50+</div>
+        <div class="stat-label">Capstone Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" style="color:var(--muted)">4+</div>
+        <div class="stat-label">Years of Excellence</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num blue">98%</div>
+        <div class="stat-label">Student Satisfaction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ────────────────────────────────────────────────────────── -->
+<section class="section-sm">
+  <div class="section-inner">
+    <div class="cta-band">
+      <span class="t-eyebrow" style="position:relative;z-index:1">Get Started Today</span>
+      <h2 class="t-h2" style="margin:.75rem 0 .75rem;position:relative;z-index:1">Ready to Build<br>the Future?</h2>
+      <p class="t-body" style="max-width:42ch;margin:0 auto;position:relative;z-index:1">Book a free demo session or enroll your child in India's most comprehensive robotics and AI curriculum.</p>
+      <div class="cta-btns">
+        <a href="book-demo.html" class="btn btn-secondary btn-lg">Book Free Demo</a>
+        <a href="enroll.html" class="btn btn-primary btn-lg">Enroll Now</a>
+        <a href="curriculum.html" class="btn btn-ghost btn-lg">Explore Curriculum</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+<!-- ── Mantra Bar ─────────────────────────────────────────────── -->
+<div class="mantra-bar">
+  <div class="mantra-inner">
+    <div class="mantra-line"></div>
+    <div class="mantra-text">
+      <span class="mantra-icon">◆</span>
+      <span class="mantra-quote">Learn it. Build it. <span class="mantra-highlight">Own the Future.</span></span>
+      <span class="mantra-icon">◆</span>
+    </div>
+    <div class="mantra-line"></div>
+  </div>
+  <div class="mantra-sub">Every expert was once a beginner who refused to give up.</div>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-main" style="grid-template-columns:1.4fr 1fr 1fr">
+      <div>
+        <div class="footer-brand-name">APEX ROBOTICS ACADEMY</div>
+        <div class="footer-brand-tag">Learn · Build · Innovate</div>
+        <p class="footer-brand-desc">Empowering the next generation of engineers, innovators, and technology leaders through structured, project-based education.</p>
+        <div style="margin-top:1rem;font-size:13px;color:var(--muted)">apex.support.academy@gmail.com</div>
+        <div style="font-size:13px;color:var(--muted)">+91 88072 00577</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:.35rem">Chennai &amp; Erode, Tamil Nadu</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Academy</div>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="curriculum.html">Curriculum</a>
+          <a href="projects.html">Projects</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <div class="footer-links">
+          <a href="contact.html">Contact Us</a>
+          <a href="book-demo.html">Book Demo</a>
+          <a href="enroll.html">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 APEX Robotics Academy. All rights reserved. | Chennai &amp; Erode, Tamil Nadu</span>
+      <div class="footer-bottom-links">
+        <a href="contact.html">Privacy Policy</a>
+        <a href="contact.html">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="webgl.js"></script>
+<script src="nav.js"></script>
+<script>
+(function () {
+  /* GSAP scroll animations */
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof gsap === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray('.section-header').forEach(function (el) {
+      gsap.from(el.children, { opacity: 0, y: 24, stagger: .12, duration: .7, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
+    });
+    gsap.utils.toArray('.level-card').forEach(function (el, i) {
+      gsap.from(el, { opacity: 0, y: 20, duration: .55, delay: i * .04, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 92%' } });
+    });
+    gsap.utils.toArray('.partner-card').forEach(function (el) {
+      gsap.from(el, { opacity: 0, y: 24, duration: .8, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
+    });
+    gsap.utils.toArray('.stat-item').forEach(function (el, i) {
+      gsap.from(el, { opacity: 0, y: 16, duration: .5, delay: i * .1, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 92%' } });
+    });
+    gsap.utils.toArray('.hero-fc').forEach(function (el, i) {
+      gsap.from(el, { opacity: 0, scale: .9, duration: .55, delay: .3 + i * .08, ease: 'power2.out' });
+    });
+  });
+})();
+</script>
+<script src="transitions.js"></script>
+</body>
+</html>
