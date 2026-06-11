@@ -10,57 +10,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-/* ── Auth Layout ─────────────────────────────────── */
 .auth-wrap{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:calc(var(--nav-h) + 2rem) 1.25rem 3rem}
-.auth-card{width:100%;max-width:440px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.5rem;animation:scaleIn .3s ease both}
+.auth-card{width:100%;max-width:440px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.5rem;animation:scaleIn .3s ease both;position:relative;overflow:hidden}
+.auth-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,.5),transparent)}
 .auth-logo{display:flex;flex-direction:column;gap:3px;margin-bottom:2rem}
 .auth-logo-name{font-weight:700;font-size:13px;letter-spacing:.1em;color:var(--text)}
 .auth-logo-tag{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--primary);text-transform:uppercase}
 .auth-heading{font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--text);margin-bottom:.35rem}
 .auth-sub{font-size:13.5px;color:var(--muted);margin-bottom:2rem}
-
-/* divider */
+.auth-social{display:flex;flex-direction:column;gap:.65rem}
+.btn-social{display:flex;align-items:center;justify-content:center;gap:.7rem;width:100%;padding:.72rem 1rem;border-radius:var(--r-ctrl);font-size:14px;font-weight:500;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);transition:background .18s,border-color .18s,transform .15s;cursor:pointer}
+.btn-social:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);transform:translateY(-1px)}
+.btn-social:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .auth-divider{display:flex;align-items:center;gap:.85rem;margin:1.5rem 0}
 .auth-divider-line{flex:1;height:1px;background:var(--border)}
 .auth-divider-text{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
-
-/* social buttons */
-.auth-social{display:flex;flex-direction:column;gap:.65rem;margin-bottom:0}
-.btn-social{display:flex;align-items:center;justify-content:center;gap:.7rem;width:100%;padding:.72rem 1rem;border-radius:var(--r-ctrl);font-size:14px;font-weight:500;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);transition:background .18s,border-color .18s,transform .15s;cursor:pointer}
-.btn-social:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);transform:translateY(-1px)}
-.btn-social svg{flex-shrink:0}
-
-/* form */
 .auth-form{display:flex;flex-direction:column;gap:1.1rem}
 .auth-form .form-input{background:rgba(255,255,255,.04)}
 .pw-wrap{position:relative}
 .pw-toggle{position:absolute;right:.85rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--dim);cursor:pointer;padding:.2rem;line-height:1;transition:color .15s;font-size:18px}
 .pw-toggle:hover{color:var(--muted)}
-
-/* forgot */
-.auth-forgot{font-size:12.5px;color:var(--muted);text-align:right;margin-top:-.45rem;transition:color .15s}
+.auth-forgot{font-size:12.5px;color:var(--muted);text-align:right;margin-top:-.45rem;transition:color .15s;display:block}
 .auth-forgot:hover{color:var(--primary)}
-
-/* submit */
-.auth-submit{margin-top:.35rem}
-
-/* footer link */
+.auth-error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);border-radius:var(--r-ctrl);padding:.75rem 1rem;font-size:13px;color:#f87171;display:none}
+.auth-error.show{display:block;animation:fadeIn .2s ease}
 .auth-footer-link{text-align:center;font-size:13.5px;color:var(--muted);margin-top:1.5rem}
 .auth-footer-link a{color:var(--primary);font-weight:500;transition:opacity .15s}
 .auth-footer-link a:hover{opacity:.8}
-
-/* error */
-.auth-error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);border-radius:var(--r-ctrl);padding:.75rem 1rem;font-size:13px;color:#f87171;display:none}
-.auth-error.show{display:block;animation:fadeIn .2s ease}
-
-/* top glow accent */
-.auth-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,.5),transparent);border-radius:1px}
-.auth-card{position:relative;overflow:hidden}
-
-@media(max-width:480px){
-  .auth-card{padding:1.75rem 1.25rem;border-radius:16px}
-  .auth-heading{font-size:20px}
-}
+/* verification notice */
+.auth-notice{background:var(--sdim);border:1px solid rgba(14,165,233,.3);border-radius:var(--r-ctrl);padding:.75rem 1rem;font-size:13px;color:var(--secondary);display:none}
+.auth-notice.show{display:block;animation:fadeIn .2s ease}
+@media(max-width:480px){.auth-card{padding:1.75rem 1.25rem;border-radius:16px}.auth-heading{font-size:20px}}
 </style>
 </head>
 <body>
@@ -68,22 +48,28 @@
 <script src="webgl.js" defer></script>
 <script src="nav.js" defer></script>
 
+<!-- Supabase CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="auth.js"></script>
+
 <div class="auth-wrap">
   <div class="auth-card">
 
-    <!-- Logo -->
     <a href="index.html" class="auth-logo">
       <span class="auth-logo-name">APEX ROBOTICS ACADEMY</span>
       <span class="auth-logo-tag">Learn · Build · Innovate</span>
     </a>
 
-    <!-- Heading -->
     <h1 class="auth-heading">Welcome back</h1>
     <p class="auth-sub">Sign in to access your student portal</p>
 
-    <!-- Social login -->
+    <!-- Notices -->
+    <div class="auth-notice" id="auth-notice"></div>
+    <div class="auth-error"  id="auth-error"></div>
+
+    <!-- Google -->
     <div class="auth-social">
-      <button class="btn-social" type="button" onclick="handleSocial('Google')">
+      <button class="btn-social" type="button" id="google-btn">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 01-1.796 2.716v2.259h2.908C16.658 14.153 17.64 11.891 17.64 9.2z" fill="#4285F4"/>
           <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/>
@@ -100,10 +86,6 @@
       <span class="auth-divider-line"></span>
     </div>
 
-    <!-- Error message -->
-    <div class="auth-error" id="auth-error"></div>
-
-    <!-- Login form -->
     <form class="auth-form" id="login-form" novalidate>
 
       <div class="form-field" id="field-email">
@@ -121,9 +103,9 @@
         <span class="form-err">Password is required.</span>
       </div>
 
-      <a href="#" class="auth-forgot">Forgot password?</a>
+      <a href="#" class="auth-forgot" id="forgot-link">Forgot password?</a>
 
-      <button type="submit" class="btn btn-primary btn-full btn-lg auth-submit" id="login-btn">
+      <button type="submit" class="btn btn-primary btn-full btn-lg" id="login-btn" style="margin-top:.25rem">
         Sign In
       </button>
 
@@ -138,8 +120,21 @@
 
 <script>
 (function () {
+  /* If already logged in, skip to dashboard */
+  apexGetSession().then(function (session) {
+    if (session) window.location.href = 'index.html';
+  });
+
+  /* Check for email-confirmed redirect */
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('confirmed') === '1') {
+    var notice = document.getElementById('auth-notice');
+    notice.textContent = 'Email confirmed! You can now sign in.';
+    notice.classList.add('show');
+  }
+
   /* Password toggle */
-  var toggle = document.getElementById('pw-toggle');
+  var toggle  = document.getElementById('pw-toggle');
   var pwInput = document.getElementById('password');
   toggle.addEventListener('click', function () {
     var show = pwInput.type === 'password';
@@ -147,32 +142,26 @@
     toggle.innerHTML = show ? '&#128064;' : '&#128065;';
   });
 
-  /* Form validation & submit */
-  var form    = document.getElementById('login-form');
-  var btn     = document.getElementById('login-btn');
-  var errBox  = document.getElementById('auth-error');
-
-  function showFieldError(fieldId, show) {
-    var field = document.getElementById(fieldId);
-    field && field.classList.toggle('has-error', show);
+  /* Helpers */
+  var errBox = document.getElementById('auth-error');
+  function showError(msg) { errBox.textContent = msg; errBox.classList.add('show'); }
+  function clearError()   { errBox.classList.remove('show'); }
+  function showFieldError(id, show) {
+    var f = document.getElementById(id);
+    if (f) f.classList.toggle('has-error', show);
   }
 
-  function showError(msg) {
-    errBox.textContent = msg;
-    errBox.classList.add('show');
-  }
+  /* Login form */
+  var form = document.getElementById('login-form');
+  var btn  = document.getElementById('login-btn');
 
-  function clearError() {
-    errBox.classList.remove('show');
-  }
-
-  form.addEventListener('submit', function (e) {
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
     clearError();
 
-    var email = document.getElementById('email').value.trim();
+    var email    = document.getElementById('email').value.trim();
     var password = document.getElementById('password').value;
-    var valid = true;
+    var valid    = true;
 
     var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     showFieldError('field-email', !emailOk);
@@ -183,23 +172,53 @@
 
     if (!valid) return;
 
-    /* Loading state */
     btn.disabled = true;
     btn.textContent = 'Signing in…';
 
-    /* TODO: Replace with your real auth API call */
-    setTimeout(function () {
+    try {
+      await apexSignIn({ email, password });
+      window.location.href = 'index.html';
+    } catch (err) {
       btn.disabled = false;
       btn.textContent = 'Sign In';
-      showError('Invalid email or password. Please try again.');
-    }, 1400);
+      var msg = err.message || 'Sign in failed. Please try again.';
+      if (msg.toLowerCase().includes('invalid')) msg = 'Incorrect email or password.';
+      if (msg.toLowerCase().includes('email not confirmed')) msg = 'Please verify your email before signing in.';
+      showError(msg);
+    }
   });
 
-  /* Social login placeholder */
-  window.handleSocial = function (provider) {
-    /* TODO: wire up OAuth provider */
-    alert('Connect ' + provider + ' OAuth in your backend to enable this.');
-  };
+  /* Google OAuth */
+  document.getElementById('google-btn').addEventListener('click', async function () {
+    this.disabled = true;
+    this.textContent = 'Redirecting…';
+    try {
+      await apexSignInGoogle();
+    } catch (err) {
+      this.disabled = false;
+      this.innerHTML = '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 01-1.796 2.716v2.259h2.908C16.658 14.153 17.64 11.891 17.64 9.2z" fill="#4285F4"/><path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/><path d="M3.964 10.71A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/><path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/></svg> Continue with Google';
+      showError('Google sign-in failed. Please try again.');
+    }
+  });
+
+  /* Forgot password */
+  document.getElementById('forgot-link').addEventListener('click', async function (e) {
+    e.preventDefault();
+    var email = document.getElementById('email').value.trim();
+    if (!email) { showError('Enter your email address above first.'); return; }
+    this.textContent = 'Sending…';
+    try {
+      await apexResetPassword(email);
+      errBox.classList.remove('show');
+      var notice = document.getElementById('auth-notice');
+      notice.textContent = 'Password reset email sent! Check your inbox.';
+      notice.classList.add('show');
+      this.textContent = 'Email sent ✓';
+    } catch (err) {
+      showError(err.message || 'Failed to send reset email.');
+      this.textContent = 'Forgot password?';
+    }
+  });
 })();
 </script>
 </body>
