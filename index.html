@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>APEX Robotics Academy – Learn · Build · Innovate</title>
+<title>APEX Robotics Academy â€“ Learn Â· Build Â· Innovate</title>
 <meta name="description" content="Empowering the Next Generation of Engineers, Innovators, and Technology Leaders through structured project-based learning in Robotics, AI, Electronics, and IoT.">
 <meta property="og:title" content="APEX Robotics Academy">
-<meta property="og:description" content="Learn · Build · Innovate — India's Premier Robotics & AI Education Platform">
+<meta property="og:description" content="Learn Â· Build Â· Innovate â€” India's Premier Robotics & AI Education Platform">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://apexroboticsacademy.in/">
@@ -17,11 +17,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 <style>
-/* ── Hero always visible ────────────────────── */
+/* â”€â”€ Hero always visible â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero-left>*{opacity:1!important}
 .hero-visual{opacity:1!important}
 .hero-orb,.hero-orb-inner,.hero-fc{opacity:1!important}
-/* ── Hero ─────────────────────────────────── */
+/* â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero{position:relative;z-index:1;min-height:100vh;padding:var(--nav-h) 2rem 3rem;display:flex;align-items:center}
 .hero-inner{max-width:1440px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:3.5rem 0 2rem}
 .hero-left{display:flex;flex-direction:column;gap:1.5rem}
@@ -30,7 +30,7 @@
 .h-stat-num{font-size:clamp(24px,2.5vw,32px);font-weight:700;line-height:1}
 .h-stat-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
 
-/* ── Hero Visual (right side) ─────────────── */
+/* â”€â”€ Hero Visual (right side) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:520px}
 
 /* Central orb */
@@ -58,7 +58,7 @@
 /* Connecting lines SVG */
 .hero-lines{position:absolute;inset:0;pointer-events:none;opacity:.35}
 
-/* ── Partnership ──────────────────────────── */
+/* â”€â”€ Partnership â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .partner-pair{display:grid;grid-template-columns:1fr 180px 1fr;align-items:center;gap:0}
 .partner-card{padding:2rem;position:relative;overflow:hidden}
 .partner-top-line{position:absolute;top:0;left:0;right:0;height:2px;border-radius:var(--r-card) var(--r-card) 0 0}
@@ -71,7 +71,7 @@
 .connector{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem}
 .trust-badge{text-align:center;margin-top:2.5rem}
 
-/* ── Curriculum Preview ───────────────────── */
+/* â”€â”€ Curriculum Preview â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .levels-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.85rem}
 .level-card{padding:1.1rem;cursor:pointer;text-decoration:none;border-radius:var(--r-card);background:var(--surface);border:1px solid var(--border);transition:border-color .2s,transform .2s,box-shadow .2s;display:block}
 .level-card:hover{border-color:rgba(255,255,255,.12);transform:translateY(-3px);box-shadow:var(--shadow)}
@@ -83,13 +83,13 @@
 .level-topics{font-size:11.5px;color:var(--dim);line-height:1.5;margin-bottom:.6rem}
 .level-capstone{font-size:11px;color:var(--primary);font-family:var(--mono);letter-spacing:.04em}
 
-/* ── CTA ──────────────────────────────────── */
+/* â”€â”€ CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cta-band{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:3.5rem;text-align:center;position:relative;overflow:hidden}
 .cta-band::before{content:'';position:absolute;top:-50%;left:-10%;width:60%;height:200%;background:radial-gradient(ellipse,var(--pglow) 0%,transparent 60%);pointer-events:none}
 .cta-band::after{content:'';position:absolute;top:-50%;right:-10%;width:60%;height:200%;background:radial-gradient(ellipse,var(--sglow) 0%,transparent 60%);pointer-events:none}
 .cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:1.75rem;position:relative;z-index:1}
 
-/* ── Responsive ───────────────────────────── */
+/* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media(max-width:1200px){
   .hero-inner{grid-template-columns:1fr;gap:3rem}
   .hero-visual{min-height:400px}
@@ -154,7 +154,7 @@
 <body>
 <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-<!-- ── HERO ─────────────────────────────────────────────────────── -->
+<!-- â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <section class="hero" id="hero">
   <div class="hero-inner">
     <!-- Left -->
@@ -174,7 +174,7 @@
       <div class="hero-btns">
         <a href="curriculum.html" class="btn btn-primary btn-lg">Explore Curriculum</a>
         <a href="book-demo.html" class="btn btn-ghost btn-lg">Book Demo</a>
-        <a href="enroll.html" class="btn btn-outline-p btn-lg">Enroll Now →</a>
+        <a href="enroll.html" class="btn btn-outline-p btn-lg">Enroll Now â†’</a>
       </div>
       <div class="hero-stats">
         <div>
@@ -227,7 +227,7 @@
         </div>
         <div class="hero-fc-label">Program</div>
         <div class="hero-fc-val">Robotics</div>
-        <div class="hero-fc-sub">Levels 1 – 7</div>
+        <div class="hero-fc-sub">Levels 1 â€“ 7</div>
       </div>
 
       <!-- Floating card 2: AI & ML -->
@@ -237,7 +237,7 @@
         </div>
         <div class="hero-fc-label">Program</div>
         <div class="hero-fc-val">AI &amp; Machine Learning</div>
-        <div class="hero-fc-sub">Levels 9 – 10</div>
+        <div class="hero-fc-sub">Levels 9 â€“ 10</div>
       </div>
 
       <!-- Floating card 3: Electronics -->
@@ -247,7 +247,7 @@
         </div>
         <div class="hero-fc-label">Program</div>
         <div class="hero-fc-val">Electronics</div>
-        <div class="hero-fc-sub">Levels 1 – 5</div>
+        <div class="hero-fc-sub">Levels 1 â€“ 5</div>
       </div>
 
       <!-- Floating card 4: IoT -->
@@ -270,7 +270,7 @@
       <!-- Floating card 6: Age range -->
       <div class="hero-fc hero-fc-6">
         <div class="hero-fc-label">Age Range</div>
-        <div class="hero-fc-val" style="font-size:20px;font-weight:700;color:var(--secondary)">6 – 16</div>
+        <div class="hero-fc-val" style="font-size:20px;font-weight:700;color:var(--secondary)">6 â€“ 16</div>
         <div class="hero-fc-sub">Years Old</div>
       </div>
 
@@ -278,12 +278,12 @@
   </div>
 </section>
 
-<!-- ── PARTNERSHIP ────────────────────────────────────────────────── -->
+<!-- â”€â”€ PARTNERSHIP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <section class="section" id="partnership">
   <div class="section-inner">
     <div class="section-header">
       <span class="t-eyebrow">Educational Collaboration Partner</span>
-      <h2 class="t-h2">APEX <span class="t-green">×</span> Play and Learn</h2>
+      <h2 class="t-h2">APEX <span class="t-green">Ã—</span> Play and Learn</h2>
       <div class="section-sep"></div>
       <p class="t-body" style="max-width:58ch">APEX Robotics Academy proudly collaborates with Play and Learn to provide engaging, practical, and future-focused educational experiences that make STEM accessible for every student.</p>
     </div>
@@ -341,7 +341,7 @@
         <div class="partner-sub">Engaging, Practical &amp; Future-Focused Education</div>
         <div class="partner-stats">
           <div><div class="partner-stat-n t-blue">STEM</div><div class="partner-stat-l">Focus</div></div>
-          <div><div class="partner-stat-n t-blue">6–16</div><div class="partner-stat-l">Age Range</div></div>
+          <div><div class="partner-stat-n t-blue">6â€“16</div><div class="partner-stat-l">Age Range</div></div>
           <div><div class="partner-stat-n t-blue">2018</div><div class="partner-stat-l">Est.</div></div>
         </div>
         <span class="badge badge-b">Trusted Educational Partner</span>
@@ -376,94 +376,94 @@
   </div>
 </section>
 
-<!-- ── CURRICULUM PREVIEW ─────────────────────────────────────────── -->
+<!-- â”€â”€ CURRICULUM PREVIEW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <section class="section" id="curriculum-preview" style="padding-top:0">
   <div class="section-inner">
     <div class="section-header">
       <span class="t-eyebrow">The APEX Learning Journey</span>
       <h2 class="t-h2">From <span class="t-green">Little Inventor</span> to <span class="t-blue">AI Robotics Master</span></h2>
       <div class="section-sep"></div>
-      <p class="t-body">10 progressive levels designed to take students from basic electronics to advanced AI robotics — each with real capstone projects.</p>
+      <p class="t-body">10 progressive levels designed to take students from basic electronics to advanced AI robotics â€” each with real capstone projects.</p>
     </div>
     <div class="levels-grid">
       <a href="curriculum.html#level-1" class="level-card">
         <div class="level-num g">01</div>
         <div class="level-title">Little Inventor</div>
-        <div class="level-age">AGES 6–8</div>
-        <div class="level-topics">STEM · LED · Motors · Buzzer</div>
+        <div class="level-age">AGES 6â€“8</div>
+        <div class="level-topics">STEM Â· LED Â· Motors Â· Buzzer</div>
         <div class="level-capstone">Smart Home Alarm</div>
       </a>
       <a href="curriculum.html#level-2" class="level-card">
         <div class="level-num b">02</div>
         <div class="level-title">Junior Maker</div>
-        <div class="level-age">AGES 7–9</div>
-        <div class="level-topics">Voltage · Breadboards · Components</div>
+        <div class="level-age">AGES 7â€“9</div>
+        <div class="level-topics">Voltage Â· Breadboards Â· Components</div>
         <div class="level-capstone">Auto Night Lamp</div>
       </a>
       <a href="curriculum.html#level-3" class="level-card">
         <div class="level-num g">03</div>
         <div class="level-title">Electronics Explorer</div>
-        <div class="level-age">AGES 8–10</div>
-        <div class="level-topics">Analog · Digital · Sensors</div>
+        <div class="level-age">AGES 8â€“10</div>
+        <div class="level-topics">Analog Â· Digital Â· Sensors</div>
         <div class="level-capstone">Smart Intruder Alert</div>
       </a>
       <a href="curriculum.html#level-4" class="level-card">
         <div class="level-num b">04</div>
         <div class="level-title">Coding Explorer</div>
-        <div class="level-age">AGES 9–11</div>
-        <div class="level-topics">Arduino · Logic · Functions</div>
+        <div class="level-age">AGES 9â€“11</div>
+        <div class="level-topics">Arduino Â· Logic Â· Functions</div>
         <div class="level-capstone">Classroom Automation</div>
       </a>
       <a href="curriculum.html#level-5" class="level-card">
         <div class="level-num g">05</div>
         <div class="level-title">Sensor Master</div>
-        <div class="level-age">AGES 10–12</div>
-        <div class="level-topics">Ultrasonic · Servo · Automation</div>
+        <div class="level-age">AGES 10â€“12</div>
+        <div class="level-topics">Ultrasonic Â· Servo Â· Automation</div>
         <div class="level-capstone">Smart Dustbin</div>
       </a>
       <a href="curriculum.html#level-6" class="level-card">
         <div class="level-num b">06</div>
         <div class="level-title">Robot Builder</div>
-        <div class="level-age">AGES 10–12</div>
-        <div class="level-topics">Motors · Bluetooth · Wireless</div>
+        <div class="level-age">AGES 10â€“12</div>
+        <div class="level-topics">Motors Â· Bluetooth Â· Wireless</div>
         <div class="level-capstone">RC Controlled Robot</div>
       </a>
       <a href="curriculum.html#level-7" class="level-card">
         <div class="level-num g">07</div>
         <div class="level-title">Autonomous Robotics</div>
-        <div class="level-age">AGES 11–13</div>
-        <div class="level-topics">Navigation · Obstacle Avoidance</div>
+        <div class="level-age">AGES 11â€“13</div>
+        <div class="level-topics">Navigation Â· Obstacle Avoidance</div>
         <div class="level-capstone">Delivery Robot</div>
       </a>
       <a href="curriculum.html#level-8" class="level-card">
         <div class="level-num b">08</div>
         <div class="level-title">IoT Explorer</div>
-        <div class="level-age">AGES 12–14</div>
-        <div class="level-topics">ESP32 · Firebase · MQTT</div>
+        <div class="level-age">AGES 12â€“14</div>
+        <div class="level-topics">ESP32 Â· Firebase Â· MQTT</div>
         <div class="level-capstone">Smart Home System</div>
       </a>
       <a href="curriculum.html#level-9" class="level-card">
         <div class="level-num g">09</div>
         <div class="level-title">AI Explorer</div>
-        <div class="level-age">AGES 13–15</div>
-        <div class="level-topics">ML · OpenCV · YOLO</div>
+        <div class="level-age">AGES 13â€“15</div>
+        <div class="level-topics">ML Â· OpenCV Â· YOLO</div>
         <div class="level-capstone">AI Object Detection</div>
       </a>
       <a href="curriculum.html#level-10" class="level-card">
         <div class="level-num b">10</div>
         <div class="level-title">AI Robotics Master</div>
-        <div class="level-age">AGES 14–16</div>
-        <div class="level-topics">TF Lite · Edge AI · Tracking</div>
+        <div class="level-age">AGES 14â€“16</div>
+        <div class="level-topics">TF Lite Â· Edge AI Â· Tracking</div>
         <div class="level-capstone">AI Following Robot</div>
       </a>
     </div>
     <div style="text-align:center;margin-top:2rem">
-      <a href="curriculum.html" class="btn btn-outline-p btn-lg">View Full Curriculum Details →</a>
+      <a href="curriculum.html" class="btn btn-outline-p btn-lg">View Full Curriculum Details â†’</a>
     </div>
   </div>
 </section>
 
-<!-- ── STATS ──────────────────────────────────────────────────────── -->
+<!-- â”€â”€ STATS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <div class="section-sm">
   <div class="section-inner">
     <div class="card stats-strip">
@@ -491,7 +491,7 @@
   </div>
 </div>
 
-<!-- ── CTA ────────────────────────────────────────────────────────── -->
+<!-- â”€â”€ CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <section class="section-sm">
   <div class="section-inner">
     <div class="cta-band">
@@ -507,15 +507,15 @@
   </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
-<!-- ── Mantra Bar ─────────────────────────────────────────────── -->
+<!-- â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+<!-- â”€â”€ Mantra Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <div class="mantra-bar">
   <div class="mantra-inner">
     <div class="mantra-line"></div>
     <div class="mantra-text">
-      <span class="mantra-icon">◆</span>
+      <span class="mantra-icon">â—†</span>
       <span class="mantra-quote">Learn it. Build it. <span class="mantra-highlight">Own the Future.</span></span>
-      <span class="mantra-icon">◆</span>
+      <span class="mantra-icon">â—†</span>
     </div>
     <div class="mantra-line"></div>
   </div>
@@ -526,7 +526,7 @@
     <div class="footer-main" style="grid-template-columns:1.4fr 1fr 1fr">
       <div>
         <div class="footer-brand-name">APEX ROBOTICS ACADEMY</div>
-        <div class="footer-brand-tag">Learn · Build · Innovate</div>
+        <div class="footer-brand-tag">Learn Â· Build Â· Innovate</div>
         <p class="footer-brand-desc">Empowering the next generation of engineers, innovators, and technology leaders through structured, project-based education.</p>
         <div style="margin-top:1rem;font-size:13px;color:var(--muted)">apex.support.academy@gmail.com</div>
         <div style="font-size:13px;color:var(--muted)">+91 88072 00577</div>
@@ -550,7 +550,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2024 APEX Robotics Academy. All rights reserved. | Chennai &amp; Erode, Tamil Nadu</span>
+      <span>Â© 2024 APEX Robotics Academy. All rights reserved. | Chennai &amp; Erode, Tamil Nadu</span>
       <div class="footer-bottom-links">
         <a href="contact.html">Privacy Policy</a>
         <a href="contact.html">Terms of Use</a>
@@ -560,6 +560,8 @@
 </footer>
 
 <script src="webgl.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="auth.js"></script>
 <script src="nav.js"></script>
 <script>
 (function () {
@@ -589,3 +591,4 @@
 <script src="transitions.js"></script>
 </body>
 </html>
+
