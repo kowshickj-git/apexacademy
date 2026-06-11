@@ -21,9 +21,9 @@
           '<li><a href="contact.html">Contact</a></li>',
         '</ul>',
 
-        '<div class="nav-ctas">',
-          '<a href="login.html"     class="btn btn-ghost btn-sm">Login</a>',
-          '<a href="signup.html"    class="btn btn-primary btn-sm">Sign Up</a>',
+        '<div class="nav-ctas" style="display:flex;align-items:center;gap:.6rem;flex-shrink:0">',
+          '<a href="login.html"  class="btn btn-ghost" style="padding:.45rem 1.1rem;font-size:13.5px;font-weight:500">Login</a>',
+          '<a href="signup.html" class="btn btn-primary" style="padding:.45rem 1.1rem;font-size:13.5px;font-weight:500">Sign Up</a>',
         '</div>',
 
         '<div class="nav-hamburger" id="nav-burger" aria-label="Menu" role="button" tabindex="0" aria-expanded="false">',
@@ -40,9 +40,9 @@
       '<a href="projects.html">Projects</a>',
       '<a href="contact.html">Contact</a>',
       '<div class="nav-mobile-sep"></div>',
-      '<div class="nav-mobile-ctas">',
-        '<a href="login.html"  class="btn btn-ghost btn-full" style="justify-content:center">Login</a>',
-        '<a href="signup.html" class="btn btn-primary btn-full" style="justify-content:center">Sign Up</a>',
+      '<div class="nav-mobile-ctas" style="display:flex;flex-direction:column;gap:.6rem;padding:0 1.25rem 1.25rem">',
+        '<a href="login.html"  class="btn btn-ghost btn-full" style="justify-content:center;font-size:15px;font-weight:500;padding:.65rem 1rem">Login</a>',
+        '<a href="signup.html" class="btn btn-primary btn-full" style="justify-content:center;font-size:15px;font-weight:500;padding:.65rem 1rem">Sign Up</a>',
       '</div>',
     '</div>',
   ].join('');
