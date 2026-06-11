@@ -22,8 +22,8 @@
         '</ul>',
 
         '<div class="nav-ctas">',
-          '<a href="book-demo.html" class="btn btn-ghost btn-sm">Book Demo</a>',
-          '<a href="enroll.html"    class="btn btn-primary btn-sm">Enroll Now</a>',
+          '<a href="login.html"     class="btn btn-ghost btn-sm">Login</a>',
+          '<a href="signup.html"    class="btn btn-primary btn-sm">Sign Up</a>',
         '</div>',
 
         '<div class="nav-hamburger" id="nav-burger" aria-label="Menu" role="button" tabindex="0" aria-expanded="false">',
@@ -41,8 +41,8 @@
       '<a href="contact.html">Contact</a>',
       '<div class="nav-mobile-sep"></div>',
       '<div class="nav-mobile-ctas">',
-        '<a href="book-demo.html" class="btn btn-ghost btn-full" style="justify-content:center">Book Demo</a>',
-        '<a href="enroll.html" class="btn btn-primary btn-full" style="justify-content:center">Enroll Now</a>',
+        '<a href="login.html"  class="btn btn-ghost btn-full" style="justify-content:center">Login</a>',
+        '<a href="signup.html" class="btn btn-primary btn-full" style="justify-content:center">Sign Up</a>',
       '</div>',
     '</div>',
   ].join('');

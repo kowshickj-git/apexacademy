@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up – APEX Robotics Academy</title>
+<meta name="description" content="Create your APEX Robotics Academy student account and start your journey in Robotics, AI, and Electronics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── Auth Layout ─────────────────────────────────── */
+.auth-wrap{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:calc(var(--nav-h) + 2rem) 1.25rem 3rem}
+.auth-card{width:100%;max-width:480px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.5rem;animation:scaleIn .3s ease both;position:relative;overflow:hidden}
+.auth-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,.5),transparent);border-radius:1px}
+.auth-logo{display:flex;flex-direction:column;gap:3px;margin-bottom:2rem}
+.auth-logo-name{font-weight:700;font-size:13px;letter-spacing:.1em;color:var(--text)}
+.auth-logo-tag{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--primary);text-transform:uppercase}
+.auth-heading{font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--text);margin-bottom:.35rem}
+.auth-sub{font-size:13.5px;color:var(--muted);margin-bottom:2rem}
+
+/* social */
+.auth-social{display:flex;flex-direction:column;gap:.65rem}
+.btn-social{display:flex;align-items:center;justify-content:center;gap:.7rem;width:100%;padding:.72rem 1rem;border-radius:var(--r-ctrl);font-size:14px;font-weight:500;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);transition:background .18s,border-color .18s,transform .15s;cursor:pointer}
+.btn-social:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);transform:translateY(-1px)}
+
+/* divider */
+.auth-divider{display:flex;align-items:center;gap:.85rem;margin:1.5rem 0}
+.auth-divider-line{flex:1;height:1px;background:var(--border)}
+.auth-divider-text{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+
+/* form */
+.auth-form{display:flex;flex-direction:column;gap:1.1rem}
+.auth-form .form-input{background:rgba(255,255,255,.04)}
+.name-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.pw-wrap{position:relative}
+.pw-toggle{position:absolute;right:.85rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--dim);cursor:pointer;padding:.2rem;line-height:1;transition:color .15s;font-size:18px}
+.pw-toggle:hover{color:var(--muted)}
+
+/* strength bar */
+.pw-strength{margin-top:.5rem}
+.pw-strength-bar{height:3px;border-radius:2px;background:var(--border);overflow:hidden;margin-bottom:.3rem}
+.pw-strength-fill{height:100%;border-radius:2px;width:0;transition:width .3s,background .3s}
+.pw-strength-label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+
+/* terms */
+.auth-terms{display:flex;align-items:flex-start;gap:.65rem;font-size:13px;color:var(--muted);cursor:pointer}
+.auth-terms input[type="checkbox"]{width:16px;height:16px;accent-color:var(--primary);margin-top:2px;flex-shrink:0;cursor:pointer}
+.auth-terms a{color:var(--primary);transition:opacity .15s}
+.auth-terms a:hover{opacity:.8}
+
+/* error */
+.auth-error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);border-radius:var(--r-ctrl);padding:.75rem 1rem;font-size:13px;color:#f87171;display:none}
+.auth-error.show{display:block;animation:fadeIn .2s ease}
+
+/* success */
+.auth-success{background:var(--pdim);border:1px solid rgba(16,185,129,.3);border-radius:var(--r-card);padding:2rem;text-align:center;display:none;animation:scaleIn .3s ease}
+.auth-success.show{display:block}
+.auth-success-icon{font-size:40px;margin-bottom:.75rem}
+.auth-success-title{font-size:18px;font-weight:600;color:var(--text);margin-bottom:.5rem}
+.auth-success-msg{font-size:13.5px;color:var(--muted)}
+
+/* footer */
+.auth-footer-link{text-align:center;font-size:13.5px;color:var(--muted);margin-top:1.5rem}
+.auth-footer-link a{color:var(--primary);font-weight:500;transition:opacity .15s}
+.auth-footer-link a:hover{opacity:.8}
+
+/* badges row */
+.auth-trust{display:flex;align-items:center;justify-content:center;gap:1.25rem;margin-top:1.75rem;flex-wrap:wrap}
+.auth-trust-item{display:flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.auth-trust-dot{width:5px;height:5px;border-radius:50%;background:var(--primary);flex-shrink:0}
+
+@media(max-width:480px){
+  .auth-card{padding:1.75rem 1.25rem;border-radius:16px}
+  .auth-heading{font-size:20px}
+  .name-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+<script src="webgl.js" defer></script>
+<script src="nav.js" defer></script>
+
+<div class="auth-wrap">
+  <div class="auth-card">
+
+    <!-- Logo -->
+    <a href="index.html" class="auth-logo">
+      <span class="auth-logo-name">APEX ROBOTICS ACADEMY</span>
+      <span class="auth-logo-tag">Learn · Build · Innovate</span>
+    </a>
+
+    <!-- Heading -->
+    <h1 class="auth-heading">Create your account</h1>
+    <p class="auth-sub">Join 500+ students building the future of robotics</p>
+
+    <!-- Social signup -->
+    <div class="auth-social">
+      <button class="btn-social" type="button" onclick="handleSocial('Google')">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 01-1.796 2.716v2.259h2.908C16.658 14.153 17.64 11.891 17.64 9.2z" fill="#4285F4"/>
+          <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/>
+          <path d="M3.964 10.71A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+          <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+        </svg>
+        Continue with Google
+      </button>
+    </div>
+
+    <div class="auth-divider">
+      <span class="auth-divider-line"></span>
+      <span class="auth-divider-text">or sign up with email</span>
+      <span class="auth-divider-line"></span>
+    </div>
+
+    <!-- Error -->
+    <div class="auth-error" id="auth-error"></div>
+
+    <!-- Success state -->
+    <div class="auth-success" id="auth-success">
+      <div class="auth-success-icon">✦</div>
+      <div class="auth-success-title">Account created!</div>
+      <p class="auth-success-msg">Welcome to APEX Robotics Academy. Check your email to verify your account, then <a href="login.html" style="color:var(--primary)">sign in</a>.</p>
+    </div>
+
+    <!-- Signup form -->
+    <form class="auth-form" id="signup-form" novalidate>
+
+      <div class="name-row">
+        <div class="form-field" id="field-fname">
+          <label class="form-label" for="fname">First name</label>
+          <input class="form-input" type="text" id="fname" name="fname" placeholder="Kowshick" autocomplete="given-name" required>
+          <span class="form-err">Required.</span>
+        </div>
+        <div class="form-field" id="field-lname">
+          <label class="form-label" for="lname">Last name</label>
+          <input class="form-input" type="text" id="lname" name="lname" placeholder="J" autocomplete="family-name" required>
+          <span class="form-err">Required.</span>
+        </div>
+      </div>
+
+      <div class="form-field" id="field-email">
+        <label class="form-label" for="email">Email address</label>
+        <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        <span class="form-err">Please enter a valid email address.</span>
+      </div>
+
+      <div class="form-field" id="field-phone">
+        <label class="form-label" for="phone">Phone number <span style="color:var(--dim);font-weight:400">(optional)</span></label>
+        <input class="form-input" type="tel" id="phone" name="phone" placeholder="+91 98765 43210" autocomplete="tel">
+      </div>
+
+      <div class="form-field" id="field-password">
+        <label class="form-label" for="password">Password</label>
+        <div class="pw-wrap">
+          <input class="form-input" type="password" id="password" name="password" placeholder="Min. 8 characters" autocomplete="new-password" required>
+          <button type="button" class="pw-toggle" id="pw-toggle" aria-label="Toggle password visibility">&#128065;</button>
+        </div>
+        <div class="pw-strength" id="pw-strength" style="display:none">
+          <div class="pw-strength-bar"><div class="pw-strength-fill" id="pw-fill"></div></div>
+          <span class="pw-strength-label" id="pw-label"></span>
+        </div>
+        <span class="form-err">Password must be at least 8 characters.</span>
+      </div>
+
+      <div class="form-field" id="field-confirm">
+        <label class="form-label" for="confirm">Confirm password</label>
+        <div class="pw-wrap">
+          <input class="form-input" type="password" id="confirm" name="confirm" placeholder="Repeat your password" autocomplete="new-password" required>
+          <button type="button" class="pw-toggle" id="pw-toggle2" aria-label="Toggle confirm visibility">&#128065;</button>
+        </div>
+        <span class="form-err">Passwords do not match.</span>
+      </div>
+
+      <label class="auth-terms" id="terms-label">
+        <input type="checkbox" id="terms" name="terms">
+        <span>I agree to the <a href="#" onclick="return false">Terms of Service</a> and <a href="#" onclick="return false">Privacy Policy</a></span>
+      </label>
+      <span class="form-err" id="terms-err" style="display:none;font-size:12px;color:#f87171">You must accept the terms to continue.</span>
+
+      <button type="submit" class="btn btn-primary btn-full btn-lg" id="signup-btn" style="margin-top:.25rem">
+        Create Account
+      </button>
+
+    </form>
+
+    <!-- Trust badges -->
+    <div class="auth-trust">
+      <span class="auth-trust-item"><span class="auth-trust-dot"></span>Free to join</span>
+      <span class="auth-trust-item"><span class="auth-trust-dot"></span>No credit card</span>
+      <span class="auth-trust-item"><span class="auth-trust-dot"></span>Secure &amp; private</span>
+    </div>
+
+    <p class="auth-footer-link">
+      Already have an account? <a href="login.html">Sign in</a>
+    </p>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  /* Password toggles */
+  function makeToggle(btnId, inputId) {
+    var btn = document.getElementById(btnId);
+    var inp = document.getElementById(inputId);
+    btn && btn.addEventListener('click', function () {
+      var show = inp.type === 'password';
+      inp.type = show ? 'text' : 'password';
+      btn.innerHTML = show ? '&#128064;' : '&#128065;';
+    });
+  }
+  makeToggle('pw-toggle', 'password');
+  makeToggle('pw-toggle2', 'confirm');
+
+  /* Password strength meter */
+  var pwInput    = document.getElementById('password');
+  var strengthWrap = document.getElementById('pw-strength');
+  var fill       = document.getElementById('pw-fill');
+  var label      = document.getElementById('pw-label');
+
+  pwInput.addEventListener('input', function () {
+    var v = pwInput.value;
+    if (!v) { strengthWrap.style.display = 'none'; return; }
+    strengthWrap.style.display = 'block';
+    var score = 0;
+    if (v.length >= 8)  score++;
+    if (v.length >= 12) score++;
+    if (/[A-Z]/.test(v) && /[a-z]/.test(v)) score++;
+    if (/\d/.test(v))   score++;
+    if (/[^A-Za-z0-9]/.test(v)) score++;
+
+    var levels = [
+      { pct: '20%', color: '#f87171', text: 'Weak' },
+      { pct: '40%', color: '#fb923c', text: 'Fair' },
+      { pct: '60%', color: '#fbbf24', text: 'Good' },
+      { pct: '80%', color: '#34d399', text: 'Strong' },
+      { pct: '100%',color: 'var(--primary)', text: 'Excellent' },
+    ];
+    var lvl = levels[Math.min(score, 4)];
+    fill.style.width = lvl.pct;
+    fill.style.background = lvl.color;
+    label.textContent = lvl.text;
+    label.style.color = lvl.color;
+  });
+
+  /* Form validation */
+  var form   = document.getElementById('signup-form');
+  var btn    = document.getElementById('signup-btn');
+  var errBox = document.getElementById('auth-error');
+  var successBox = document.getElementById('auth-success');
+
+  function showFieldError(fieldId, show) {
+    var f = document.getElementById(fieldId);
+    f && f.classList.toggle('has-error', show);
+  }
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('show');
+  }
+
+  function clearError() { errBox.classList.remove('show'); }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearError();
+
+    var fname   = document.getElementById('fname').value.trim();
+    var lname   = document.getElementById('lname').value.trim();
+    var email   = document.getElementById('email').value.trim();
+    var pw      = document.getElementById('password').value;
+    var confirm = document.getElementById('confirm').value;
+    var terms   = document.getElementById('terms').checked;
+    var valid   = true;
+
+    showFieldError('field-fname',    !fname);   if (!fname)   valid = false;
+    showFieldError('field-lname',    !lname);   if (!lname)   valid = false;
+
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    showFieldError('field-email', !emailOk);   if (!emailOk) valid = false;
+
+    showFieldError('field-password', pw.length < 8); if (pw.length < 8) valid = false;
+
+    var matchOk = pw === confirm && confirm.length > 0;
+    showFieldError('field-confirm', !matchOk); if (!matchOk) valid = false;
+
+    var termsErr = document.getElementById('terms-err');
+    termsErr.style.display = terms ? 'none' : 'block';
+    if (!terms) valid = false;
+
+    if (!valid) return;
+
+    /* Loading state */
+    btn.disabled = true;
+    btn.textContent = 'Creating account…';
+
+    /* TODO: Replace with your real auth API call */
+    setTimeout(function () {
+      btn.disabled = false;
+      btn.textContent = 'Create Account';
+      form.style.display = 'none';
+      document.querySelector('.auth-social').style.display = 'none';
+      document.querySelector('.auth-divider').style.display = 'none';
+      document.querySelector('.auth-trust').style.display = 'none';
+      document.querySelector('.auth-footer-link').style.display = 'none';
+      successBox.classList.add('show');
+    }, 1400);
+  });
+
+  window.handleSocial = function (provider) {
+    alert('Connect ' + provider + ' OAuth in your backend to enable this.');
+  };
+})();
+</script>
+</body>
+</html>
