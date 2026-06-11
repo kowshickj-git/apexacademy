@@ -1,20 +1,20 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About â€“ APEX Robotics Academy</title>
+<title>About – APEX Robotics Academy</title>
 <meta name="description" content="APEX Robotics Academy was founded in 2024 with a vision to bridge the gap between traditional education and practical technological learning. Meet our founder KOWSHICK J.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   ABOUT PAGE â€” PREMIUM STYLES
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ═══════════════════════════════════════════════════
+   ABOUT PAGE — PREMIUM STYLES
+   ═══════════════════════════════════════════════════ */
 
-/* â”€â”€ Scroll reveal engine â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Scroll reveal engine ─────────────────────────── */
 .sr{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .sr.visible{opacity:1;transform:translateY(0)}
 .sr-left{opacity:0;transform:translateX(-32px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
@@ -26,7 +26,7 @@
 .delay-1{transition-delay:.08s}.delay-2{transition-delay:.16s}.delay-3{transition-delay:.24s}
 .delay-4{transition-delay:.32s}.delay-5{transition-delay:.4s}.delay-6{transition-delay:.48s}
 
-/* â”€â”€ SECTION 1: Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SECTION 1: Hero ──────────────────────────────── */
 .about-hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:calc(var(--nav-h) + 4rem) 2rem 4rem;text-align:center;overflow:hidden}
 .about-hero-inner{max-width:780px;margin:0 auto}
 .about-hero-badge{display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1.75rem}
@@ -45,7 +45,7 @@
 .hfe-3{bottom:22%;left:5%;animation-delay:2.4s}
 .hfe-4{bottom:22%;right:5%;animation-delay:.6s}
 
-/* â”€â”€ SECTION 2: Our Story â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SECTION 2: Our Story ─────────────────────────── */
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .story-text p{margin-bottom:1.1rem;font-size:15.5px;line-height:1.75;color:var(--muted)}
 .story-text p:last-child{margin-bottom:0}
@@ -57,7 +57,7 @@
 .story-quote{font-size:clamp(15px,2vw,17px);line-height:1.65;color:var(--text);font-style:italic;font-weight:400}
 .story-quote::before{content:'"';font-size:48px;color:var(--primary);opacity:.25;line-height:.8;display:block;margin-bottom:-.4rem;font-style:normal}
 
-/* â”€â”€ SECTION 3: Mission & Vision â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SECTION 3: Mission & Vision ─────────────────── */
 .mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
 .mv-card{padding:2.5rem;position:relative;overflow:hidden;border-radius:var(--r-card);border:1px solid var(--border);background:var(--surface)}
 .mv-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .35s;pointer-events:none}
@@ -72,7 +72,7 @@
 .mv-title{font-size:clamp(20px,2.5vw,26px);font-weight:600;line-height:1.2;color:var(--text);margin-bottom:1rem;letter-spacing:-.02em}
 .mv-desc{font-size:14.5px;line-height:1.7;color:var(--muted)}
 
-/* â”€â”€ SECTION 4: Core Values â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SECTION 4: Core Values ───────────────────────── */
 .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .value-card{padding:1.75rem;border-radius:var(--r-card);border:1px solid var(--border);background:var(--surface);position:relative;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s}
 .value-card:hover{border-color:rgba(16,185,129,.25);transform:translateY(-4px);box-shadow:var(--shadow)}
@@ -82,7 +82,7 @@
 .value-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:.5rem}
 .value-desc{font-size:13.5px;color:var(--muted);line-height:1.6}
 
-/* â”€â”€ SECTION 5: Timeline â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SECTION 5: Timeline ──────────────────────────── */
 .timeline-wrap{position:relative;max-width:760px;margin:0 auto}
 .timeline-track{position:absolute;left:50%;top:0;bottom:0;width:1.5px;background:var(--border);transform:translateX(-50%)}
 .timeline-progress{position:absolute;left:50%;top:0;width:1.5px;background:linear-gradient(180deg,var(--primary),var(--secondary));transform:translateX(-50%);height:0;transition:height 1.2s ease}
@@ -102,7 +102,7 @@
 .tl-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:1.25rem 1.5rem;transition:border-color .25s}
 .tl-card.active-card{border-color:rgba(16,185,129,.25)}
 
-/* â”€â”€ SECTION 6: Impact â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SECTION 6: Impact ────────────────────────────── */
 .impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
 .impact-card{padding:2rem 1.5rem;text-align:center;border-radius:var(--r-card);border:1px solid var(--border);background:var(--surface);position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
 .impact-card:hover{border-color:rgba(16,185,129,.2);transform:translateY(-3px)}
@@ -111,7 +111,7 @@
 .impact-num{font-size:clamp(32px,4vw,48px);font-weight:800;line-height:1;letter-spacing:-.04em;margin-bottom:.4rem}
 .impact-label{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
 
-/* â”€â”€ SECTION 7: Founder â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SECTION 7: Founder ───────────────────────────── */
 .founder-grid{display:grid;grid-template-columns:360px 1fr;gap:5rem;align-items:center}
 .founder-photo-wrap{position:relative}
 .founder-photo{width:100%;aspect-ratio:3/4;border-radius:var(--r-card);background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;overflow:hidden;position:relative}
@@ -126,16 +126,16 @@
 .founder-name{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:.05em;margin-bottom:.35rem}
 .founder-role-tag{font-family:var(--mono);font-size:11px;color:var(--primary);letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.25rem}
 
-/* â”€â”€ SECTION 8: CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SECTION 8: CTA ───────────────────────────────── */
 .about-cta{border-radius:var(--r-card);border:1px solid var(--border);background:var(--surface);padding:5rem 3rem;text-align:center;position:relative;overflow:hidden}
 .about-cta::before{content:'';position:absolute;top:-40%;left:-10%;width:60%;height:200%;background:radial-gradient(ellipse,rgba(16,185,129,.07) 0%,transparent 60%);pointer-events:none}
 .about-cta::after{content:'';position:absolute;top:-40%;right:-10%;width:60%;height:200%;background:radial-gradient(ellipse,rgba(14,165,233,.05) 0%,transparent 60%);pointer-events:none}
 .about-cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:2rem;position:relative;z-index:1}
 
-/* â”€â”€ Footer fix â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Footer fix ───────────────────────────────────── */
 .footer-main{grid-template-columns:1.4fr repeat(2,1fr) !important}
 
-/* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Responsive ───────────────────────────────────── */
 @media(max-width:1100px){
   .founder-grid{grid-template-columns:280px 1fr;gap:3rem}
   .impact-grid{grid-template-columns:repeat(2,1fr)}
@@ -195,16 +195,16 @@
 <body>
 <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 1 â€” HERO
-     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════════════════════════════════════════
+     SECTION 1 — HERO
+     ═══════════════════════════════════════════════════ -->
 <section class="about-hero">
 
   <!-- Floating decorative elements -->
-  <div class="hero-float-el hfe-1"><span style="color:var(--primary)">â—†</span> Founded 2024</div>
-  <div class="hero-float-el hfe-2"><span style="color:var(--secondary)">â—†</span> Future-Ready Education</div>
-  <div class="hero-float-el hfe-3"><span style="color:var(--primary)">â—†</span> Innovation Driven</div>
-  <div class="hero-float-el hfe-4"><span style="color:var(--secondary)">â—†</span> Practical Learning</div>
+  <div class="hero-float-el hfe-1"><span style="color:var(--primary)">◆</span> Founded 2024</div>
+  <div class="hero-float-el hfe-2"><span style="color:var(--secondary)">◆</span> Future-Ready Education</div>
+  <div class="hero-float-el hfe-3"><span style="color:var(--primary)">◆</span> Innovation Driven</div>
+  <div class="hero-float-el hfe-4"><span style="color:var(--secondary)">◆</span> Practical Learning</div>
 
   <div class="about-hero-inner">
     <div class="about-hero-badge">
@@ -229,9 +229,9 @@
   </div>
 </section>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 2 â€” OUR STORY
-     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════════════════════════════════════════
+     SECTION 2 — OUR STORY
+     ═══════════════════════════════════════════════════ -->
 <section class="section" id="story">
   <div class="section-inner">
     <div class="story-grid">
@@ -270,9 +270,9 @@
   </div>
 </section>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 3 â€” MISSION & VISION
-     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════════════════════════════════════════
+     SECTION 3 — MISSION & VISION
+     ═══════════════════════════════════════════════════ -->
 <section class="section" style="padding-top:0">
   <div class="section-inner">
     <div class="section-header sr">
@@ -305,16 +305,16 @@
   </div>
 </section>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 4 â€” CORE VALUES
-     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════════════════════════════════════════
+     SECTION 4 — CORE VALUES
+     ═══════════════════════════════════════════════════ -->
 <section class="section" style="padding-top:0">
   <div class="section-inner">
     <div class="section-header sr">
       <span class="t-eyebrow">What We Stand For</span>
       <h2 class="t-h2">Our Core <span class="t-green">Values</span></h2>
       <div class="section-sep"></div>
-      <p class="t-body">The principles that guide everything we do â€” from curriculum design to classroom culture.</p>
+      <p class="t-body">The principles that guide everything we do — from curriculum design to classroom culture.</p>
     </div>
 
     <div class="values-grid">
@@ -375,9 +375,9 @@
   </div>
 </section>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 5 â€” JOURNEY TIMELINE
-     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════════════════════════════════════════
+     SECTION 5 — JOURNEY TIMELINE
+     ═══════════════════════════════════════════════════ -->
 <section class="section" style="padding-top:0">
   <div class="section-inner">
     <div class="section-header sr">
@@ -444,9 +444,9 @@
   </div>
 </section>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 6 â€” IMPACT
-     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════════════════════════════════════════
+     SECTION 6 — IMPACT
+     ═══════════════════════════════════════════════════ -->
 <section class="section" style="padding-top:0">
   <div class="section-inner">
     <div class="section-header sr">
@@ -476,9 +476,9 @@
   </div>
 </section>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 7 â€” FOUNDER SPOTLIGHT
-     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════════════════════════════════════════
+     SECTION 7 — FOUNDER SPOTLIGHT
+     ═══════════════════════════════════════════════════ -->
 <section class="section" style="padding-top:0" id="founder">
   <div class="section-inner">
     <div class="section-header sr">
@@ -507,7 +507,7 @@
       <!-- Content -->
       <div class="sr-right">
         <div class="founder-name t-white">KOWSHICK J</div>
-        <div class="founder-role-tag">Founder &amp; CEO â€” Apex Academy</div>
+        <div class="founder-role-tag">Founder &amp; CEO — Apex Academy</div>
 
         <p class="t-body" style="margin-bottom:1rem">
           KOWSHICK J founded Apex Academy with a passion for technology, innovation, and education.
@@ -524,8 +524,8 @@
 
         <!-- Quote -->
         <div class="founder-quote">
-          <div class="founder-quote-text">"Education should not only teach concepts â€” it should empower individuals to create, innovate, and make a difference."</div>
-          <div class="founder-quote-attr">â€” KOWSHICK J</div>
+          <div class="founder-quote-text">"Education should not only teach concepts — it should empower individuals to create, innovate, and make a difference."</div>
+          <div class="founder-quote-attr">— KOWSHICK J</div>
         </div>
 
         <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.75rem">
@@ -537,9 +537,9 @@
   </div>
 </section>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 8 â€” FINAL CTA
-     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════════════════════════════════════════
+     SECTION 8 — FINAL CTA
+     ═══════════════════════════════════════════════════ -->
 <section class="section-sm">
   <div class="section-inner">
     <div class="about-cta sr-scale">
@@ -558,27 +558,27 @@
   </div>
 </section>
 
-<!-- â”€â”€ Mantra Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+<!-- ── Mantra Bar ──────────────────────────────────────────────── -->
 <div class="mantra-bar">
   <div class="mantra-inner">
     <div class="mantra-line"></div>
     <div class="mantra-text">
-      <span class="mantra-icon">â—†</span>
+      <span class="mantra-icon">◆</span>
       <span class="mantra-quote">Learn it. Build it. <span class="mantra-highlight">Own the Future.</span></span>
-      <span class="mantra-icon">â—†</span>
+      <span class="mantra-icon">◆</span>
     </div>
     <div class="mantra-line"></div>
   </div>
   <div class="mantra-sub">Every expert was once a beginner who refused to give up.</div>
 </div>
 
-<!-- â”€â”€ Footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+<!-- ── Footer ──────────────────────────────────────── -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-main" style="grid-template-columns:1.4fr 1fr 1fr">
       <div>
         <div class="footer-brand-name">APEX ROBOTICS ACADEMY</div>
-        <div class="footer-brand-tag">Learn Â· Build Â· Innovate</div>
+        <div class="footer-brand-tag">Learn · Build · Innovate</div>
         <p class="footer-brand-desc">Empowering the next generation of engineers, innovators, and technology leaders through structured, project-based education.</p>
         <div style="margin-top:1rem;font-size:13px;color:var(--muted)">apex.support.academy@gmail.com</div>
         <div style="font-size:13px;color:var(--muted)">+91 88072 00577</div>
@@ -602,7 +602,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>Â© 2024 APEX Robotics Academy. All rights reserved. | Chennai &amp; Erode, Tamil Nadu</span>
+      <span>© 2024 APEX Robotics Academy. All rights reserved. | Chennai &amp; Erode, Tamil Nadu</span>
       <div class="footer-bottom-links">
         <a href="contact.html">Privacy Policy</a>
         <a href="contact.html">Terms of Use</a>
@@ -618,7 +618,7 @@
 <script src="transitions.js"></script>
 <script>
 (function () {
-  /* â”€â”€ Scroll reveal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Scroll reveal ──────────────────────────────── */
   var srEls = document.querySelectorAll('.sr, .sr-left, .sr-right, .sr-scale');
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -630,7 +630,7 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   srEls.forEach(function (el) { observer.observe(el); });
 
-  /* â”€â”€ Timeline progress â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Timeline progress ──────────────────────────── */
   var tlWrap = document.getElementById('timeline-wrap');
   var tlProgress = document.getElementById('tl-progress');
   var tlNodes = [
@@ -662,11 +662,11 @@
     tlObserver.observe(tlWrap);
   }
 
-  /* â”€â”€ Hero always visible â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Hero always visible ─────────────────────────── */
   var heroEls = document.querySelectorAll('.about-hero-inner > *, .hero-scroll-indicator');
   heroEls.forEach(function (el) { el.style.opacity = '1'; });
 
-  /* â”€â”€ Smooth scroll for anchor links â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Smooth scroll for anchor links ─────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var target = document.querySelector(a.getAttribute('href'));
@@ -682,4 +682,3 @@
 </script>
 </body>
 </html>
-
