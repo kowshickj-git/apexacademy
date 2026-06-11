@@ -36,7 +36,7 @@ async function apexSignIn({ email, password }) {
 async function apexSignInGoogle() {
   const { error } = await sb().auth.signInWithOAuth({
     provider: 'google',
-    options: { redirectTo: window.location.origin + '/dashboard.html' },
+    options: { redirectTo: window.location.origin + '/index.html' },
   });
   if (error) throw error;
 }
