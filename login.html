@@ -125,12 +125,15 @@
     if (session) window.location.href = 'index.html';
   });
 
-  /* Check for email-confirmed redirect */
+  /* Check for redirects */
   var params = new URLSearchParams(window.location.search);
   if (params.get('confirmed') === '1') {
     var notice = document.getElementById('auth-notice');
     notice.textContent = 'Email confirmed! You can now sign in.';
     notice.classList.add('show');
+  }
+  if (params.get('error')) {
+    showError('Google sign-in failed. Please try again or use email/password.');
   }
 
   /* Password toggle */
