@@ -96,7 +96,7 @@ export default function CurrentNav({ xp, milestones }: CurrentNavProps) {
         {/* Prev */}
         <Link
           href="/lessons/voltage"
-          className="hidden sm:flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border border-white/10 text-white/40 hover:border-white/20 hover:text-white/60 transition-all"
+          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border border-white/10 text-white/40 hover:border-white/20 hover:text-white/60 transition-all"
         >
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
             <path d="M8 2L4 6l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -104,21 +104,17 @@ export default function CurrentNav({ xp, milestones }: CurrentNavProps) {
           Voltage
         </Link>
 
-        {/* Next */}
-        <Link
-          href="#"
-          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border transition-all"
-          style={{
-            background: "rgba(14,165,233,0.09)",
-            borderColor: "rgba(14,165,233,0.22)",
-            color: "#0EA5E9",
-          }}
+        {/* Next — Resistance coming soon */}
+        <div
+          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border cursor-not-allowed select-none"
+          style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.22)" }}
+          title="Lesson 3: Resistance — Coming Soon"
         >
           Resistance
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
             <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </Link>
+        </div>
       </div>
 
       {/* Scroll progress bar */}

@@ -152,15 +152,26 @@ export default function Summary() {
           <p className="text-xs text-white/45 mb-4">
             You now understand what voltage is. Ready for the next lesson?
           </p>
+          <div className="flex flex-col items-center gap-2">
           <Link
-            href="#"
+            href="/lessons/current"
             className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-background font-bold text-sm hover:bg-primary/90 active:scale-95 transition-all"
           >
-            Next: Current &amp; Resistance
+            Next: Current Fundamentals
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>
+          <Link
+            href="/index.html"
+            className="inline-flex items-center gap-1.5 text-xs text-white/35 hover:text-white/60 transition-colors mt-1"
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M8 2L4 6l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Back to Home
+          </Link>
+          </div>
         </motion.div>
       </motion.div>
     </section>

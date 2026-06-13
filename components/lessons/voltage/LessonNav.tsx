@@ -84,17 +84,18 @@ export default function LessonNav({ xp, milestones }: LessonNavProps) {
           <span className="text-xs font-bold text-primary tabular-nums">{xp} XP</span>
         </div>
 
-        {/* Prev — none for first lesson */}
-        <div
-          className="hidden sm:flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border border-white/6 text-white/20 cursor-not-allowed select-none"
-          style={{ background: "rgba(255,255,255,0.02)" }}
-          title="This is the first lesson"
+        {/* Prev — back to homepage */}
+        <Link
+          href="/index.html"
+          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border border-white/10 text-white/40 hover:border-white/20 hover:text-white/60 transition-all"
+          style={{ background: "rgba(255,255,255,0.03)" }}
+          title="Back to Home"
         >
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
             <path d="M8 2L4 6l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          Prev
-        </div>
+          Home
+        </Link>
 
         {/* Next → Current */}
         <Link
