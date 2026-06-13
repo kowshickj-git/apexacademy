@@ -18,8 +18,13 @@ function getBrightnessInfo(v: number): BrightnessInfo {
   return { label: "Maximum!", color: "#34D399", bg: "bg-emerald-400/15" };
 }
 
-export default function InteractiveDemo() {
+interface InteractiveDemoProps {
+  onSimUsed: () => void;
+}
+
+export default function InteractiveDemo({ onSimUsed }: InteractiveDemoProps) {
   const [voltage, setVoltage] = useState(0);
+  const [triggered, setTriggered] = useState(false);
 
   const brightness = voltage / 12; // 0–1
   const ledOpacity = voltage === 0 ? 0 : 0.12 + brightness * 0.88;
@@ -263,7 +268,11 @@ export default function InteractiveDemo() {
             max={12}
             step={1}
             value={voltage}
-            onChange={(e) => setVoltage(Number(e.target.value))}
+            onChange={(e) => {
+              const v = Number(e.target.value);
+              setVoltage(v);
+              if (!triggered && v > 0) { setTriggered(true); onSimUsed(); }
+            }}
             aria-label={`Voltage: ${voltage} volts`}
             style={{
               background: `linear-gradient(to right, #10B981 0%, #10B981 ${(voltage / 12) * 100}%, rgba(255,255,255,0.08) ${(voltage / 12) * 100}%, rgba(255,255,255,0.08) 100%)`,
@@ -281,7 +290,7 @@ export default function InteractiveDemo() {
             ].map(({ v, label, sub }) => (
               <button
                 key={v}
-                onClick={() => setVoltage(v)}
+                onClick={() => { setVoltage(v); if (!triggered && v > 0) { setTriggered(true); onSimUsed(); } }}
                 className={`py-1 rounded-lg transition-colors ${
                   voltage === v ? "bg-primary/15 text-primary" : "text-white/25 hover:text-white/50"
                 }`}

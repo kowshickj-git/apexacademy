@@ -44,12 +44,17 @@ const questions: Question[] = [
   },
 ];
 
-export default function Quiz() {
+interface QuizProps {
+  onPass: () => void;
+}
+
+export default function Quiz({ onPass }: QuizProps) {
   const [currentQ, setCurrentQ] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [passCalled, setPassCalled] = useState(false);
 
   const q = questions[currentQ];
   const isCorrect = selected === q.correct;
@@ -68,6 +73,10 @@ export default function Quiz() {
       setShowFeedback(false);
     } else {
       setFinished(true);
+      if (score >= 2 && !passCalled) {
+        setPassCalled(true);
+        setTimeout(onPass, 400);
+      }
     }
   };
 
@@ -77,6 +86,7 @@ export default function Quiz() {
     setShowFeedback(false);
     setScore(0);
     setFinished(false);
+    setPassCalled(false);
   };
 
   const scoreColor =

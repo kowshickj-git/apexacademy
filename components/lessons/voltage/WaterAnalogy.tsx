@@ -59,8 +59,13 @@ function getPressureLabel(v: number): string {
   return "Maximum";
 }
 
-export default function WaterAnalogy() {
+interface WaterAnalogyProps {
+  onSimUsed: () => void;
+}
+
+export default function WaterAnalogy({ onSimUsed }: WaterAnalogyProps) {
   const [voltage, setVoltage] = useState(6);
+  const [triggered, setTriggered] = useState(false);
 
   const level = voltage / 12; // 0–1
   const colorClass = voltage <= 3 ? "#0EA5E9" : voltage <= 8 ? "#0EA5E9" : "#0EA5E9";
@@ -248,7 +253,11 @@ export default function WaterAnalogy() {
             max={12}
             step={0.5}
             value={voltage}
-            onChange={(e) => setVoltage(Number(e.target.value))}
+            onChange={(e) => {
+              const v = Number(e.target.value);
+              setVoltage(v);
+              if (!triggered) { setTriggered(true); onSimUsed(); }
+            }}
             aria-label="Voltage slider"
             style={{
               background: `linear-gradient(to right, #10B981 0%, #10B981 ${(voltage / 12) * 100}%, rgba(255,255,255,0.08) ${(voltage / 12) * 100}%, rgba(255,255,255,0.08) 100%)`,
