@@ -11,6 +11,43 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="curriculum.html">Curriculum</a></li>
+      <li style="position:relative">
+        <a href="/lessons/voltage" style="display:flex;align-items:center;gap:.35rem;color:#10B981;font-weight:600">
+          <span style="font-size:11px">⚡</span>
+          Lessons
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" style="opacity:.6;transition:transform .2s" class="lessons-chevron">
+            <path d="M2.5 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <div class="nav-dropdown lessons-dropdown" style="min-width:240px;padding:.5rem">
+          <div style="padding:.35rem .65rem .5rem;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:.35rem">
+            <p style="font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);font-family:'JetBrains Mono',monospace;font-weight:600">Interactive Lessons</p>
+          </div>
+          <a href="/lessons/voltage" style="display:flex;align-items:center;gap:.75rem;padding:.6rem .65rem;border-radius:8px;text-decoration:none;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.05)'" onmouseout="this.style.background='transparent'">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px">⚡</div>
+            <div style="min-width:0">
+              <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.15rem">
+                <span style="font-size:12.5px;font-weight:600;color:#fff">Voltage Fundamentals</span>
+                <span style="font-size:8.5px;font-weight:700;letter-spacing:.08em;padding:.1rem .45rem;border-radius:999px;background:rgba(16,185,129,.15);color:#10B981;border:1px solid rgba(16,185,129,.3)">LIVE</span>
+              </div>
+              <p style="font-size:11px;color:rgba(255,255,255,.38);font-family:'JetBrains Mono',monospace">L01 · Beginner · 5 min</p>
+            </div>
+          </a>
+          <a href="/lessons/current" style="display:flex;align-items:center;gap:.75rem;padding:.6rem .65rem;border-radius:8px;text-decoration:none;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.05)'" onmouseout="this.style.background='transparent'">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px">⚡</div>
+            <div style="min-width:0">
+              <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.15rem">
+                <span style="font-size:12.5px;font-weight:600;color:#fff">Current Fundamentals</span>
+                <span style="font-size:8.5px;font-weight:700;letter-spacing:.08em;padding:.1rem .45rem;border-radius:999px;background:rgba(14,165,233,.15);color:#0EA5E9;border:1px solid rgba(14,165,233,.3)">LIVE</span>
+              </div>
+              <p style="font-size:11px;color:rgba(255,255,255,.38);font-family:'JetBrains Mono',monospace">L02 · Beginner · 5 min</p>
+            </div>
+          </a>
+          <div style="padding:.35rem .65rem 0;margin-top:.35rem;border-top:1px solid rgba(255,255,255,.06)">
+            <p style="font-size:11px;color:rgba(255,255,255,.22)">More lessons coming soon…</p>
+          </div>
+        </div>
+      </li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -27,6 +64,23 @@
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="curriculum.html">Curriculum</a>
+  <div style="padding:.4rem 1rem .2rem;margin-top:.2rem">
+    <p style="font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(16,185,129,.6);font-family:'JetBrains Mono',monospace;font-weight:600">⚡ Interactive Lessons</p>
+  </div>
+  <a href="/lessons/voltage" style="display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border-radius:10px">
+    <span style="font-size:18px;flex-shrink:0">⚡</span>
+    <span>
+      <span style="display:block;font-size:14px;font-weight:600;color:#fff">Voltage Fundamentals</span>
+      <span style="display:block;font-size:11px;color:rgba(255,255,255,.4);font-family:'JetBrains Mono',monospace">L01 · 5 min · <span style="color:#10B981">LIVE</span></span>
+    </span>
+  </a>
+  <a href="/lessons/current" style="display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border-radius:10px">
+    <span style="font-size:18px;flex-shrink:0">⚡</span>
+    <span>
+      <span style="display:block;font-size:14px;font-weight:600;color:#fff">Current Fundamentals</span>
+      <span style="display:block;font-size:11px;color:rgba(255,255,255,.4);font-family:'JetBrains Mono',monospace">L02 · 5 min · <span style="color:#0EA5E9">LIVE</span></span>
+    </span>
+  </a>
   <a href="projects.html">Projects</a>
   <div class="nav-mobile-sep"></div>
   <a href="contact.html">Contact</a>
@@ -48,10 +102,39 @@
       }
     });
 
+    /* ── Highlight Lessons link when on a lesson page ── */
+    if (location.pathname.startsWith('/lessons/')) {
+      const lessonsLink = document.querySelector('.nav-links a[href="/lessons/voltage"]');
+      if (lessonsLink) {
+        lessonsLink.style.opacity = '1';
+      }
+    }
+
     /* ── Scroll ── */
     const nb = document.getElementById('navbar');
     const onScroll = () => nb && nb.classList.toggle('scrolled', scrollY > 50);
     window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ── Lessons dropdown: keep open on click (touch-friendly) ── */
+    const lessonsLi = document.querySelector('.nav-links li:has(.lessons-dropdown)');
+    const lessonsDropdown = document.querySelector('.lessons-dropdown');
+    if (lessonsLi && lessonsDropdown) {
+      let pinned = false;
+      lessonsLi.addEventListener('click', function(e) {
+        // If clicking the chevron/label (not a lesson link), toggle pin
+        if (!e.target.closest('a[href^="/lessons/"]')) {
+          e.preventDefault();
+          pinned = !pinned;
+          lessonsDropdown.style.display = pinned ? 'block' : '';
+        }
+      });
+      document.addEventListener('click', function(e) {
+        if (!lessonsLi.contains(e.target)) {
+          pinned = false;
+          lessonsDropdown.style.display = '';
+        }
+      });
+    }
 
     /* ── Mobile toggle ── */
     const burger = document.getElementById('nav-burger');
