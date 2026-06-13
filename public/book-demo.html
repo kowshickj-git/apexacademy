@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Free Demo – APEX Robotics Academy</title>
+<meta name="description" content="Book a free demo session at APEX Robotics Academy. Meet our instructors, see the curriculum, and discover the right level for your child.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.demo-wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:start;max-width:1000px;margin:0 auto}
+.demo-info{position:sticky;top:calc(var(--nav-h) + 2rem)}
+.info-card{padding:2rem;margin-bottom:1rem}
+.info-item{display:flex;align-items:flex-start;gap:.85rem;padding:.85rem 0;border-bottom:1px solid var(--border)}
+.info-item:last-child{border-bottom:none}
+.info-icon{width:36px;height:36px;border-radius:var(--r-ctrl);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.form-card{padding:2.5rem}
+.time-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.5rem}
+.time-slot{padding:.45rem;border:1px solid var(--border);border-radius:var(--r-ctrl);text-align:center;font-size:12.5px;font-family:var(--mono);color:var(--muted);cursor:pointer;transition:all .18s;background:var(--surface2)}
+.time-slot:hover,.time-slot.selected{border-color:var(--primary);color:var(--primary);background:var(--pdim)}
+.time-slot.unavailable{opacity:.35;cursor:not-allowed}
+.steps-row{display:flex;gap:0;margin-bottom:2rem}
+.step-item{flex:1;text-align:center;position:relative}
+.step-item::after{content:'';position:absolute;top:14px;left:50%;width:100%;height:1.5px;background:var(--border)}
+.step-item:last-child::after{display:none}
+.step-circle{width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-family:var(--mono);position:relative;z-index:1;background:var(--bg);transition:all .2s}
+.step-item.active .step-circle{border-color:var(--primary);color:var(--primary)}
+.step-item.done .step-circle{background:var(--primary);border-color:var(--primary);color:#000}
+.step-label{font-family:var(--mono);font-size:9.5px;color:var(--dim);margin-top:.4rem;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:860px){.demo-wrap{grid-template-columns:1fr}.demo-info{position:static}.time-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.time-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+
+<style id="mantra-style">
+.mantra-bar{position:relative;z-index:1;padding:3rem 2rem;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(16,185,129,.03);overflow:hidden}
+.mantra-bar::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(16,185,129,.06),transparent 70%);pointer-events:none}
+.mantra-inner{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-bottom:.75rem;flex-wrap:wrap;position:relative;z-index:1}
+.mantra-line{flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,.35),transparent)}
+.mantra-text{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;justify-content:center}
+.mantra-icon{color:var(--primary);font-size:10px;opacity:.6}
+.mantra-quote{font-size:clamp(18px,3vw,26px);font-weight:600;color:var(--text);letter-spacing:-.02em;line-height:1.2}
+.mantra-highlight{color:var(--primary)}
+.mantra-sub{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);position:relative;z-index:1}
+@media(max-width:480px){.mantra-line{display:none}.mantra-bar{padding:2.25rem 1.25rem}}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<section class="page-hero" style="padding-bottom:3rem">
+  <div class="page-hero-inner">
+    <span class="t-eyebrow">Free Session</span>
+    <h1 class="t-h2" style="margin:.65rem 0 1rem">Book Your <span class="t-green">Free Demo</span></h1>
+    <p class="t-body">Meet our instructors, experience a live class, and discover exactly which level is right for your child. No commitment required.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="demo-wrap">
+
+      <!-- Info sidebar -->
+      <div class="demo-info">
+        <div class="card info-card">
+          <span class="t-eyebrow" style="margin-bottom:1rem;display:block">What to Expect</span>
+          <div class="info-item">
+            <div class="info-icon" style="background:var(--pdim)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div>
+              <div class="t-h4 mb-1">45-Minute Session</div>
+              <p class="t-small">A complete introduction to our curriculum with a hands-on activity for your child.</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon" style="background:var(--sdim)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <div>
+              <div class="t-h4 mb-1">Expert Instructor</div>
+              <p class="t-small">One-on-one attention from a certified robotics educator who assesses your child's level.</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon" style="background:var(--pdim)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <div>
+              <div class="t-h4 mb-1">Live Hands-On Activity</div>
+              <p class="t-small">Your child gets to build something real — not just watch a presentation.</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon" style="background:var(--sdim)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div>
+              <div class="t-h4 mb-1">Curriculum Consultation</div>
+              <p class="t-small">Personalized recommendation for the right level and batch timing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card card-p" style="text-align:center">
+          <div class="t-eyebrow" style="margin-bottom:.75rem">Completely Free</div>
+          <div style="font-size:36px;font-weight:700;color:var(--primary)">₹0</div>
+          <p class="t-small" style="margin:.5rem 0">No hidden charges. No commitment. Just a great experience for your child.</p>
+          <div class="badge badge-g" style="margin:0 auto">Limited Slots Available</div>
+        </div>
+      </div>
+
+      <!-- Booking form -->
+      <div class="card form-card" id="booking-form-wrap">
+        <!-- Steps -->
+        <div class="steps-row">
+          <div class="step-item done" id="step-1">
+            <div class="step-circle">1</div>
+            <div class="step-label">Details</div>
+          </div>
+          <div class="step-item" id="step-2">
+            <div class="step-circle">2</div>
+            <div class="step-label">Schedule</div>
+          </div>
+          <div class="step-item" id="step-3">
+            <div class="step-circle">3</div>
+            <div class="step-label">Confirm</div>
+          </div>
+        </div>
+
+        <form id="demo-form" novalidate="">
+          <!-- Step 1: Details -->
+          <div id="form-step-1">
+            <h3 class="t-h3 mb-2">Student &amp; Parent Details</h3>
+            <div style="display:flex;flex-direction:column;gap:1.25rem">
+              <div class="form-grid">
+                <div class="form-field" id="f-sname">
+                  <label class="form-label" for="student-name">Student Name <span style="color:#f87171">*</span></label>
+                  <input class="form-input" type="text" id="student-name" name="student_name" placeholder="Child's full name" autocomplete="given-name">
+                  <span class="form-err">Please enter the student's name</span>
+                </div>
+                <div class="form-field" id="f-pname">
+                  <label class="form-label" for="parent-name">Parent / Guardian Name <span style="color:#f87171">*</span></label>
+                  <input class="form-input" type="text" id="parent-name" name="parent_name" placeholder="Your full name" autocomplete="name">
+                  <span class="form-err">Please enter your name</span>
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-field" id="f-phone">
+                  <label class="form-label" for="phone">Phone Number <span style="color:#f87171">*</span></label>
+                  <input class="form-input" type="tel" id="phone" name="phone" placeholder="+91 98765 43210" autocomplete="tel">
+                  <span class="form-err">Please enter a valid phone number</span>
+                </div>
+                <div class="form-field" id="f-email">
+                  <label class="form-label" for="email">Email Address <span style="color:#f87171">*</span></label>
+                  <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+                  <span class="form-err">Please enter a valid email address</span>
+                </div>
+              </div>
+              <div style="text-align:right">
+                <button type="button" class="btn btn-primary" onclick="goStep(2)">Next: Choose Schedule →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Schedule -->
+          <div id="form-step-2" style="display:none">
+            <h3 class="t-h3 mb-2">Choose Date &amp; Time</h3>
+            <div style="display:flex;flex-direction:column;gap:1.25rem">
+              <div class="form-grid">
+                <div class="form-field" id="f-date">
+                  <label class="form-label" for="pref-date">Preferred Date <span style="color:#f87171">*</span></label>
+                  <input class="form-input" type="date" id="pref-date" name="preferred_date">
+                  <span class="form-err">Please select a date</span>
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Preferred Time Slot</label>
+                  <div class="time-grid" id="time-slots">
+                    <div class="time-slot" data-time="9:00 AM" onclick="selectTime(this)">9:00 AM</div>
+                    <div class="time-slot" data-time="10:00 AM" onclick="selectTime(this)">10:00 AM</div>
+                    <div class="time-slot unavailable">11:00 AM</div>
+                    <div class="time-slot" data-time="12:00 PM" onclick="selectTime(this)">12:00 PM</div>
+                    <div class="time-slot" data-time="2:00 PM" onclick="selectTime(this)">2:00 PM</div>
+                    <div class="time-slot unavailable">3:00 PM</div>
+                    <div class="time-slot" data-time="4:00 PM" onclick="selectTime(this)">4:00 PM</div>
+                    <div class="time-slot" data-time="5:00 PM" onclick="selectTime(this)">5:00 PM</div>
+                  </div>
+                  <input type="hidden" id="pref-time" name="preferred_time" value="">
+                </div>
+              </div>
+              <div style="display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap">
+                <button type="button" class="btn btn-ghost" onclick="goStep(1)">← Back</button>
+                <button type="button" class="btn btn-primary" onclick="goStep(3)">Next: Confirm →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Confirm -->
+          <div id="form-step-3" style="display:none">
+            <h3 class="t-h3 mb-2">Confirm Your Booking</h3>
+            <div class="card card-p" style="background:var(--surface2);margin-bottom:1.5rem">
+              <div class="t-label" style="margin-bottom:.75rem">Booking Summary</div>
+              <div id="summary-content" style="display:flex;flex-direction:column;gap:.5rem;font-size:13.5px;color:var(--muted)"></div>
+            </div>
+            <div class="form-field" style="margin-bottom:1.25rem">
+              <label class="form-label" for="message">Any Questions or Notes (Optional)</label>
+              <textarea class="form-input" id="message" name="message" placeholder="e.g. My child loves Lego and has basic coding knowledge..." rows="3"></textarea>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap">
+              <button type="button" class="btn btn-ghost" onclick="goStep(2)">← Back</button>
+              <button type="submit" class="btn btn-primary btn-lg">Confirm Free Demo Booking</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Success state -->
+        <div class="form-success" id="form-success">
+          <div style="font-size:2.5rem;margin-bottom:.75rem">🎉</div>
+          <h3 class="t-h3 t-green" style="margin-bottom:.5rem">Demo Booked Successfully!</h3>
+          <p class="t-small" style="max-width:38ch;margin:0 auto .75rem">We'll send a confirmation to your email within 2 hours. Our instructor will call you before the session.</p>
+          <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1rem">
+            <a href="curriculum.html" class="btn btn-outline-p">Explore Curriculum</a>
+            <a href="index.html" class="btn btn-ghost">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Mantra Bar ─────────────────────────────────────────────── -->
+<div class="mantra-bar">
+  <div class="mantra-inner">
+    <div class="mantra-line"></div>
+    <div class="mantra-text">
+      <span class="mantra-icon">◆</span>
+      <span class="mantra-quote">Learn it. Build it. <span class="mantra-highlight">Own the Future.</span></span>
+      <span class="mantra-icon">◆</span>
+    </div>
+    <div class="mantra-line"></div>
+  </div>
+  <div class="mantra-sub">Every expert was once a beginner who refused to give up.</div>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-main" style="grid-template-columns:1.4fr 1fr 1fr">
+      <div>
+        <div class="footer-brand-name">APEX ROBOTICS ACADEMY</div>
+        <div class="footer-brand-tag">Learn · Build · Innovate</div>
+        <p class="footer-brand-desc">Empowering the next generation of engineers, innovators, and technology leaders through structured, project-based education.</p>
+        <div style="margin-top:1rem;font-size:13px;color:var(--muted)">apex.support.academy@gmail.com</div>
+        <div style="font-size:13px;color:var(--muted)">+91 88072 00577</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:.35rem">Chennai &amp; Erode, Tamil Nadu</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Academy</div>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="curriculum.html">Curriculum</a>
+          <a href="projects.html">Projects</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <div class="footer-links">
+          <a href="contact.html">Contact Us</a>
+          <a href="book-demo.html">Book Demo</a>
+          <a href="enroll.html">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 APEX Robotics Academy. All rights reserved. | Chennai &amp; Erode, Tamil Nadu</span>
+      <div class="footer-bottom-links">
+        <a href="contact.html">Privacy Policy</a>
+        <a href="contact.html">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="webgl.js"></script>
+<script src="nav.js"></script>
+<script>
+var currentStep = 1;
+var selectedTime = '';
+
+/* Set min date to today */
+(function(){ var d = new Date(); d.setDate(d.getDate()+1); document.getElementById('pref-date').min = d.toISOString().split('T')[0]; })();
+
+function selectTime(el) {
+  if (el.classList.contains('unavailable')) return;
+  document.querySelectorAll('.time-slot').forEach(function(s){ s.classList.remove('selected'); });
+  el.classList.add('selected');
+  selectedTime = el.dataset.time;
+  document.getElementById('pref-time').value = selectedTime;
+}
+
+function validate1() {
+  var ok = true;
+  [['student-name','f-sname'],['parent-name','f-pname'],['phone','f-phone'],['email','f-email']].forEach(function(p){
+    var el = document.getElementById(p[0]), field = document.getElementById(p[1]);
+    var bad = !el.value.trim() || (p[0]==='email' && !/\S+@\S+\.\S+/.test(el.value)) || (p[0]==='phone' && !/^[\d\s\+\-]{7,}$/.test(el.value));
+    field.classList.toggle('has-error', bad);
+    if (bad) ok = false;
+  });
+  return ok;
+}
+
+function validate2() {
+  var d = document.getElementById('pref-date');
+  var ok = !!d.value;
+  document.getElementById('f-date').classList.toggle('has-error', !ok);
+  return ok;
+}
+
+function goStep(n) {
+  if (n === 2 && !validate1()) return;
+  if (n === 3 && !validate2()) return;
+  if (n === 3) buildSummary();
+  ['form-step-1','form-step-2','form-step-3'].forEach(function(id,i){ document.getElementById(id).style.display = (i+1===n)?'block':'none'; });
+  ['step-1','step-2','step-3'].forEach(function(id,i){
+    var el = document.getElementById(id);
+    el.classList.toggle('active', i+1===n);
+    el.classList.toggle('done', i+1<n);
+  });
+  currentStep = n;
+}
+
+function buildSummary() {
+  var html = [
+    ['Student', document.getElementById('student-name').value],
+    ['Parent', document.getElementById('parent-name').value],
+    ['Phone', document.getElementById('phone').value],
+    ['Email', document.getElementById('email').value],
+    ['Date', document.getElementById('pref-date').value],
+    ['Time', selectedTime || 'Not selected']
+  ].map(function(r){ return '<div class="flex justify-between"><span>'+r[0]+'</span><span style="color:var(--text);font-weight:500">'+r[1]+'</span></div>'; }).join('');
+  document.getElementById('summary-content').innerHTML = html;
+}
+
+document.getElementById('demo-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('demo-form').style.display = 'none';
+  document.querySelectorAll('.steps-row').forEach(function(el){ el.style.display='none'; });
+  var s = document.getElementById('form-success');
+  s.style.display = 'block';
+  s.classList.add('show');
+});
+</script>
+<script src="transitions.js"></script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enroll Now – APEX Robotics Academy</title>
+<meta name="description" content="Enroll your child in APEX Robotics Academy. Choose from 10 progressive levels in Robotics, AI, Electronics, and IoT education.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.enroll-wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:3rem;align-items:start;max-width:1060px;margin:0 auto}
+.enroll-sidebar{position:sticky;top:calc(var(--nav-h) + 2rem)}
+.course-select{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.5rem}
+.course-opt{padding:.75rem;border:1px solid var(--border);border-radius:var(--r-ctrl);cursor:pointer;transition:all .18s;background:var(--surface2)}
+.course-opt:hover,.course-opt.selected{border-color:var(--primary);background:var(--pdim)}
+.course-opt-num{font-family:var(--mono);font-size:18px;font-weight:700;line-height:1;margin-bottom:.2rem}
+.course-opt-name{font-size:11.5px;font-weight:500;color:var(--text);margin-bottom:.1rem}
+.course-opt-age{font-family:var(--mono);font-size:9.5px;color:var(--muted);letter-spacing:.1em}
+.benefit-row{display:flex;align-items:center;gap:.75rem;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.benefit-row:last-child{border-bottom:none}
+.benefit-icon{width:32px;height:32px;border-radius:var(--r-ctrl);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+@media(max-width:860px){.enroll-wrap{grid-template-columns:1fr}.enroll-sidebar{position:static}.course-select{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.course-select{grid-template-columns:repeat(2,1fr)}}
+</style>
+
+<style id="mantra-style">
+.mantra-bar{position:relative;z-index:1;padding:3rem 2rem;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(16,185,129,.03);overflow:hidden}
+.mantra-bar::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(16,185,129,.06),transparent 70%);pointer-events:none}
+.mantra-inner{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-bottom:.75rem;flex-wrap:wrap;position:relative;z-index:1}
+.mantra-line{flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,.35),transparent)}
+.mantra-text{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;justify-content:center}
+.mantra-icon{color:var(--primary);font-size:10px;opacity:.6}
+.mantra-quote{font-size:clamp(18px,3vw,26px);font-weight:600;color:var(--text);letter-spacing:-.02em;line-height:1.2}
+.mantra-highlight{color:var(--primary)}
+.mantra-sub{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);position:relative;z-index:1}
+@media(max-width:480px){.mantra-line{display:none}.mantra-bar{padding:2.25rem 1.25rem}}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<section class="page-hero" style="padding-bottom:3rem">
+  <div class="page-hero-inner">
+    <span class="t-eyebrow">Join APEX Academy</span>
+    <h1 class="t-h2" style="margin:.65rem 0 1rem"><span class="t-green">Enroll</span> Your Child Today</h1>
+    <p class="t-body">Start your child's journey into robotics and AI. Choose their level, preferred batch, and we'll take care of the rest.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="enroll-wrap">
+
+      <!-- Sidebar -->
+      <div class="enroll-sidebar">
+        <div class="card card-p" style="margin-bottom:1rem">
+          <span class="t-eyebrow" style="margin-bottom:1rem;display:block">Why APEX?</span>
+          <div class="benefit-row">
+            <div class="benefit-icon" style="background:var(--pdim)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <span class="t-small t-white">10 progressive structured levels</span>
+          </div>
+          <div class="benefit-row">
+            <div class="benefit-icon" style="background:var(--sdim)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <span class="t-small t-white">Real capstone projects each level</span>
+          </div>
+          <div class="benefit-row">
+            <div class="benefit-icon" style="background:var(--pdim)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <span class="t-small t-white">Expert certified instructors</span>
+          </div>
+          <div class="benefit-row">
+            <div class="benefit-icon" style="background:var(--sdim)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <span class="t-small t-white">Small batch sizes for personal attention</span>
+          </div>
+          <div class="benefit-row">
+            <div class="benefit-icon" style="background:var(--pdim)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <span class="t-small t-white">Kits and materials included</span>
+          </div>
+          <div class="benefit-row">
+            <div class="benefit-icon" style="background:var(--sdim)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <span class="t-small t-white">Progress tracking &amp; parent reports</span>
+          </div>
+        </div>
+        <div class="card card-p" style="text-align:center">
+          <div class="t-label" style="margin-bottom:.5rem">Have Questions?</div>
+          <p class="t-small" style="margin-bottom:1rem">Our team is happy to help you choose the right level for your child.</p>
+          <a href="book-demo.html" class="btn btn-outline-p btn-full" style="justify-content:center;margin-bottom:.5rem">Book a Free Demo First</a>
+          <a href="contact.html" class="btn btn-ghost btn-full" style="justify-content:center">Talk to Us</a>
+        </div>
+      </div>
+
+      <!-- Enrollment form -->
+      <div class="card" style="padding:2.5rem">
+        <h3 class="t-h3" style="margin-bottom:1.75rem">Enrollment Application</h3>
+
+        <form id="enroll-form" novalidate="">
+          <div style="display:flex;flex-direction:column;gap:1.25rem">
+
+            <div class="form-grid">
+              <div class="form-field" id="f-sn">
+                <label class="form-label" for="sname">Student Name <span style="color:#f87171">*</span></label>
+                <input class="form-input" type="text" id="sname" name="student_name" placeholder="Child's full name" autocomplete="given-name">
+                <span class="form-err">Required</span>
+              </div>
+              <div class="form-field" id="f-pn">
+                <label class="form-label" for="pname">Parent / Guardian <span style="color:#f87171">*</span></label>
+                <input class="form-input" type="text" id="pname" name="parent_name" placeholder="Your full name" autocomplete="name">
+                <span class="form-err">Required</span>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field" id="f-age">
+                <label class="form-label" for="age">Student Age <span style="color:#f87171">*</span></label>
+                <select class="form-input" id="age" name="age">
+                  <option value="">Select age</option>
+                  <option>6 years</option><option>7 years</option><option>8 years</option>
+                  <option>9 years</option><option>10 years</option><option>11 years</option>
+                  <option>12 years</option><option>13 years</option><option>14 years</option>
+                  <option>15 years</option><option>16 years</option>
+                </select>
+                <span class="form-err">Required</span>
+              </div>
+              <div class="form-field" id="f-grade">
+                <label class="form-label" for="grade">Current Grade <span style="color:#f87171">*</span></label>
+                <select class="form-input" id="grade" name="grade">
+                  <option value="">Select grade</option>
+                  <option>Grade 1</option><option>Grade 2</option><option>Grade 3</option>
+                  <option>Grade 4</option><option>Grade 5</option><option>Grade 6</option>
+                  <option>Grade 7</option><option>Grade 8</option><option>Grade 9</option>
+                  <option>Grade 10</option><option>Grade 11</option><option>Grade 12</option>
+                </select>
+                <span class="form-err">Required</span>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field" id="f-ph">
+                <label class="form-label" for="ph">Phone Number <span style="color:#f87171">*</span></label>
+                <input class="form-input" type="tel" id="ph" name="phone" placeholder="+91 98765 43210" autocomplete="tel">
+                <span class="form-err">Enter a valid number</span>
+              </div>
+              <div class="form-field" id="f-em">
+                <label class="form-label" for="em">Email Address <span style="color:#f87171">*</span></label>
+                <input class="form-input" type="email" id="em" name="email" placeholder="you@example.com" autocomplete="email">
+                <span class="form-err">Enter a valid email</span>
+              </div>
+            </div>
+
+            <!-- Course selection -->
+            <div class="form-field" id="f-course">
+              <label class="form-label">Course / Level <span style="color:#f87171">*</span></label>
+              <input type="hidden" id="course-val" name="course" value="">
+              <div class="course-select" id="course-grid">
+                <div class="course-opt" onclick="pickCourse(this,'Level 1 – Little Inventor')"><div class="course-opt-num t-green">01</div><div class="course-opt-name">Little Inventor</div><div class="course-opt-age">AGES 6–8</div></div>
+                <div class="course-opt" onclick="pickCourse(this,'Level 2 – Junior Maker')"><div class="course-opt-num t-blue">02</div><div class="course-opt-name">Junior Maker</div><div class="course-opt-age">AGES 7–9</div></div>
+                <div class="course-opt" onclick="pickCourse(this,'Level 3 – Electronics Explorer')"><div class="course-opt-num t-green">03</div><div class="course-opt-name">Electronics Explorer</div><div class="course-opt-age">AGES 8–10</div></div>
+                <div class="course-opt" onclick="pickCourse(this,'Level 4 – Coding Explorer')"><div class="course-opt-num t-blue">04</div><div class="course-opt-name">Coding Explorer</div><div class="course-opt-age">AGES 9–11</div></div>
+                <div class="course-opt" onclick="pickCourse(this,'Level 5 – Sensor Master')"><div class="course-opt-num t-green">05</div><div class="course-opt-name">Sensor Master</div><div class="course-opt-age">AGES 10–12</div></div>
+                <div class="course-opt" onclick="pickCourse(this,'Level 6 – Robot Builder')"><div class="course-opt-num t-blue">06</div><div class="course-opt-name">Robot Builder</div><div class="course-opt-age">AGES 10–12</div></div>
+                <div class="course-opt" onclick="pickCourse(this,'Level 7 – Autonomous Robotics')"><div class="course-opt-num t-green">07</div><div class="course-opt-name">Autonomous Robotics</div><div class="course-opt-age">AGES 11–13</div></div>
+                <div class="course-opt" onclick="pickCourse(this,'Level 8 – IoT Explorer')"><div class="course-opt-num t-blue">08</div><div class="course-opt-name">IoT Explorer</div><div class="course-opt-age">AGES 12–14</div></div>
+                <div class="course-opt" onclick="pickCourse(this,'Level 9 – AI Explorer')"><div class="course-opt-num t-green">09</div><div class="course-opt-name">AI Explorer</div><div class="course-opt-age">AGES 13–15</div></div>
+                <div class="course-opt" onclick="pickCourse(this,'Level 10 – AI Robotics Master')"><div class="course-opt-num t-blue">10</div><div class="course-opt-name">AI Robotics Master</div><div class="course-opt-age">AGES 14–16</div></div>
+              </div>
+              <span class="form-err" id="course-err" style="display:none">Please select a course level</span>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field" id="f-batch">
+                <label class="form-label" for="batch">Preferred Batch <span style="color:#f87171">*</span></label>
+                <select class="form-input" id="batch" name="batch">
+                  <option value="">Select batch timing</option>
+                  <option>Weekday Morning (9 AM – 11 AM)</option>
+                  <option>Weekday Evening (4 PM – 6 PM)</option>
+                  <option>Weekend Morning (9 AM – 1 PM)</option>
+                  <option>Weekend Afternoon (2 PM – 6 PM)</option>
+                  <option>Online – Flexible Timing</option>
+                </select>
+                <span class="form-err">Required</span>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="prior">Prior Experience</label>
+                <select class="form-input" id="prior" name="prior_experience">
+                  <option value="">Select experience level</option>
+                  <option>No prior experience</option>
+                  <option>Basic computer skills</option>
+                  <option>Tried coding (Scratch/Python)</option>
+                  <option>Built basic electronics</option>
+                  <option>Completed similar programs</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="enroll-msg">Additional Message (Optional)</label>
+              <textarea class="form-input" id="enroll-msg" name="message" placeholder="Tell us about your child's interests, goals, or any specific requirements..." rows="3"></textarea>
+            </div>
+
+            <div style="background:var(--surface2);border-radius:var(--r-ctrl);padding:1rem;font-size:13px;color:var(--muted)">
+              By submitting this form you agree to be contacted by an APEX Robotics Academy representative to complete your enrollment.
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-full">Submit Enrollment Application →</button>
+          </div>
+        </form>
+
+        <div class="form-success" id="enroll-success">
+          <div style="font-size:2.5rem;margin-bottom:.75rem">✅</div>
+          <h3 class="t-h3 t-green" style="margin-bottom:.5rem">Application Received!</h3>
+          <p class="t-small" style="max-width:40ch;margin:0 auto .75rem">Thank you! Our team will review your application and contact you within 24 hours to confirm enrollment details and payment.</p>
+          <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1rem">
+            <a href="curriculum.html" class="btn btn-outline-p">View Curriculum</a>
+            <a href="index.html" class="btn btn-ghost">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Mantra Bar ─────────────────────────────────────────────── -->
+<div class="mantra-bar">
+  <div class="mantra-inner">
+    <div class="mantra-line"></div>
+    <div class="mantra-text">
+      <span class="mantra-icon">◆</span>
+      <span class="mantra-quote">Learn it. Build it. <span class="mantra-highlight">Own the Future.</span></span>
+      <span class="mantra-icon">◆</span>
+    </div>
+    <div class="mantra-line"></div>
+  </div>
+  <div class="mantra-sub">Every expert was once a beginner who refused to give up.</div>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-main" style="grid-template-columns:1.4fr 1fr 1fr">
+      <div>
+        <div class="footer-brand-name">APEX ROBOTICS ACADEMY</div>
+        <div class="footer-brand-tag">Learn · Build · Innovate</div>
+        <p class="footer-brand-desc">Empowering the next generation of engineers, innovators, and technology leaders through structured, project-based education.</p>
+        <div style="margin-top:1rem;font-size:13px;color:var(--muted)">apex.support.academy@gmail.com</div>
+        <div style="font-size:13px;color:var(--muted)">+91 88072 00577</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:.35rem">Chennai &amp; Erode, Tamil Nadu</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Academy</div>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="curriculum.html">Curriculum</a>
+          <a href="projects.html">Projects</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <div class="footer-links">
+          <a href="contact.html">Contact Us</a>
+          <a href="book-demo.html">Book Demo</a>
+          <a href="enroll.html">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 APEX Robotics Academy. All rights reserved. | Chennai &amp; Erode, Tamil Nadu</span>
+      <div class="footer-bottom-links">
+        <a href="contact.html">Privacy Policy</a>
+        <a href="contact.html">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="webgl.js"></script>
+<script src="nav.js"></script>
+<script>
+function pickCourse(el, val) {
+  document.querySelectorAll('.course-opt').forEach(function(o){ o.classList.remove('selected'); });
+  el.classList.add('selected');
+  document.getElementById('course-val').value = val;
+  document.getElementById('course-err').style.display = 'none';
+}
+
+document.getElementById('enroll-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var ok = true;
+  [['sname','f-sn'],['pname','f-pn'],['age','f-age'],['grade','f-grade'],
+   ['ph','f-ph'],['em','f-em'],['batch','f-batch']].forEach(function(p){
+    var el = document.getElementById(p[0]), field = document.getElementById(p[1]);
+    var bad = !el.value.trim() || (p[0]==='em' && !/\S+@\S+\.\S+/.test(el.value));
+    field.classList.toggle('has-error', bad);
+    if (bad) ok = false;
+  });
+  if (!document.getElementById('course-val').value) {
+    document.getElementById('course-err').style.display = 'block';
+    ok = false;
+  }
+  if (!ok) return;
+  document.getElementById('enroll-form').style.display = 'none';
+  var s = document.getElementById('enroll-success');
+  s.style.display = 'block';
+  s.classList.add('show');
+});
+</script>
+<script src="transitions.js"></script>
+</body>
+</html>
