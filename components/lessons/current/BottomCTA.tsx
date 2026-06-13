@@ -39,17 +39,16 @@ export default function BottomCTA() {
           </div>
 
           <div className="px-5 pb-5">
-            <Link
-              href="#"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm border border-secondary/30 text-secondary hover:border-secondary/55 transition-all"
-              style={{ background: "rgba(14,165,233,0.08)" }}
+            <div
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm border cursor-not-allowed select-none"
+              style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.25)" }}
             >
               Coming Soon
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <rect x="1" y="5" width="12" height="9" rx="2" stroke="currentColor" strokeWidth="1.4" />
                 <path d="M4.5 5V3.5a2.5 2.5 0 0 1 5 0V5" stroke="currentColor" strokeWidth="1.4" />
               </svg>
-            </Link>
+            </div>
           </div>
         </div>
 

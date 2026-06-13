@@ -12,10 +12,10 @@
       <li><a href="about.html">About</a></li>
       <li><a href="curriculum.html">Curriculum</a></li>
       <li style="position:relative">
-        <a href="/lessons/voltage" style="display:flex;align-items:center;gap:.35rem;color:#10B981;font-weight:600">
-          <span style="font-size:11px">⚡</span>
+        <a href="/lessons/voltage" style="display:inline-flex;align-items:center;gap:.4rem;color:#10B981;font-weight:700;font-size:13.5px;padding:.45rem .9rem;border-radius:999px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.28);letter-spacing:.01em;transition:background .18s,border-color .18s" onmouseover="this.style.background='rgba(16,185,129,.18)';this.style.borderColor='rgba(16,185,129,.45)'" onmouseout="this.style.background='rgba(16,185,129,.1)';this.style.borderColor='rgba(16,185,129,.28)'">
+          <span style="font-size:13px">⚡</span>
           Lessons
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" style="opacity:.6;transition:transform .2s" class="lessons-chevron">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" style="opacity:.7;transition:transform .2s" class="lessons-chevron">
             <path d="M2.5 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
