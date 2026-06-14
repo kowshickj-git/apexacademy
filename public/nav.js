@@ -184,5 +184,16 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && mobile && mobile.classList.contains('open')) toggleMenu(false);
     });
+
+    /* ── Back gesture → home (all non-home static pages) ── */
+    const isHome = location.pathname === '/' || location.pathname.endsWith('index.html');
+    const isLesson = location.pathname.startsWith('/lessons/');
+    if (!isHome && !isLesson) {
+      window.history.pushState(null, '');
+      window.addEventListener('popstate', function(e) {
+        e.stopImmediatePropagation();
+        window.location.replace('index.html');
+      }, { capture: true });
+    }
   });
 })();
