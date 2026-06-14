@@ -116,30 +116,25 @@ export default function ResistanceComplete({ xp, onClose }: Props) {
           </div>
         </div>
 
-        <div
-          className="flex items-center gap-2 justify-center px-3 py-2 rounded-full border border-secondary/25 mb-5"
-          style={{ background: "rgba(14,165,233,0.08)" }}
-        >
-          <svg width="12" height="14" viewBox="0 0 12 14" fill="none">
-            <rect x="1" y="6" width="10" height="8" rx="2" stroke="#0EA5E9" strokeWidth="1.4" />
-            <path d="M3.5 6V4.5a2.5 2.5 0 0 1 5 0V6" stroke="#0EA5E9" strokeWidth="1.4" />
-          </svg>
-          <span className="text-xs text-secondary font-semibold">Lesson 4: Resistors — Coming Soon!</span>
-        </div>
-
-        <div className="flex gap-2">
+        <div className="flex flex-col gap-2">
+          <Link
+            href="/electronics/resistors"
+            className="w-full py-2.5 rounded-xl text-sm font-bold text-background bg-primary hover:opacity-90 transition-opacity text-center"
+          >
+            Continue to Resistors →
+          </Link>
           <button
             onClick={onClose}
-            className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-white/10 text-white/55 hover:border-white/20 hover:text-white/75 transition-all"
+            className="w-full py-2.5 rounded-xl text-sm font-semibold border border-white/10 text-white/55 hover:border-white/20 hover:text-white/75 transition-all"
             style={{ background: "rgba(255,255,255,0.04)" }}
           >
             Stay here
           </button>
           <Link
             href="/index.html"
-            className="flex-1 py-2.5 rounded-xl text-sm font-bold text-background bg-primary hover:opacity-90 transition-opacity text-center"
+            className="block py-1.5 text-xs text-center text-white/25 hover:text-white/45 transition-colors"
           >
-            Back to Home →
+            Back to Home
           </Link>
         </div>
       </motion.div>

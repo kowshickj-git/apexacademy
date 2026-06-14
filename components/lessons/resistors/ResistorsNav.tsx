@@ -6,17 +6,15 @@ import Link from "next/link";
 
 interface Milestones {
   lessonRead: boolean;
+  visualsViewed: boolean;
   simsUsed: boolean;
   quizPassed: boolean;
   lessonFinished: boolean;
 }
 
-interface ResistanceNavProps {
-  xp: number;
-  milestones: Milestones;
-}
+interface Props { xp: number; milestones: Milestones; }
 
-export default function ResistanceNav({ xp, milestones }: ResistanceNavProps) {
+export default function ResistorsNav({ xp, milestones }: Props) {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -28,12 +26,15 @@ export default function ResistanceNav({ xp, milestones }: ResistanceNavProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const milestoneList = [milestones.lessonRead, milestones.visualsViewed, milestones.simsUsed, milestones.quizPassed];
+  const completedCount = milestoneList.filter(Boolean).length;
+
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 border-b border-white/5"
-      style={{ background: "rgba(5,5,7,0.88)", backdropFilter: "blur(12px)" }}
+      style={{ background: "rgba(5,5,7,0.9)", backdropFilter: "blur(12px)" }}
     >
-      <div className="max-w-5xl mx-auto px-4 h-14 flex items-center gap-3">
+      <div className="max-w-5xl mx-auto px-3 h-14 flex items-center gap-2">
         <Link href="/index.html" className="flex items-center gap-2 shrink-0">
           <svg width="22" height="22" viewBox="0 0 26 26" fill="none">
             <polygon points="13,2 24,22 2,22" fill="#10B981" />
@@ -45,30 +46,29 @@ export default function ResistanceNav({ xp, milestones }: ResistanceNavProps) {
 
         <span className="text-white/10 hidden sm:block">|</span>
 
-        <div className="hidden sm:flex items-center gap-1.5 text-xs min-w-0">
-          <span className="text-white/25 truncate">Electronics</span>
+        <div className="hidden md:flex items-center gap-1.5 text-xs">
+          <span className="text-white/25">Electronics</span>
           <span className="text-white/15">/</span>
-          <span className="text-primary font-medium truncate">Resistance</span>
+          <span className="text-secondary font-medium">Resistors</span>
         </div>
 
-        <span className="text-[10px] text-white/20 font-mono hidden md:block">L03 of 10</span>
+        <span className="text-[10px] text-white/20 font-mono hidden lg:block">L04 of 10</span>
 
         <div className="flex-1" />
 
-        <div className="hidden sm:flex items-center gap-1">
-          {["Read", "Sims", "Quiz"].map((label, i) => {
-            const done = [milestones.lessonRead, milestones.simsUsed, milestones.quizPassed][i];
-            return (
-              <div
-                key={label}
-                className="w-1.5 h-1.5 rounded-full transition-colors duration-500"
-                style={{ background: done ? "#10B981" : "rgba(255,255,255,0.1)" }}
-                title={label}
-              />
-            );
-          })}
+        {/* Milestone pips */}
+        <div className="hidden sm:flex items-center gap-1" title={`${completedCount}/4 milestones`}>
+          {["Read", "Visual", "Sim", "Quiz"].map((label, i) => (
+            <div
+              key={label}
+              className="w-1.5 h-1.5 rounded-full transition-colors duration-500"
+              style={{ background: milestoneList[i] ? "#10B981" : "rgba(255,255,255,0.1)" }}
+              title={label}
+            />
+          ))}
         </div>
 
+        {/* XP badge */}
         <div
           className="flex items-center gap-1.5 px-2.5 py-1 rounded-full border"
           style={{ background: "rgba(16,185,129,0.08)", borderColor: "rgba(16,185,129,0.22)" }}
@@ -79,36 +79,35 @@ export default function ResistanceNav({ xp, milestones }: ResistanceNavProps) {
           <span className="text-xs font-bold text-primary tabular-nums">{xp} XP</span>
         </div>
 
+        {/* Prev */}
         <Link
-          href="/lessons/current"
+          href="/electronics/resistance"
           className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border border-white/10 text-white/40 hover:border-white/20 hover:text-white/60 transition-all"
           style={{ background: "rgba(255,255,255,0.03)" }}
         >
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
             <path d="M8 2L4 6l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          Current
+          <span className="hidden sm:inline">Resistance</span>
         </Link>
 
-        <Link
-          href="/electronics/resistors"
-          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border transition-all"
-          style={{ background: "rgba(16,185,129,0.09)", borderColor: "rgba(16,185,129,0.22)", color: "#10B981" }}
+        {/* Next - coming soon */}
+        <div
+          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border cursor-not-allowed select-none"
+          style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.22)" }}
+          title="Lesson 5: Ohm's Law — Coming Soon"
         >
-          Resistors
+          <span className="hidden sm:inline">Ohm's Law</span>
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
             <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </Link>
+        </div>
       </div>
 
       <div className="h-[2px] bg-white/4">
         <motion.div
           className="h-full origin-left"
-          style={{
-            scaleX: scrollProgress / 100,
-            background: "linear-gradient(to right, #10B981, #F97316)",
-          }}
+          style={{ scaleX: scrollProgress / 100, background: "linear-gradient(to right, #0EA5E9, #10B981)" }}
         />
       </div>
     </header>

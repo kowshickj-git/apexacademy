@@ -89,12 +89,12 @@ export default function SummaryCard() {
           <p className="text-base font-bold text-white mb-1">Lesson Complete!</p>
           <p className="text-xs text-white/45 mb-4">You now understand what Resistance is. Ready for the next step?</p>
           <div className="flex flex-col items-center gap-2">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-secondary/25 text-xs text-secondary font-semibold"
-              style={{ background: "rgba(14,165,233,0.08)" }}
+            <Link
+              href="/electronics/resistors"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-primary/35 text-sm text-primary font-bold hover:bg-primary/10 transition-colors"
             >
-              🔓 Lesson 4: Resistors — Unlocked Soon
-            </div>
+              🔓 Continue to Resistors →
+            </Link>
             <Link
               href="/lessons/current"
               className="inline-flex items-center gap-1.5 text-xs text-white/35 hover:text-white/60 transition-colors mt-1"
