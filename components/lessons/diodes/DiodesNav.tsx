@@ -78,16 +78,16 @@ export default function DiodesNav({ xp, milestones, onMenuClick }: Props) {
           <span className="text-xs font-bold text-primary tabular-nums">{xp} XP</span>
         </div>
 
-        {/* Prev */}
+        {/* Prev — skip L06 Capacitors (not built), go back to L05 Ohm's Law */}
         <Link
-          href="/electronics/capacitors"
+          href="/electronics/ohms-law"
           className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border border-white/10 text-white/40 hover:border-white/20 hover:text-white/60 transition-all"
           style={{ background: "rgba(255,255,255,0.03)" }}
         >
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
             <path d="M8 2L4 6l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <span className="hidden sm:inline">Capacitors</span>
+          <span className="hidden sm:inline">Ohm&apos;s Law</span>
         </Link>
 
         {/* Next */}

@@ -3,16 +3,16 @@
 import Link from "next/link";
 
 const lessons = [
-  { num: "01", title: "Voltage",    href: "/lessons/voltage",         status: "done"   },
-  { num: "02", title: "Current",    href: "/lessons/current",         status: "done"   },
-  { num: "03", title: "Resistance", href: "/electronics/resistance",  status: "done"   },
-  { num: "04", title: "Resistors",  href: "/electronics/resistors",   status: "done"   },
-  { num: "05", title: "Ohm's Law",  href: "/electronics/ohms-law",    status: "active" },
-  { num: "06", title: "Capacitors", href: "#",                        status: "locked" },
-  { num: "07", title: "Diodes",     href: "#",                        status: "locked" },
-  { num: "08", title: "LEDs",       href: "#",                        status: "locked" },
-  { num: "09", title: "Breadboards",href: "#",                        status: "locked" },
-  { num: "10", title: "Multimeter", href: "#",                        status: "locked" },
+  { num: "01", title: "Voltage",    href: "/lessons/voltage",         status: "done"      },
+  { num: "02", title: "Current",    href: "/lessons/current",         status: "done"      },
+  { num: "03", title: "Resistance", href: "/electronics/resistance",  status: "done"      },
+  { num: "04", title: "Resistors",  href: "/electronics/resistors",   status: "done"      },
+  { num: "05", title: "Ohm's Law",  href: "/electronics/ohms-law",    status: "active"    },
+  { num: "06", title: "Capacitors", href: "#",                        status: "locked"    },
+  { num: "07", title: "Diodes",     href: "/electronics/diodes",      status: "available" },
+  { num: "08", title: "LEDs",       href: "/electronics/leds",        status: "available" },
+  { num: "09", title: "Breadboards",href: "#",                        status: "locked"    },
+  { num: "10", title: "Multimeter", href: "#",                        status: "locked"    },
 ];
 
 export default function LearningPath() {
@@ -41,6 +41,16 @@ export default function LearningPath() {
               </div>
               <span className="text-[11px] text-white/20">L{l.num} · {l.title}</span>
             </div>
+          );
+          if (l.status === "available") return (
+            <Link key={l.num} href={l.href} className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/4 transition-colors group">
+              <div className="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0 group-hover:border-white/35 transition-colors">
+                <svg width="7" height="7" viewBox="0 0 8 8" fill="none">
+                  <path d="M2 4h4M4.5 2l2 2-2 2" stroke="rgba(255,255,255,0.4)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <span className="text-[11px] text-white/38 group-hover:text-white/55 transition-colors">L{l.num} · {l.title}</span>
+            </Link>
           );
           if (l.status === "done") return (
             <Link key={l.num} href={l.href} className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/4 transition-colors">

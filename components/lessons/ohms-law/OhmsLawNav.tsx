@@ -91,17 +91,17 @@ export default function OhmsLawNav({ xp, milestones }: Props) {
           <span className="hidden sm:inline">Resistors</span>
         </Link>
 
-        {/* Next - coming soon */}
-        <div
-          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border cursor-not-allowed select-none"
-          style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.22)" }}
-          title="Lesson 6: Capacitors — Coming Soon"
+        {/* Next - Diodes (L07, skip L06 Capacitors which is coming soon) */}
+        <Link
+          href="/electronics/diodes"
+          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border border-white/10 text-white/40 hover:border-white/20 hover:text-white/60 transition-all"
+          style={{ background: "rgba(255,255,255,0.03)" }}
         >
-          <span className="hidden sm:inline">Capacitors</span>
+          <span className="hidden sm:inline">Diodes</span>
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
             <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </div>
+        </Link>
       </div>
 
       <div className="h-[2px] bg-white/4">
