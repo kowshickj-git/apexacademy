@@ -68,11 +68,12 @@ export default function SummaryCard() {
               Combine voltage, current, and resistance into the most important equation in electronics: V = I × R.
             </p>
           </div>
-          <div
-            className="px-3 py-1.5 rounded-full text-xs font-semibold shrink-0 border border-white/10 text-white/30 cursor-not-allowed"
+          <Link
+            href="/electronics/ohms-law"
+            className="px-3 py-1.5 rounded-full text-xs font-semibold shrink-0 border border-primary/35 text-primary hover:bg-primary/10 transition-colors"
           >
-            Coming Soon
-          </div>
+            Start →
+          </Link>
         </motion.div>
       </div>
     </section>

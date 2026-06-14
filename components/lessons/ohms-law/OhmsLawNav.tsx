@@ -6,15 +6,15 @@ import Link from "next/link";
 
 interface Milestones {
   lessonRead: boolean;
-  visualsViewed: boolean;
-  simsUsed: boolean;
+  simUsed: boolean;
+  practiceUsed: boolean;
   quizPassed: boolean;
   lessonFinished: boolean;
 }
 
 interface Props { xp: number; milestones: Milestones; }
 
-export default function ResistorsNav({ xp, milestones }: Props) {
+export default function OhmsLawNav({ xp, milestones }: Props) {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function ResistorsNav({ xp, milestones }: Props) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const milestoneList = [milestones.lessonRead, milestones.visualsViewed, milestones.simsUsed, milestones.quizPassed];
+  const milestoneList = [milestones.lessonRead, milestones.simUsed, milestones.practiceUsed, milestones.quizPassed];
   const completedCount = milestoneList.filter(Boolean).length;
 
   return (
@@ -49,16 +49,16 @@ export default function ResistorsNav({ xp, milestones }: Props) {
         <div className="hidden md:flex items-center gap-1.5 text-xs">
           <span className="text-white/25">Electronics</span>
           <span className="text-white/15">/</span>
-          <span className="text-secondary font-medium">Resistors</span>
+          <span className="font-medium" style={{ color: "#10B981" }}>Ohm&apos;s Law</span>
         </div>
 
-        <span className="text-[10px] text-white/20 font-mono hidden lg:block">L04 of 10</span>
+        <span className="text-[10px] text-white/20 font-mono hidden lg:block">L05 of 10</span>
 
         <div className="flex-1" />
 
         {/* Milestone pips */}
         <div className="hidden sm:flex items-center gap-1" title={`${completedCount}/4 milestones`}>
-          {["Read", "Visual", "Sim", "Quiz"].map((label, i) => (
+          {["Read", "Sim", "Practice", "Quiz"].map((label, i) => (
             <div
               key={label}
               className="w-1.5 h-1.5 rounded-full transition-colors duration-500"
@@ -81,32 +81,33 @@ export default function ResistorsNav({ xp, milestones }: Props) {
 
         {/* Prev */}
         <Link
-          href="/electronics/resistance"
+          href="/electronics/resistors"
           className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border border-white/10 text-white/40 hover:border-white/20 hover:text-white/60 transition-all"
           style={{ background: "rgba(255,255,255,0.03)" }}
         >
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
             <path d="M8 2L4 6l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <span className="hidden sm:inline">Resistance</span>
+          <span className="hidden sm:inline">Resistors</span>
         </Link>
 
-        <Link
-          href="/electronics/ohms-law"
-          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border transition-all"
-          style={{ background: "rgba(16,185,129,0.09)", borderColor: "rgba(16,185,129,0.22)", color: "#10B981" }}
+        {/* Next - coming soon */}
+        <div
+          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border cursor-not-allowed select-none"
+          style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.22)" }}
+          title="Lesson 6: Capacitors — Coming Soon"
         >
-          <span className="hidden sm:inline">Ohm&apos;s Law</span>
+          <span className="hidden sm:inline">Capacitors</span>
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
             <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </Link>
+        </div>
       </div>
 
       <div className="h-[2px] bg-white/4">
         <motion.div
           className="h-full origin-left"
-          style={{ scaleX: scrollProgress / 100, background: "linear-gradient(to right, #0EA5E9, #10B981)" }}
+          style={{ scaleX: scrollProgress / 100, background: "linear-gradient(to right, #10B981, #0EA5E9)" }}
         />
       </div>
     </header>
