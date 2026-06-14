@@ -74,6 +74,14 @@ export default function CurrentPage() {
     });
   }, [showXPPopup]);
 
+  // Intercept browser back gesture → go to voltage
+  useEffect(() => {
+    window.history.pushState(null, '');
+    const onPop = () => { window.location.replace('/lessons/voltage'); };
+    window.addEventListener('popstate', onPop, { capture: true });
+    return () => window.removeEventListener('popstate', onPop, { capture: true });
+  }, []);
+
   // Award lesson read XP when user scrolls to mid-page
   useEffect(() => {
     const el = readTriggerRef.current;

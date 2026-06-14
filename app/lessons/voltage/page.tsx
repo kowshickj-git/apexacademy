@@ -68,6 +68,14 @@ export default function VoltagePage() {
     });
   }, [showXPPopup]);
 
+  // Intercept browser back gesture → go to home
+  useEffect(() => {
+    window.history.pushState(null, '');
+    const onPop = () => { window.location.replace('/index.html'); };
+    window.addEventListener('popstate', onPop, { capture: true });
+    return () => window.removeEventListener('popstate', onPop, { capture: true });
+  }, []);
+
   // Award lesson-read XP on scroll
   useEffect(() => {
     const el = readTriggerRef.current;
