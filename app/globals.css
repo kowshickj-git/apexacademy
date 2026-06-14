@@ -117,6 +117,42 @@ input[type="range"]::-moz-range-thumb {
   100% { transform: translateY(-40px); opacity: 0; }
 }
 
+/* Runner moving across track */
+@keyframes run-figure {
+  0%   { left: -40px; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { left: calc(100% + 40px); opacity: 0; }
+}
+
+/* Water droplets through pipe */
+@keyframes water-drop {
+  0%   { left: -14px; opacity: 0; }
+  10%  { opacity: 0.85; }
+  90%  { opacity: 0.85; }
+  100% { left: calc(100% + 14px); opacity: 0; }
+}
+
+/* Atom vibration */
+@keyframes atom-vibrate {
+  0%, 100% { transform: translate(0, 0); }
+  25%       { transform: translate(1.5px, -1px); }
+  75%       { transform: translate(-1px, 1.5px); }
+}
+
+/* Orange/red slider thumb (resistance) */
+input[type="range"].slider-orange::-webkit-slider-thumb {
+  background: #F97316;
+  box-shadow: 0 0 0 2px #F97316, 0 0 12px rgba(249,115,22,0.5);
+}
+input[type="range"].slider-orange::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 2px #F97316, 0 0 20px rgba(249,115,22,0.7);
+}
+input[type="range"].slider-orange::-moz-range-thumb {
+  background: #F97316;
+  box-shadow: 0 0 0 2px #F97316, 0 0 12px rgba(249,115,22,0.5);
+}
+
 /* Secondary (blue) slider thumb */
 input[type="range"].slider-secondary::-webkit-slider-thumb {
   background: #0EA5E9;
