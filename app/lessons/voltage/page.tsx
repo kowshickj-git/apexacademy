@@ -71,7 +71,10 @@ export default function VoltagePage() {
   // Intercept browser back gesture → go to home
   useEffect(() => {
     window.history.pushState(null, '');
-    const onPop = () => { window.location.replace('/index.html'); };
+    const onPop = (e: PopStateEvent) => {
+      e.stopImmediatePropagation();
+      window.location.replace('/index.html');
+    };
     window.addEventListener('popstate', onPop, { capture: true });
     return () => window.removeEventListener('popstate', onPop, { capture: true });
   }, []);
