@@ -25,7 +25,9 @@ const lessons = [
   { id: "L07", title: "Diodes",       href: "/electronics/diodes",       done: true },
   { id: "L08", title: "LEDs",         href: "/electronics/leds",         done: true },
   { id: "L09", title: "Breadboards",  href: "/electronics/breadboards",  active: true },
-  { id: "L10", title: "Multimeter",   href: "/electronics/multimeter",   available: true },
+  { id: "L10", title: "Multimeter",        href: "/electronics/multimeter",        available: true },
+  { id: "L11", title: "Series Circuits",   href: "/electronics/series-circuits",   available: true },
+  { id: "L12", title: "Parallel Circuits", href: "/electronics/parallel-circuits", available: true },
 ];
 
 export default function LearningPath({ milestones }: Props) {
@@ -37,12 +39,12 @@ export default function LearningPath({ milestones }: Props) {
       <div className="mb-4">
         <div className="flex justify-between text-xs text-white/40 mb-1.5">
           <span>Course progress</span>
-          <span>9/10 lessons</span>
+          <span>9/12 lessons</span>
         </div>
         <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
           <div
             className="h-full rounded-full transition-all duration-700"
-            style={{ width: "90%", background: "linear-gradient(to right, #14B8A6, #10B981)" }}
+            style={{ width: "75%", background: "linear-gradient(to right, #14B8A6, #10B981)" }}
           />
         </div>
         <div className="flex justify-between text-xs text-white/30 mt-1.5">
@@ -123,7 +125,7 @@ export default function LearningPath({ milestones }: Props) {
       </div>
 
       <div className="mt-4 pt-4 border-t border-white/5">
-        <p className="text-[10px] text-white/20 text-center">Electronics Fundamentals · 10 Lessons</p>
+        <p className="text-[10px] text-white/20 text-center">Electronics Fundamentals · 12 Lessons</p>
       </div>
     </div>
   );

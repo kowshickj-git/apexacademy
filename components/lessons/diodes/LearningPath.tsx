@@ -19,7 +19,9 @@ const lessons = [
   { id: "L07", title: "Diodes",      href: "/electronics/diodes",     active: true },
   { id: "L08", title: "LEDs",        href: "/electronics/leds",       available: true },
   { id: "L09", title: "Breadboards", href: "/electronics/breadboards", available: true },
-  { id: "L10", title: "Multimeter",  href: "/electronics/multimeter",  available: true },
+  { id: "L10", title: "Multimeter",        href: "/electronics/multimeter",        available: true },
+  { id: "L11", title: "Series Circuits",   href: "/electronics/series-circuits",   available: true },
+  { id: "L12", title: "Parallel Circuits", href: "/electronics/parallel-circuits", available: true },
 ];
 
 interface Props { milestones: Milestones; }
@@ -99,7 +101,7 @@ export default function LearningPath({ milestones }: Props) {
       </div>
 
       <div className="mt-4 pt-4 border-t border-white/5">
-        <p className="text-[10px] text-white/20 text-center">Electronics Fundamentals · 10 Lessons</p>
+        <p className="text-[10px] text-white/20 text-center">Electronics Fundamentals · 12 Lessons</p>
       </div>
     </div>
   );

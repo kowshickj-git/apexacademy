@@ -12,7 +12,9 @@ const lessons = [
   { id: 7,  title: "Diodes",      subtitle: "One-Way Valves",      status: "available" as const, href: "/electronics/diodes"      },
   { id: 8,  title: "LEDs",        subtitle: "Light from Current",  status: "available" as const, href: "/electronics/leds"        },
   { id: 9,  title: "Breadboards", subtitle: "Building Circuits",   status: "available" as const, href: "/electronics/breadboards" },
-  { id: 10, title: "Multimeter",  subtitle: "Measuring Circuits",  status: "available" as const, href: "/electronics/multimeter"  },
+  { id: 10, title: "Multimeter",        subtitle: "Measuring Circuits",  status: "available" as const, href: "/electronics/multimeter"        },
+  { id: 11, title: "Series Circuits",   subtitle: "One Path",            status: "available" as const, href: "/electronics/series-circuits"   },
+  { id: 12, title: "Parallel Circuits", subtitle: "Multiple Paths",      status: "available" as const, href: "/electronics/parallel-circuits" },
 ];
 
 function StatusIcon({ status }: { status: "done" | "active" | "locked" | "available" }) {
@@ -112,7 +114,7 @@ export default function LearningPath() {
       <div className="mt-5 px-2 py-3 bg-surface rounded-xl border border-white/5">
         <div className="flex justify-between text-[10px] text-white/30 mb-2">
           <span>Progress</span>
-          <span>2 / 10</span>
+          <span>2 / 12</span>
         </div>
         <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
           <div className="h-full w-[20%] bg-gradient-to-r from-primary to-secondary rounded-full" />

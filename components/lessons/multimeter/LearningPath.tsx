@@ -23,6 +23,8 @@ const lessons = [
   { id: "L08", title: "LEDs", href: "/electronics/leds", done: true },
   { id: "L09", title: "Breadboards", href: "/electronics/breadboards", done: true },
   { id: "L10", title: "Multimeter", href: "/electronics/multimeter", active: true },
+  { id: "L11", title: "Series Circuits", href: "/electronics/series-circuits", available: true },
+  { id: "L12", title: "Parallel Circuits", href: "/electronics/parallel-circuits", available: true },
 ] as const;
 
 interface Props {
@@ -51,16 +53,16 @@ export default function LearningPath({ milestones }: Props) {
         </div>
       </div>
 
-      {/* Course progress: 10/10 = 100% */}
+      {/* Course progress: 10/12 = 83% */}
       <div className="mb-3">
         <div className="flex justify-between text-[10px] text-white/25 mb-1">
           <span>Course Progress</span>
-          <span>10/10</span>
+          <span>10/12</span>
         </div>
         <div className="h-1 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.04)" }}>
           <div
             className="h-full rounded-full"
-            style={{ width: "100%", background: "linear-gradient(to right, #8B5CF6, #10B981)" }}
+            style={{ width: "83%", background: "linear-gradient(to right, #8B5CF6, #10B981)" }}
           />
         </div>
       </div>
@@ -79,6 +81,20 @@ export default function LearningPath({ milestones }: Props) {
                   <path d="M4 5V3.5a2 2 0 014 0V5" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2" />
                 </svg>
               </div>
+            );
+          }
+
+          if ("available" in l && l.available) {
+            return (
+              <Link key={l.id} href={l.href} className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/4 transition-colors group">
+                <div className="w-6 h-6 rounded-lg border border-white/20 flex items-center justify-center text-[9px] font-mono text-white/35 group-hover:border-white/35 transition-colors">
+                  {l.id.slice(1)}
+                </div>
+                <span className="text-xs text-white/40 group-hover:text-white/60 transition-colors">{l.title}</span>
+                <svg className="ml-auto opacity-50" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                  <path d="M3 5h4M5 3l2 2-2 2" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
             );
           }
 
@@ -136,7 +152,7 @@ export default function LearningPath({ milestones }: Props) {
       </div>
 
       <div className="mt-4 pt-4 border-t border-white/5">
-        <p className="text-[10px] text-white/20 text-center">Electronics Fundamentals · 10 Lessons</p>
+        <p className="text-[10px] text-white/20 text-center">Electronics Fundamentals · 12 Lessons</p>
       </div>
     </div>
   );

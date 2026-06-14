@@ -67,7 +67,7 @@ export default function MultimeterNav({ xp, milestones, onMenuClick }: Props) {
           <span className="font-medium" style={{ color: "#A78BFA" }}>Multimeter</span>
         </div>
 
-        <span className="text-[10px] text-white/20 font-mono hidden lg:block">L10 of 10</span>
+        <span className="text-[10px] text-white/20 font-mono hidden lg:block">L10 of 12</span>
 
         <div className="flex-1" />
 
@@ -109,17 +109,17 @@ export default function MultimeterNav({ xp, milestones, onMenuClick }: Props) {
           <span className="hidden sm:inline">Breadboards</span>
         </Link>
 
-        {/* Next — Series Circuits (disabled / coming soon) */}
-        <div
-          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border border-white/6 text-white/20 cursor-not-allowed"
-          style={{ background: "rgba(255,255,255,0.02)" }}
-          title="Coming soon"
+        {/* Next — Series Circuits (active) */}
+        <Link
+          href="/electronics/series-circuits"
+          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border transition-all"
+          style={{ background: "rgba(249,115,22,0.08)", borderColor: "rgba(249,115,22,0.25)", color: "#F97316" }}
         >
           <span className="hidden sm:inline">Series Circuits</span>
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
             <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </div>
+        </Link>
 
         {/* Hamburger */}
         <button

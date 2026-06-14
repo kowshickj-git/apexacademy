@@ -12,7 +12,9 @@ const lessons = [
   { num: "07", title: "Diodes",     href: "/electronics/diodes",      status: "available" },
   { num: "08", title: "LEDs",       href: "/electronics/leds",        status: "available" },
   { num: "09", title: "Breadboards", href: "/electronics/breadboards",  status: "available" },
-  { num: "10", title: "Multimeter",  href: "/electronics/multimeter",   status: "available" },
+  { num: "10", title: "Multimeter",        href: "/electronics/multimeter",        status: "available" },
+  { num: "11", title: "Series Circuits",   href: "/electronics/series-circuits",   status: "available" },
+  { num: "12", title: "Parallel Circuits", href: "/electronics/parallel-circuits", status: "available" },
 ];
 
 export default function LearningPath() {
