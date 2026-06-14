@@ -117,6 +117,21 @@ input[type="range"]::-moz-range-thumb {
   100% { transform: translateY(-40px); opacity: 0; }
 }
 
+/* LED burn and die */
+@keyframes led-burn {
+  0%   { opacity: 0.3; }
+  20%  { opacity: 1; filter: brightness(3); }
+  50%  { opacity: 1; filter: brightness(5); }
+  75%  { opacity: 0.6; filter: brightness(2); }
+  100% { opacity: 0.05; filter: brightness(0.3); }
+}
+
+/* Heat pulse */
+@keyframes heat-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.08); }
+}
+
 /* Runner moving across track */
 @keyframes run-figure {
   0%   { left: -40px; opacity: 0; }
