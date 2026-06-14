@@ -18,8 +18,8 @@ const lessons = [
   { id: "L06", title: "Capacitors",  href: "#",                       locked: true },
   { id: "L07", title: "Diodes",      href: "/electronics/diodes",     active: true },
   { id: "L08", title: "LEDs",        href: "/electronics/leds",       available: true },
-  { id: "L09", title: "Breadboards", href: "#",                       locked: true },
-  { id: "L10", title: "Basic Circuits", href: "#",                    locked: true },
+  { id: "L09", title: "Breadboards", href: "/electronics/breadboards", available: true },
+  { id: "L10", title: "Multimeter",  href: "/electronics/multimeter",  available: true },
 ];
 
 interface Props { milestones: Milestones; }

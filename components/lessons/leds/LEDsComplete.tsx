@@ -131,16 +131,20 @@ export default function LEDsComplete({ xp, onClose }: Props) {
 
         {/* CTA */}
         <div className="px-6 py-5 space-y-3">
-          <div
-            className="flex items-center gap-3 p-4 rounded-2xl border border-white/8"
-            style={{ background: "rgba(255,255,255,0.03)" }}
+          <Link
+            href="/electronics/breadboards"
+            className="flex items-center gap-3 p-4 rounded-2xl border transition-all hover:opacity-90"
+            style={{ background: "rgba(20,184,166,0.08)", borderColor: "rgba(20,184,166,0.25)" }}
           >
             <span className="text-2xl">🧩</span>
-            <div className="text-left">
-              <p className="text-xs font-bold text-white/60">Next: Lesson 09</p>
-              <p className="text-sm font-bold text-white/80">Breadboards — Coming Soon</p>
+            <div className="text-left flex-1">
+              <p className="text-xs font-bold" style={{ color: "#14B8A6" }}>Next: Lesson 09</p>
+              <p className="text-sm font-bold text-white/80">Breadboards — LIVE ⚡</p>
             </div>
-          </div>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3l5 5-5 5" stroke="#14B8A6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
           <button
             onClick={onClose}
             className="block w-full py-2.5 rounded-2xl font-semibold text-sm border border-white/10 text-white/40 hover:bg-white/4 transition-colors"

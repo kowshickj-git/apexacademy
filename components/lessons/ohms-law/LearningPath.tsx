@@ -11,8 +11,8 @@ const lessons = [
   { num: "06", title: "Capacitors", href: "#",                        status: "locked"    },
   { num: "07", title: "Diodes",     href: "/electronics/diodes",      status: "available" },
   { num: "08", title: "LEDs",       href: "/electronics/leds",        status: "available" },
-  { num: "09", title: "Breadboards",href: "#",                        status: "locked"    },
-  { num: "10", title: "Multimeter", href: "#",                        status: "locked"    },
+  { num: "09", title: "Breadboards", href: "/electronics/breadboards",  status: "available" },
+  { num: "10", title: "Multimeter",  href: "/electronics/multimeter",   status: "available" },
 ];
 
 export default function LearningPath() {

@@ -92,16 +92,17 @@ export default function LEDsNav({ xp, milestones, onMenuClick }: Props) {
           <span className="hidden sm:inline">Diodes</span>
         </Link>
 
-        {/* Next — disabled (breadboards not built) */}
-        <div
-          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border border-white/6 text-white/20 cursor-not-allowed"
-          style={{ background: "rgba(255,255,255,0.02)" }}
+        {/* Next — Breadboards (L09) */}
+        <Link
+          href="/electronics/breadboards"
+          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full border transition-all"
+          style={{ background: "rgba(20,184,166,0.09)", borderColor: "rgba(20,184,166,0.25)", color: "#14B8A6" }}
         >
           <span className="hidden sm:inline">Breadboards</span>
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
             <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </div>
+        </Link>
 
         <button onClick={onMenuClick} className="ml-1 text-white/30 hover:text-white/60 transition-colors p-1">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

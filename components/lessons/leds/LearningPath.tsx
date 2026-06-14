@@ -12,16 +12,16 @@ interface Milestones {
 }
 
 const lessons = [
-  { id: "L01", title: "Voltage", href: "/electronics/voltage", done: true },
-  { id: "L02", title: "Current", href: "/electronics/current", done: true },
-  { id: "L03", title: "Resistance", href: "/electronics/resistance", done: true },
-  { id: "L04", title: "Resistors", href: "/electronics/resistors", done: true },
-  { id: "L05", title: "Ohm's Law", href: "/electronics/ohms-law", done: true },
-  { id: "L06", title: "Capacitors", href: "/electronics/capacitors", done: true },
-  { id: "L07", title: "Diodes", href: "/electronics/diodes", done: true },
-  { id: "L08", title: "LEDs", href: "/electronics/leds", active: true },
-  { id: "L09", title: "Breadboards", href: "#", locked: true },
-  { id: "L10", title: "Basic Circuits", href: "#", locked: true },
+  { id: "L01", title: "Voltage",     href: "/lessons/voltage",           done: true      },
+  { id: "L02", title: "Current",     href: "/lessons/current",           done: true      },
+  { id: "L03", title: "Resistance",  href: "/electronics/resistance",    done: true      },
+  { id: "L04", title: "Resistors",   href: "/electronics/resistors",     done: true      },
+  { id: "L05", title: "Ohm's Law",   href: "/electronics/ohms-law",      done: true      },
+  { id: "L06", title: "Capacitors",  href: "#",                          locked: true    },
+  { id: "L07", title: "Diodes",      href: "/electronics/diodes",        done: true      },
+  { id: "L08", title: "LEDs",        href: "/electronics/leds",          active: true    },
+  { id: "L09", title: "Breadboards", href: "/electronics/breadboards",   available: true },
+  { id: "L10", title: "Multimeter",  href: "/electronics/multimeter",    available: true },
 ];
 
 interface Props { milestones: Milestones; }
@@ -57,6 +57,14 @@ export default function LearningPath({ milestones }: Props) {
                   <path d="M4 5V3.5a2 2 0 014 0V5" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2" />
                 </svg>
               </div>
+            ) : l.available ? (
+              <Link href={l.href} className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/4 transition-colors group">
+                <div className="w-6 h-6 rounded-lg border border-white/20 flex items-center justify-center text-[9px] font-mono text-white/35 group-hover:border-white/35 transition-colors">{l.id.slice(1)}</div>
+                <span className="text-xs text-white/40 group-hover:text-white/60 transition-colors">{l.title}</span>
+                <svg className="ml-auto opacity-50" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                  <path d="M3 5h4M5 3l2 2-2 2" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
             ) : l.active ? (
               <div
                 className="flex items-center gap-3 px-3 py-2.5 rounded-xl border"

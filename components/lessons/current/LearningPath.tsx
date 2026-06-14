@@ -3,19 +3,19 @@
 import Link from "next/link";
 
 const lessons = [
-  { id: 1, title: "Voltage", subtitle: "Electric Pressure", status: "done" as const, href: "/lessons/voltage" },
-  { id: 2, title: "Current", subtitle: "Electron Flow", status: "active" as const, href: "/lessons/current" },
-  { id: 3, title: "Resistance", subtitle: "Opposition to Flow", status: "locked" as const },
-  { id: 4, title: "Ohm's Law", subtitle: "V = I × R", status: "locked" as const },
-  { id: 5, title: "Resistors", subtitle: "Controlling Current", status: "locked" as const },
-  { id: 6, title: "Capacitors", subtitle: "Storing Energy", status: "locked" as const },
-  { id: 7, title: "Diodes", subtitle: "One-Way Valves", status: "locked" as const },
-  { id: 8, title: "LEDs", subtitle: "Light from Current", status: "locked" as const },
-  { id: 9, title: "Breadboards", subtitle: "Building Circuits", status: "locked" as const },
-  { id: 10, title: "Multimeter", subtitle: "Measuring Circuits", status: "locked" as const },
+  { id: 1,  title: "Voltage",     subtitle: "Electric Pressure",   status: "done"      as const, href: "/lessons/voltage"          },
+  { id: 2,  title: "Current",     subtitle: "Electron Flow",       status: "active"    as const, href: "/lessons/current"          },
+  { id: 3,  title: "Resistance",  subtitle: "Opposition to Flow",  status: "available" as const, href: "/electronics/resistance"   },
+  { id: 4,  title: "Resistors",   subtitle: "Color Codes & Calc",  status: "available" as const, href: "/electronics/resistors"    },
+  { id: 5,  title: "Ohm's Law",   subtitle: "V = I × R",          status: "available" as const, href: "/electronics/ohms-law"     },
+  { id: 6,  title: "Capacitors",  subtitle: "Storing Energy",      status: "locked"    as const                                   },
+  { id: 7,  title: "Diodes",      subtitle: "One-Way Valves",      status: "available" as const, href: "/electronics/diodes"      },
+  { id: 8,  title: "LEDs",        subtitle: "Light from Current",  status: "available" as const, href: "/electronics/leds"        },
+  { id: 9,  title: "Breadboards", subtitle: "Building Circuits",   status: "available" as const, href: "/electronics/breadboards" },
+  { id: 10, title: "Multimeter",  subtitle: "Measuring Circuits",  status: "available" as const, href: "/electronics/multimeter"  },
 ];
 
-function StatusIcon({ status }: { status: "done" | "active" | "locked" }) {
+function StatusIcon({ status }: { status: "done" | "active" | "locked" | "available" }) {
   if (status === "done") {
     return (
       <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center shrink-0">
@@ -29,6 +29,15 @@ function StatusIcon({ status }: { status: "done" | "active" | "locked" }) {
     return (
       <div className="w-5 h-5 rounded-full border-2 border-secondary flex items-center justify-center shrink-0" style={{ background: "rgba(14,165,233,0.12)" }}>
         <div className="w-2 h-2 rounded-full bg-secondary" />
+      </div>
+    );
+  }
+  if (status === "available") {
+    return (
+      <div className="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center shrink-0" style={{ background: "rgba(255,255,255,0.03)" }}>
+        <svg width="7" height="7" viewBox="0 0 8 8" fill="none">
+          <path d="M2 4h4M4.5 2l2 2-2 2" stroke="rgba(255,255,255,0.4)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
       </div>
     );
   }
@@ -60,7 +69,7 @@ export default function LearningPath() {
               <div className={`flex items-center gap-3 px-2 py-2.5 rounded-xl transition-colors relative z-10 ${
                 lesson.status === "active"
                   ? "bg-secondary/8 border border-secondary/20"
-                  : lesson.status === "done"
+                  : lesson.status === "done" || lesson.status === "available"
                   ? "hover:bg-white/3"
                   : "opacity-50 cursor-not-allowed"
               }`}>
@@ -71,6 +80,8 @@ export default function LearningPath() {
                       ? "text-secondary"
                       : lesson.status === "done"
                       ? "text-white/60"
+                      : lesson.status === "available"
+                      ? "text-white/38"
                       : "text-white/30"
                   }`}>
                     {lesson.title}
@@ -86,7 +97,7 @@ export default function LearningPath() {
 
             return (
               <div key={lesson.id}>
-                {lesson.status !== "locked" && lesson.href ? (
+                {(lesson.status === "done" || lesson.status === "available") && lesson.href ? (
                   <Link href={lesson.href}>{content}</Link>
                 ) : (
                   content
