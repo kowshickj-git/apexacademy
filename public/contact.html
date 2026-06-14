@@ -299,44 +299,61 @@
 <script src="nav.js"></script>
 <script src="transitions.js"></script>
 <script>
-// Initialize EmailJS with your public key
-emailjs.init('4-bUx2uTcfgxbVYTt');
+(function () {
+  emailjs.init('4-bUx2uTcfgxbVYTt');
 
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  var ok = true;
-  [['cname','cf-name'],['cemail','cf-email'],['cphone','cf-phone'],['cmsg','cf-msg']].forEach(function(p){
-    var el = document.getElementById(p[0]), field = document.getElementById(p[1]);
-    var bad = !el.value.trim() || (p[0]==='cemail' && !/\S+@\S+\.\S+/.test(el.value));
-    field.classList.toggle('has-error', bad);
-    if (bad) ok = false;
-  });
-  if (!ok) return;
-  
-  // Send email using EmailJS
-  var templateParams = {
-    to_email: 'kowshick2005j@gmail.com',
-    from_name: document.getElementById('cname').value,
-    from_email: document.getElementById('cemail').value,
-    phone: document.getElementById('cphone').value,
-    location: document.getElementById('location-pref').value || 'Not specified',
-    subject: document.getElementById('subject').value || 'General Inquiry',
-    message: document.getElementById('cmsg').value
-  };
-  
-  emailjs.send('1cMkXzfGFUGKcpWDmwZcs', 'template_7kdhk5n', templateParams)
-    .then(function(response) {
-      console.log('Email sent successfully!', response.status, response.text);
-      document.getElementById('contact-form').style.display = 'none';
-      var s = document.getElementById('contact-success');
-      s.style.display = 'block';
-      s.classList.add('show');
-    }, function(error) {
-      console.error('Failed to send email:', error);
-      alert('Failed to send message. Please try again.');
+  var lastSubmit = 0;
+  var COOLDOWN_MS = 30000; // 30 s between submissions
+
+  function sanitize(str) {
+    return String(str).replace(/[<>"'`]/g, '').trim().slice(0, 1000);
+  }
+
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Rate-limit guard
+    var now = Date.now();
+    if (now - lastSubmit < COOLDOWN_MS) {
+      var remaining = Math.ceil((COOLDOWN_MS - (now - lastSubmit)) / 1000);
+      alert('Please wait ' + remaining + ' seconds before submitting again.');
+      return;
+    }
+
+    var ok = true;
+    [['cname','cf-name'],['cemail','cf-email'],['cphone','cf-phone'],['cmsg','cf-msg']].forEach(function (p) {
+      var el = document.getElementById(p[0]);
+      var field = document.getElementById(p[1]);
+      var bad = !el.value.trim() || (p[0] === 'cemail' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value));
+      field.classList.toggle('has-error', bad);
+      if (bad) ok = false;
     });
-});
+    if (!ok) return;
+
+    var btn = this.querySelector('[type=submit]');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+    var templateParams = {
+      from_name:    sanitize(document.getElementById('cname').value),
+      from_email:   sanitize(document.getElementById('cemail').value),
+      phone:        sanitize(document.getElementById('cphone').value),
+      location:     sanitize(document.getElementById('location-pref') ? document.getElementById('location-pref').value : ''),
+      subject:      sanitize(document.getElementById('subject') ? document.getElementById('subject').value : 'General Inquiry'),
+      message:      sanitize(document.getElementById('cmsg').value),
+    };
+
+    emailjs.send('1cMkXzfGFUGKcpWDmwZcs', 'template_7kdhk5n', templateParams)
+      .then(function () {
+        lastSubmit = Date.now();
+        document.getElementById('contact-form').style.display = 'none';
+        var s = document.getElementById('contact-success');
+        if (s) { s.style.display = 'block'; s.classList.add('show'); }
+      }, function () {
+        if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; }
+        alert('Failed to send message. Please try again later.');
+      });
+  });
+}());
 </script>
 </body>
 </html>

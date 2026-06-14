@@ -9,10 +9,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Voltage Fundamentals | APEX Academy",
+  title: {
+    default: "APEX Academy — Electronics Learning Platform",
+    template: "%s | APEX Academy",
+  },
   description:
-    "Learn what voltage is through interactive simulations, visual explanations, and bite-sized lessons.",
-  keywords: ["voltage", "electronics", "learn electronics", "APEX Academy", "beginner"],
+    "Learn electronics from voltage to parallel circuits through interactive simulations, visual lessons, and quizzes. 12 lessons, 0 sign-up required.",
+  keywords: ["electronics", "learn electronics", "APEX Academy", "circuits", "beginner", "interactive"],
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export const viewport: Viewport = {
