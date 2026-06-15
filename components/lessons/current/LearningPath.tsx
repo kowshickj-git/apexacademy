@@ -15,6 +15,14 @@ const lessons = [
   { id: 10, title: "Multimeter",        subtitle: "Measuring Circuits",  status: "available" as const, href: "/electronics/multimeter"        },
   { id: 11, title: "Series Circuits",   subtitle: "One Path",            status: "available" as const, href: "/electronics/series-circuits"   },
   { id: 12, title: "Parallel Circuits", subtitle: "Multiple Paths",      status: "available" as const, href: "/electronics/parallel-circuits" },
+  { id: 13, title: "Switches",     subtitle: "Push & Toggle",           status: "available" as const, href: "/electronics/switches"        },
+  { id: 14, title: "Pull-Up/Down", subtitle: "Resistor Biasing",        status: "available" as const, href: "/electronics/pullup-pulldown" },
+  { id: 15, title: "Inductors",    subtitle: "Magnetic Energy Storage", status: "available" as const, href: "/electronics/inductors"       },
+  { id: 16, title: "Transformers", subtitle: "Voltage Conversion",      status: "available" as const, href: "/electronics/transformers"    },
+  { id: 17, title: "BJT",          subtitle: "Bipolar Transistors",     status: "available" as const, href: "/electronics/bjt"             },
+  { id: 18, title: "MOSFET",       subtitle: "Field Effect",            status: "available" as const, href: "/electronics/mosfet"          },
+  { id: 19, title: "Logic Gates",  subtitle: "AND OR NOT",              status: "available" as const, href: "/electronics/logic-gates"     },
+  { id: 20, title: "Arduino",      subtitle: "Microcontrollers",        status: "available" as const, href: "/electronics/arduino"         },
 ];
 
 function StatusIcon({ status }: { status: "done" | "active" | "locked" | "available" }) {

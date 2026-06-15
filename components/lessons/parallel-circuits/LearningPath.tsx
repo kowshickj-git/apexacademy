@@ -30,6 +30,14 @@ const lessons = [
   { id: "L10", title: "Multimeter", href: "/electronics/multimeter", done: true },
   { id: "L11", title: "Series Circuits", href: "/electronics/series-circuits", done: true },
   { id: "L12", title: "Parallel Circuits", href: "/electronics/parallel-circuits", done: false, active: true },
+  { id: "L13", title: "Switches",     href: "/electronics/switches",        done: false },
+  { id: "L14", title: "Pull-Up/Down", href: "/electronics/pullup-pulldown", done: false },
+  { id: "L15", title: "Inductors",    href: "/electronics/inductors",       done: false },
+  { id: "L16", title: "Transformers", href: "/electronics/transformers",    done: false },
+  { id: "L17", title: "BJT",          href: "/electronics/bjt",             done: false },
+  { id: "L18", title: "MOSFET",       href: "/electronics/mosfet",          done: false },
+  { id: "L19", title: "Logic Gates",  href: "/electronics/logic-gates",     done: false },
+  { id: "L20", title: "Arduino",      href: "/electronics/arduino",         done: false },
 ];
 
 export default function LearningPath({ milestones }: Props) {
@@ -148,13 +156,13 @@ export default function LearningPath({ milestones }: Props) {
       {/* Course stats */}
       <div className="mt-3 pt-3 border-t border-white/5">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-xs text-white/40">Course: 12/12</span>
+          <span className="text-xs text-white/40">Course: 12/20</span>
           <span className="text-xs font-bold" style={{ color: "#10B981" }}>100%</span>
         </div>
         <div className="h-1 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
           <div className="h-full rounded-full w-full" style={{ background: "linear-gradient(to right, #6366F1, #10B981)" }} />
         </div>
-        <p className="text-[10px] text-white/25 mt-2 text-center">Electronics Fundamentals · 12 Lessons</p>
+        <p className="text-[10px] text-white/25 mt-2 text-center">Electronics Fundamentals · 20 Lessons</p>
       </div>
     </div>
   );

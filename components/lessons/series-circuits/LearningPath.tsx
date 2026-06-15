@@ -30,7 +30,15 @@ const LESSONS = [
   { num: "L10", title: "Multimeter", href: "/electronics/multimeter", status: "done" },
   { num: "L11", title: "Series Circuits", href: "/electronics/series-circuits", status: "active" },
   { num: "L12", title: "Parallel Circuits", href: "/electronics/parallel-circuits", status: "available" },
-] as const;
+  { num: "L13", title: "Switches",     href: "/electronics/switches",        status: "available" },
+  { num: "L14", title: "Pull-Up/Down", href: "/electronics/pullup-pulldown", status: "available" },
+  { num: "L15", title: "Inductors",    href: "/electronics/inductors",       status: "available" },
+  { num: "L16", title: "Transformers", href: "/electronics/transformers",    status: "available" },
+  { num: "L17", title: "BJT",          href: "/electronics/bjt",             status: "available" },
+  { num: "L18", title: "MOSFET",       href: "/electronics/mosfet",          status: "available" },
+  { num: "L19", title: "Logic Gates",  href: "/electronics/logic-gates",     status: "available" },
+  { num: "L20", title: "Arduino",      href: "/electronics/arduino",         status: "available" },
+];
 
 export default function LearningPath({ milestones }: LearningPathProps) {
   const milestoneKeys = [
@@ -173,13 +181,13 @@ export default function LearningPath({ milestones }: LearningPathProps) {
           <div className="h-full rounded-full" style={{ width: "92%", background: "linear-gradient(90deg,#10B981,#0EA5E9)" }} />
         </div>
         <div className="mt-2 text-center" style={{ color: "rgba(240,240,245,0.25)", fontSize: "10px" }}>
-          11 / 12 lessons complete
+          11 / 20 lessons complete
         </div>
       </div>
 
       {/* Footer */}
       <div className="mt-2 text-center" style={{ color: "rgba(240,240,245,0.2)", fontSize: "10px" }}>
-        Electronics Fundamentals · 12 Lessons
+        Electronics Fundamentals · 20 Lessons
       </div>
     </div>
   );

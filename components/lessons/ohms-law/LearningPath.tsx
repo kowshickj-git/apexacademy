@@ -15,6 +15,14 @@ const lessons = [
   { num: "10", title: "Multimeter",        href: "/electronics/multimeter",        status: "available" },
   { num: "11", title: "Series Circuits",   href: "/electronics/series-circuits",   status: "available" },
   { num: "12", title: "Parallel Circuits", href: "/electronics/parallel-circuits", status: "available" },
+  { num: "13", title: "Switches",     href: "/electronics/switches",        status: "available" },
+  { num: "14", title: "Pull-Up/Down", href: "/electronics/pullup-pulldown", status: "available" },
+  { num: "15", title: "Inductors",    href: "/electronics/inductors",       status: "available" },
+  { num: "16", title: "Transformers", href: "/electronics/transformers",    status: "available" },
+  { num: "17", title: "BJT",          href: "/electronics/bjt",             status: "available" },
+  { num: "18", title: "MOSFET",       href: "/electronics/mosfet",          status: "available" },
+  { num: "19", title: "Logic Gates",  href: "/electronics/logic-gates",     status: "available" },
+  { num: "20", title: "Arduino",      href: "/electronics/arduino",         status: "available" },
 ];
 
 export default function LearningPath() {

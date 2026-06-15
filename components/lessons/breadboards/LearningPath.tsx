@@ -28,6 +28,14 @@ const lessons = [
   { id: "L10", title: "Multimeter",        href: "/electronics/multimeter",        available: true },
   { id: "L11", title: "Series Circuits",   href: "/electronics/series-circuits",   available: true },
   { id: "L12", title: "Parallel Circuits", href: "/electronics/parallel-circuits", available: true },
+  { id: "L13", title: "Switches",     href: "/electronics/switches",        available: true },
+  { id: "L14", title: "Pull-Up/Down", href: "/electronics/pullup-pulldown", available: true },
+  { id: "L15", title: "Inductors",    href: "/electronics/inductors",       available: true },
+  { id: "L16", title: "Transformers", href: "/electronics/transformers",    available: true },
+  { id: "L17", title: "BJT",          href: "/electronics/bjt",             available: true },
+  { id: "L18", title: "MOSFET",       href: "/electronics/mosfet",          available: true },
+  { id: "L19", title: "Logic Gates",  href: "/electronics/logic-gates",     available: true },
+  { id: "L20", title: "Arduino",      href: "/electronics/arduino",         available: true },
 ];
 
 export default function LearningPath({ milestones }: Props) {

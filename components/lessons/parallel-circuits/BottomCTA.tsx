@@ -25,7 +25,7 @@ export default function BottomCTA() {
               color: "#34D399",
             }}
           >
-            Course Complete · 12/12 Lessons
+            L12 Complete · 20 Lessons Total
           </div>
           <h2 className="text-xl font-black text-white mb-2">
             You&apos;ve finished Electronics Fundamentals!
@@ -49,20 +49,17 @@ export default function BottomCTA() {
             Series Circuits
           </Link>
 
-          {/* Next (disabled) */}
-          <div
-            className="flex items-center gap-2 px-5 py-2.5 rounded-2xl border border-white/5 text-sm font-bold text-white/20 cursor-not-allowed select-none"
-            style={{ background: "rgba(255,255,255,0.02)" }}
-            title="Coming soon"
+          {/* Next — Switches (LIVE) */}
+          <Link
+            href="/electronics/switches"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-2xl border text-sm font-bold transition-all"
+            style={{ background: "rgba(6,182,212,0.1)", borderColor: "rgba(6,182,212,0.3)", color: "#06B6D4" }}
           >
             Switches
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M4 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span className="text-[10px] px-1.5 py-0.5 rounded-full" style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.3)" }}>
-              Soon
-            </span>
-          </div>
+          </Link>
         </div>
 
         {/* Back to academy */}
