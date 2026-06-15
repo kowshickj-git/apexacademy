@@ -14,12 +14,26 @@ export const metadata: Metadata = {
     template: "%s | APEX Academy",
   },
   description:
-    "Learn electronics from voltage to parallel circuits through interactive simulations, visual lessons, and quizzes. 12 lessons, 0 sign-up required.",
-  keywords: ["electronics", "learn electronics", "APEX Academy", "circuits", "beginner", "interactive"],
+    "Learn electronics from voltage to Arduino through interactive simulations, visual lessons, and quizzes. 20 lessons, 0 sign-up required.",
+  keywords: ["electronics", "learn electronics", "APEX Academy", "circuits", "Arduino", "beginner", "interactive"],
   robots: {
     index: true,
     follow: true,
   },
+  openGraph: {
+    type: "website",
+    siteName: "APEX Academy",
+    title: "APEX Academy — Electronics Learning Platform",
+    description: "Learn electronics from voltage to Arduino through interactive simulations, visual lessons, and quizzes. 20 lessons, 0 sign-up required.",
+    url: "https://apexacademy.vercel.app",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "APEX Academy — Electronics Learning Platform",
+    description: "Learn electronics from voltage to Arduino through interactive simulations, visual lessons, and quizzes. 20 lessons, 0 sign-up required.",
+  },
+  metadataBase: new URL("https://apexacademy.vercel.app"),
 };
 
 export const viewport: Viewport = {

@@ -23,7 +23,7 @@ const lessons = [
   { id: "L03", title: "Resistance",           href: "/electronics/resistance",         done: true },
   { id: "L04", title: "Resistors",            href: "/electronics/resistors",          done: true },
   { id: "L05", title: "Ohm's Law",            href: "/electronics/ohms-law",           done: true },
-  { id: "L06", title: "Capacitors",           href: "#",                               locked: true },
+  { id: "L06", title: "Capacitors",           href: "/electronics/capacitors",         available: true },
   { id: "L07", title: "Diodes",               href: "/electronics/diodes",             done: true },
   { id: "L08", title: "LEDs",                 href: "/electronics/leds",               done: true },
   { id: "L09", title: "Breadboards",          href: "/electronics/breadboards",        done: true },
@@ -34,10 +34,10 @@ const lessons = [
   { id: "L14", title: "Pull-Up / Pull-Down",  href: "/electronics/pullup-pulldown",    active: true },
   { id: "L15", title: "Inductors",            href: "/electronics/inductors",          available: true },
   { id: "L16", title: "Transformers",         href: "/electronics/transformers",       available: true },
-  { id: "L17", title: "Transistors",          href: "/electronics/transistors",        available: true },
-  { id: "L18", title: "Op-Amps",              href: "/electronics/op-amps",            available: true },
-  { id: "L19", title: "Filters",              href: "/electronics/filters",            available: true },
-  { id: "L20", title: "Power Supplies",       href: "/electronics/power-supplies",     available: true },
+  { id: "L17", title: "BJT",                  href: "/electronics/bjt",               available: true },
+  { id: "L18", title: "MOSFET",              href: "/electronics/mosfet",            available: true },
+  { id: "L19", title: "Logic Gates",         href: "/electronics/logic-gates",       available: true },
+  { id: "L20", title: "Arduino",             href: "/electronics/arduino",           available: true },
 ];
 
 export default function LearningPath({ milestones }: Props) {
@@ -71,7 +71,7 @@ export default function LearningPath({ milestones }: Props) {
 
       <div className="space-y-1">
         {lessons.map((l) => {
-          if (l.locked) {
+          if ((l as any).locked) {
             return (
               <div key={l.id} className="flex items-center gap-3 px-3 py-2.5 rounded-xl opacity-30 cursor-not-allowed">
                 <div className="w-6 h-6 rounded-lg border border-white/10 flex items-center justify-center text-[9px] font-mono text-white/30">

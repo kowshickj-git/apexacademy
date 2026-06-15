@@ -26,3 +26,5 @@ Thumbs.db
 
 # Old static site copy (content now lives in public/)
 apexacademy-main/
+
+.vercel

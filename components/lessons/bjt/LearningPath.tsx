@@ -24,21 +24,21 @@ const LESSONS = [
   { num: "L03", title: "Resistance", href: "/electronics/resistance", status: "done" },
   { num: "L04", title: "Resistors", href: "/electronics/resistors", status: "done" },
   { num: "L05", title: "Ohm's Law", href: "/electronics/ohms-law", status: "done" },
-  { num: "L06", title: "Capacitors", href: null, status: "locked" },
+  { num: "L06", title: "Capacitors", href: "/electronics/capacitors", status: "available" },
   { num: "L07", title: "Diodes", href: "/electronics/diodes", status: "done" },
   { num: "L08", title: "LEDs", href: "/electronics/leds", status: "done" },
   { num: "L09", title: "Breadboards", href: "/electronics/breadboards", status: "done" },
   { num: "L10", title: "Multimeter", href: "/electronics/multimeter", status: "done" },
   { num: "L11", title: "Series Circuits", href: "/electronics/series-circuits", status: "done" },
   { num: "L12", title: "Parallel Circuits", href: "/electronics/parallel-circuits", status: "done" },
-  { num: "L13", title: "Capacitors II", href: "/electronics/capacitors", status: "done" },
-  { num: "L14", title: "Inductors", href: "/electronics/inductors", status: "done" },
-  { num: "L15", title: "AC Circuits", href: "/electronics/ac-circuits", status: "done" },
-  { num: "L16", title: "Transformers", href: "/electronics/transformers", status: "done" },
-  { num: "L17", title: "BJT Fundamentals", href: "/electronics/bjt", status: "active" },
-  { num: "L18", title: "MOSFET", href: "/electronics/mosfet", status: "available" },
-  { num: "L19", title: "Op-Amps", href: "/electronics/op-amps", status: "available" },
-  { num: "L20", title: "Power Electronics", href: "/electronics/power-electronics", status: "available" },
+  { num: "L13", title: "Switches",     href: "/electronics/switches",        status: "done" },
+  { num: "L14", title: "Pull-Up/Down", href: "/electronics/pullup-pulldown", status: "done" },
+  { num: "L15", title: "Inductors",    href: "/electronics/inductors",       status: "done" },
+  { num: "L16", title: "Transformers", href: "/electronics/transformers",    status: "done" },
+  { num: "L17", title: "BJT",          href: "/electronics/bjt",             status: "active" },
+  { num: "L18", title: "MOSFET",       href: "/electronics/mosfet",          status: "available" },
+  { num: "L19", title: "Logic Gates",  href: "/electronics/logic-gates",     status: "available" },
+  { num: "L20", title: "Arduino",      href: "/electronics/arduino",         status: "available" },
 ] as const;
 
 export default function LearningPath({ milestones }: LearningPathProps) {
@@ -78,7 +78,7 @@ export default function LearningPath({ milestones }: LearningPathProps) {
       {LESSONS.map((lesson) => {
         const isDone = lesson.status === "done";
         const isActive = lesson.status === "active";
-        const isLocked = lesson.status === "locked";
+        const isLocked = (lesson.status as string) === "locked";
 
         const inner = (
           <div
@@ -157,7 +157,7 @@ export default function LearningPath({ milestones }: LearningPathProps) {
           </div>
         );
 
-        if (isLocked || !lesson.href) {
+        if (isLocked) {
           return <div key={lesson.num}>{inner}</div>;
         }
 

@@ -9,6 +9,10 @@ import WhatIsLogic from "@/components/lessons/logic-gates/WhatIsLogic";
 import ANDGateSim from "@/components/lessons/logic-gates/ANDGateSim";
 import ORGateSim from "@/components/lessons/logic-gates/ORGateSim";
 import NOTGateSim from "@/components/lessons/logic-gates/NOTGateSim";
+import NANDGateSim from "@/components/lessons/logic-gates/NANDGateSim";
+import NORGateSim from "@/components/lessons/logic-gates/NORGateSim";
+import XORGateSim from "@/components/lessons/logic-gates/XORGateSim";
+import XNORGateSim from "@/components/lessons/logic-gates/XNORGateSim";
 import ComboGateExplorer from "@/components/lessons/logic-gates/ComboGateExplorer";
 import TruthTableBuilder from "@/components/lessons/logic-gates/TruthTableBuilder";
 import EngineeringInsights from "@/components/lessons/logic-gates/EngineeringInsights";
@@ -70,6 +74,10 @@ export default function LogicGatesPage() {
         <ANDGateSim onAndGateUsed={()=>earnXP(20,"andGateUsed")}/>
         <ORGateSim onOrGateUsed={()=>earnXP(15,"orGateUsed")}/>
         <NOTGateSim onNotGateUsed={()=>earnXP(15,"notGateUsed")}/>
+        <NANDGateSim/>
+        <NORGateSim/>
+        <XORGateSim/>
+        <XNORGateSim/>
         <ComboGateExplorer onCombinedUsed={()=>earnXP(20,"combinedUsed")}/>
         <TruthTableBuilder onTruthTableUsed={()=>earnXP(20,"truthTableUsed")}/>
         <EngineeringInsights/><CommonMistakes/>

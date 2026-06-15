@@ -8,7 +8,7 @@ const lessons = [
   { num: "03", title: "Resistance", href: "/electronics/resistance",  status: "done"      },
   { num: "04", title: "Resistors",  href: "/electronics/resistors",   status: "done"      },
   { num: "05", title: "Ohm's Law",  href: "/electronics/ohms-law",    status: "active"    },
-  { num: "06", title: "Capacitors", href: "#",                        status: "locked"    },
+  { num: "06", title: "Capacitors", href: "/electronics/capacitors",  status: "available" },
   { num: "07", title: "Diodes",     href: "/electronics/diodes",      status: "available" },
   { num: "08", title: "LEDs",       href: "/electronics/leds",        status: "available" },
   { num: "09", title: "Breadboards", href: "/electronics/breadboards",  status: "available" },

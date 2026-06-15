@@ -18,7 +18,7 @@ const lessons = [
   { id: "L03", title: "Resistance", href: "/electronics/resistance", done: true },
   { id: "L04", title: "Resistors", href: "/electronics/resistors", done: true },
   { id: "L05", title: "Ohm's Law", href: "/electronics/ohms-law", done: true },
-  { id: "L06", title: "Capacitors", href: "#", locked: true },
+  { id: "L06", title: "Capacitors", href: "/electronics/capacitors", available: true },
   { id: "L07", title: "Diodes", href: "/electronics/diodes", done: true },
   { id: "L08", title: "LEDs", href: "/electronics/leds", done: true },
   { id: "L09", title: "Breadboards", href: "/electronics/breadboards", done: true },

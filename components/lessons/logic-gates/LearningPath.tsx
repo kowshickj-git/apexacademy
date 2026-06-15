@@ -5,12 +5,12 @@ interface Milestones { lessonRead:boolean; andGateUsed:boolean; orGateUsed:boole
 interface Props { milestones:Milestones; }
 
 const lessons = [
-  {num:"01",title:"Voltage Fundamentals",href:"/electronics/voltage",status:"done"},
-  {num:"02",title:"Current Fundamentals",href:"/electronics/current",status:"done"},
+  {num:"01",title:"Voltage",href:"/lessons/voltage",status:"done"},
+  {num:"02",title:"Current",href:"/lessons/current",status:"done"},
   {num:"03",title:"Resistance",href:"/electronics/resistance",status:"done"},
   {num:"04",title:"Ohm's Law",href:"/electronics/ohms-law",status:"done"},
   {num:"05",title:"Resistors",href:"/electronics/resistors",status:"done"},
-  {num:"06",title:"Capacitors",href:"/electronics/capacitors",status:"locked"},
+  {num:"06",title:"Capacitors",href:"/electronics/capacitors",status:"available"},
   {num:"07",title:"LEDs",href:"/electronics/leds",status:"done"},
   {num:"08",title:"Diodes",href:"/electronics/diodes",status:"done"},
   {num:"09",title:"Breadboards",href:"/electronics/breadboards",status:"done"},

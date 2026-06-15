@@ -8,7 +8,7 @@ const lessons = [
   { id: 3,  title: "Resistance",  subtitle: "Opposition to Flow",  status: "available" as const, href: "/electronics/resistance"   },
   { id: 4,  title: "Resistors",   subtitle: "Color Codes & Calc",  status: "available" as const, href: "/electronics/resistors"    },
   { id: 5,  title: "Ohm's Law",   subtitle: "V = I × R",          status: "available" as const, href: "/electronics/ohms-law"     },
-  { id: 6,  title: "Capacitors",  subtitle: "Storing Energy",      status: "locked"    as const                                   },
+  { id: 6,  title: "Capacitors",  subtitle: "Storing Energy",      status: "available" as const, href: "/electronics/capacitors"   },
   { id: 7,  title: "Diodes",      subtitle: "One-Way Valves",      status: "available" as const, href: "/electronics/diodes"      },
   { id: 8,  title: "LEDs",        subtitle: "Light from Current",  status: "available" as const, href: "/electronics/leds"        },
   { id: 9,  title: "Breadboards", subtitle: "Building Circuits",   status: "available" as const, href: "/electronics/breadboards" },

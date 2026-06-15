@@ -23,7 +23,7 @@ const LESSONS = [
   { num: "L03", title: "Resistance", href: "/electronics/resistance", status: "done" },
   { num: "L04", title: "Resistors", href: "/electronics/resistors", status: "done" },
   { num: "L05", title: "Ohm's Law", href: "/electronics/ohms-law", status: "done" },
-  { num: "L06", title: "Capacitors", href: null, status: "locked" },
+  { num: "L06", title: "Capacitors", href: "/electronics/capacitors", status: "available" },
   { num: "L07", title: "Diodes", href: "/electronics/diodes", status: "done" },
   { num: "L08", title: "LEDs", href: "/electronics/leds", status: "done" },
   { num: "L09", title: "Breadboards", href: "/electronics/breadboards", status: "done" },
@@ -76,7 +76,7 @@ export default function LearningPath({ milestones }: LearningPathProps) {
       {LESSONS.map((lesson) => {
         const isDone = lesson.status === "done";
         const isActive = lesson.status === "active";
-        const isLocked = lesson.status === "locked";
+        const isLocked = (lesson.status as string) === "locked";
         const isAvailable = lesson.status === "available";
 
         const inner = (
