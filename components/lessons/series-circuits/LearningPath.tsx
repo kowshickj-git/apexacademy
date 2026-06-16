@@ -38,6 +38,22 @@ const LESSONS = [
   { num: "L18", title: "MOSFET",       href: "/electronics/mosfet",          status: "available" },
   { num: "L19", title: "Logic Gates",  href: "/electronics/logic-gates",     status: "available" },
   { num: "L20", title: "Arduino",      href: "/electronics/arduino",         status: "available" },
+  { num: "L21", title: "Sensors",           href: "/electronics/sensors",                 status: "available" },
+  { num: "L22", title: "Comm Protocols",    href: "/electronics/communication-protocols", status: "available" },
+  { num: "L23", title: "UART",             href: "/electronics/uart",                    status: "available" },
+  { num: "L24", title: "I2C",             href: "/electronics/i2c",                     status: "available" },
+  { num: "L25", title: "SPI",             href: "/electronics/spi",                     status: "available" },
+  { num: "L26", title: "CAN Protocol",    href: "/electronics/can",                     status: "available" },
+  { num: "L27", title: "RS485",           href: "/electronics/rs485",                   status: "available" },
+  { num: "L28", title: "IoT",             href: "/electronics/iot",                     status: "available" },
+  { num: "L29", title: "ESP32",           href: "/electronics/esp32",                   status: "available" },
+  { num: "L30", title: "STM32",           href: "/electronics/stm32",                   status: "available" },
+  { num: "L31", title: "FreeRTOS",        href: "/electronics/freertos",                status: "locked" },
+  { num: "L32", title: "PCB Design",      href: "/electronics/pcb-design",              status: "locked" },
+  { num: "L33", title: "Embedded",        href: "/electronics/embedded-projects",       status: "locked" },
+  { num: "L34", title: "Robotics",        href: "/electronics/robotics",                status: "locked" },
+  { num: "L35", title: "Computer Vision", href: "/electronics/computer-vision",         status: "locked" },
+  { num: "L36", title: "AI Robotics",     href: "/electronics/ai-robotics",             status: "locked" },
 ];
 
 export default function LearningPath({ milestones }: LearningPathProps) {
@@ -187,7 +203,7 @@ export default function LearningPath({ milestones }: LearningPathProps) {
 
       {/* Footer */}
       <div className="mt-2 text-center" style={{ color: "rgba(240,240,245,0.2)", fontSize: "10px" }}>
-        Electronics Fundamentals · 20 Lessons
+        Electronics Fundamentals · 36 Lessons
       </div>
     </div>
   );

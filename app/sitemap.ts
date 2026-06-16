@@ -26,6 +26,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/electronics/mosfet",
     "/electronics/logic-gates",
     "/electronics/arduino",
+    "/electronics/sensors",
+    "/electronics/communication-protocols",
+    "/electronics/uart",
+    "/electronics/i2c",
+    "/electronics/spi",
+    "/electronics/can",
+    "/electronics/rs485",
+    "/electronics/iot",
+    "/electronics/esp32",
+    "/electronics/stm32",
+    "/electronics/freertos",
+    "/electronics/pcb-design",
+    "/electronics/embedded-projects",
+    "/electronics/robotics",
+    "/electronics/computer-vision",
+    "/electronics/ai-robotics",
   ];
 
   return routes.map((route) => ({

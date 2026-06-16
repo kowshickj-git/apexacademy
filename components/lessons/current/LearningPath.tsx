@@ -23,6 +23,22 @@ const lessons = [
   { id: 18, title: "MOSFET",       subtitle: "Field Effect",            status: "available" as const, href: "/electronics/mosfet"          },
   { id: 19, title: "Logic Gates",  subtitle: "AND OR NOT",              status: "available" as const, href: "/electronics/logic-gates"     },
   { id: 20, title: "Arduino",      subtitle: "Microcontrollers",        status: "available" as const, href: "/electronics/arduino"         },
+  { id: 21, title: "Sensors",           subtitle: "Environmental Sensing",   status: "available" as const, href: "/electronics/sensors" },
+  { id: 22, title: "Comm Protocols",    subtitle: "UART/I2C/SPI/CAN",       status: "available" as const, href: "/electronics/communication-protocols" },
+  { id: 23, title: "UART",             subtitle: "Serial Communication",    status: "available" as const, href: "/electronics/uart" },
+  { id: 24, title: "I2C",             subtitle: "Two-Wire Protocol",       status: "available" as const, href: "/electronics/i2c" },
+  { id: 25, title: "SPI",             subtitle: "Four-Wire Protocol",      status: "available" as const, href: "/electronics/spi" },
+  { id: 26, title: "CAN Protocol",    subtitle: "Automotive Networking",   status: "available" as const, href: "/electronics/can" },
+  { id: 27, title: "RS485",           subtitle: "Industrial Serial",       status: "available" as const, href: "/electronics/rs485" },
+  { id: 28, title: "IoT",             subtitle: "Connected Devices",       status: "available" as const, href: "/electronics/iot" },
+  { id: 29, title: "ESP32",           subtitle: "WiFi & BLE MCU",         status: "available" as const, href: "/electronics/esp32" },
+  { id: 30, title: "STM32",           subtitle: "ARM Cortex MCU",         status: "available" as const, href: "/electronics/stm32" },
+  { id: 31, title: "FreeRTOS",        subtitle: "Real-Time OS",           status: "locked"    as const, href: "/electronics/freertos" },
+  { id: 32, title: "PCB Design",      subtitle: "Circuit Boards",         status: "locked"    as const, href: "/electronics/pcb-design" },
+  { id: 33, title: "Embedded",        subtitle: "Build Devices",          status: "locked"    as const, href: "/electronics/embedded-projects" },
+  { id: 34, title: "Robotics",        subtitle: "Mechanical Systems",     status: "locked"    as const, href: "/electronics/robotics" },
+  { id: 35, title: "Comp. Vision",    subtitle: "Image Processing",       status: "locked"    as const, href: "/electronics/computer-vision" },
+  { id: 36, title: "AI Robotics",     subtitle: "Intelligent Machines",   status: "locked"    as const, href: "/electronics/ai-robotics" },
 ];
 
 function StatusIcon({ status }: { status: "done" | "active" | "locked" | "available" }) {
@@ -122,12 +138,12 @@ export default function LearningPath() {
       <div className="mt-5 px-2 py-3 bg-surface rounded-xl border border-white/5">
         <div className="flex justify-between text-[10px] text-white/30 mb-2">
           <span>Progress</span>
-          <span>2 / 12</span>
+          <span>2 / 36</span>
         </div>
         <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
           <div className="h-full w-[20%] bg-gradient-to-r from-primary to-secondary rounded-full" />
         </div>
-        <p className="text-[10px] text-white/20 mt-1.5 text-center">20% Complete</p>
+        <p className="text-[10px] text-white/20 mt-1.5 text-center">6% Complete</p>
       </div>
     </div>
   );

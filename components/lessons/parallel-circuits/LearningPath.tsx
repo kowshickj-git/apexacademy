@@ -38,6 +38,22 @@ const lessons = [
   { id: "L18", title: "MOSFET",       href: "/electronics/mosfet",          done: false },
   { id: "L19", title: "Logic Gates",  href: "/electronics/logic-gates",     done: false },
   { id: "L20", title: "Arduino",      href: "/electronics/arduino",         done: false },
+  { id: "L21", title: "Sensors",           href: "/electronics/sensors",                 done: false },
+  { id: "L22", title: "Comm Protocols",    href: "/electronics/communication-protocols", done: false },
+  { id: "L23", title: "UART",             href: "/electronics/uart",                    done: false },
+  { id: "L24", title: "I2C",             href: "/electronics/i2c",                     done: false },
+  { id: "L25", title: "SPI",             href: "/electronics/spi",                     done: false },
+  { id: "L26", title: "CAN Protocol",    href: "/electronics/can",                     done: false },
+  { id: "L27", title: "RS485",           href: "/electronics/rs485",                   done: false },
+  { id: "L28", title: "IoT",             href: "/electronics/iot",                     done: false },
+  { id: "L29", title: "ESP32",           href: "/electronics/esp32",                   done: false },
+  { id: "L30", title: "STM32",           href: "/electronics/stm32",                   done: false },
+  { id: "L31", title: "FreeRTOS",        href: "/electronics/freertos",                done: false, locked: true },
+  { id: "L32", title: "PCB Design",      href: "/electronics/pcb-design",              done: false, locked: true },
+  { id: "L33", title: "Embedded",        href: "/electronics/embedded-projects",       done: false, locked: true },
+  { id: "L34", title: "Robotics",        href: "/electronics/robotics",                done: false, locked: true },
+  { id: "L35", title: "Computer Vision", href: "/electronics/computer-vision",         done: false, locked: true },
+  { id: "L36", title: "AI Robotics",     href: "/electronics/ai-robotics",             done: false, locked: true },
 ];
 
 export default function LearningPath({ milestones }: Props) {
@@ -156,13 +172,13 @@ export default function LearningPath({ milestones }: Props) {
       {/* Course stats */}
       <div className="mt-3 pt-3 border-t border-white/5">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-xs text-white/40">Course: 12/20</span>
+          <span className="text-xs text-white/40">Course: 12/36</span>
           <span className="text-xs font-bold" style={{ color: "#10B981" }}>100%</span>
         </div>
         <div className="h-1 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
           <div className="h-full rounded-full w-full" style={{ background: "linear-gradient(to right, #6366F1, #10B981)" }} />
         </div>
-        <p className="text-[10px] text-white/25 mt-2 text-center">Electronics Fundamentals · 20 Lessons</p>
+        <p className="text-[10px] text-white/25 mt-2 text-center">Electronics Fundamentals · 36 Lessons</p>
       </div>
     </div>
   );

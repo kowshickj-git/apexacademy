@@ -12,7 +12,33 @@ const lessons = [
   { id: 7, title: "Diodes", subtitle: "One-Way Valves", status: "locked" as const },
   { id: 8, title: "LEDs", subtitle: "Light from Current", status: "locked" as const },
   { id: 9, title: "Breadboards", subtitle: "Building Circuits", status: "locked" as const },
-  { id: 10, title: "Multimeter", subtitle: "Measuring Circuits", status: "locked" as const },
+  { id: 10, title: "Multimeter",        subtitle: "Measuring Circuits",      status: "locked" as const },
+  { id: 11, title: "Series Circuits",   subtitle: "One Path",                status: "locked" as const },
+  { id: 12, title: "Parallel Circuits", subtitle: "Multiple Paths",          status: "locked" as const },
+  { id: 13, title: "Switches",          subtitle: "Push & Toggle",           status: "locked" as const },
+  { id: 14, title: "Pull-Up/Down",      subtitle: "Resistor Biasing",        status: "locked" as const },
+  { id: 15, title: "Inductors",         subtitle: "Magnetic Storage",        status: "locked" as const },
+  { id: 16, title: "Transformers",      subtitle: "Voltage Conversion",      status: "locked" as const },
+  { id: 17, title: "BJT",              subtitle: "Bipolar Transistors",     status: "locked" as const },
+  { id: 18, title: "MOSFET",           subtitle: "Field Effect",            status: "locked" as const },
+  { id: 19, title: "Logic Gates",      subtitle: "AND OR NOT",              status: "locked" as const },
+  { id: 20, title: "Arduino",          subtitle: "Microcontrollers",        status: "locked" as const },
+  { id: 21, title: "Sensors",          subtitle: "Environmental Sensing",   status: "locked" as const },
+  { id: 22, title: "Comm Protocols",   subtitle: "UART/I2C/SPI/CAN",       status: "locked" as const },
+  { id: 23, title: "UART",            subtitle: "Serial Communication",    status: "locked" as const },
+  { id: 24, title: "I2C",            subtitle: "Two-Wire Protocol",       status: "locked" as const },
+  { id: 25, title: "SPI",            subtitle: "Four-Wire Protocol",      status: "locked" as const },
+  { id: 26, title: "CAN Protocol",   subtitle: "Automotive Networking",   status: "locked" as const },
+  { id: 27, title: "RS485",          subtitle: "Industrial Serial",       status: "locked" as const },
+  { id: 28, title: "IoT",            subtitle: "Connected Devices",       status: "locked" as const },
+  { id: 29, title: "ESP32",          subtitle: "WiFi & BLE MCU",         status: "locked" as const },
+  { id: 30, title: "STM32",          subtitle: "ARM Cortex MCU",         status: "locked" as const },
+  { id: 31, title: "FreeRTOS",       subtitle: "Real-Time OS",           status: "locked" as const },
+  { id: 32, title: "PCB Design",     subtitle: "Circuit Boards",         status: "locked" as const },
+  { id: 33, title: "Embedded",       subtitle: "Build Devices",          status: "locked" as const },
+  { id: 34, title: "Robotics",       subtitle: "Mechanical Systems",     status: "locked" as const },
+  { id: 35, title: "Comp. Vision",   subtitle: "Image Processing",       status: "locked" as const },
+  { id: 36, title: "AI Robotics",    subtitle: "Intelligent Machines",   status: "locked" as const },
 ];
 
 function StatusIcon({ status }: { status: "active" | "available" | "locked" }) {
@@ -96,12 +122,12 @@ export default function VoltageLearningPath() {
       <div className="mt-5 px-2 py-3 rounded-xl border border-white/5" style={{ background: "#18181B" }}>
         <div className="flex justify-between text-[10px] text-white/30 mb-2">
           <span>Progress</span>
-          <span>1 / 10</span>
+          <span>1 / 36</span>
         </div>
         <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.05)" }}>
           <div className="h-full w-[10%] rounded-full" style={{ background: "linear-gradient(to right, #10B981, #0EA5E9)" }} />
         </div>
-        <p className="text-[10px] text-white/20 mt-1.5 text-center">10% Complete</p>
+        <p className="text-[10px] text-white/20 mt-1.5 text-center">3% Complete</p>
       </div>
     </div>
   );

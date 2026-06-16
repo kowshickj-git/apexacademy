@@ -23,6 +23,22 @@ const lessons = [
   { num: "18", title: "MOSFET",       href: "/electronics/mosfet",          status: "available" },
   { num: "19", title: "Logic Gates",  href: "/electronics/logic-gates",     status: "available" },
   { num: "20", title: "Arduino",      href: "/electronics/arduino",         status: "available" },
+  { num: "21", title: "Sensors",           href: "/electronics/sensors",                 status: "available" },
+  { num: "22", title: "Comm Protocols",    href: "/electronics/communication-protocols", status: "available" },
+  { num: "23", title: "UART",             href: "/electronics/uart",                    status: "available" },
+  { num: "24", title: "I2C",             href: "/electronics/i2c",                     status: "available" },
+  { num: "25", title: "SPI",             href: "/electronics/spi",                     status: "available" },
+  { num: "26", title: "CAN Protocol",    href: "/electronics/can",                     status: "available" },
+  { num: "27", title: "RS485",           href: "/electronics/rs485",                   status: "available" },
+  { num: "28", title: "IoT",             href: "/electronics/iot",                     status: "available" },
+  { num: "29", title: "ESP32",           href: "/electronics/esp32",                   status: "available" },
+  { num: "30", title: "STM32",           href: "/electronics/stm32",                   status: "available" },
+  { num: "31", title: "FreeRTOS",        href: "/electronics/freertos",                status: "locked" },
+  { num: "32", title: "PCB Design",      href: "/electronics/pcb-design",              status: "locked" },
+  { num: "33", title: "Embedded",        href: "/electronics/embedded-projects",       status: "locked" },
+  { num: "34", title: "Robotics",        href: "/electronics/robotics",                status: "locked" },
+  { num: "35", title: "Computer Vision", href: "/electronics/computer-vision",         status: "locked" },
+  { num: "36", title: "AI Robotics",     href: "/electronics/ai-robotics",             status: "locked" },
 ];
 
 export default function LearningPath() {
