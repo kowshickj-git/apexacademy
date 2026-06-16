@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -68,7 +68,7 @@ export default function TransformersNav({ xp, milestones, onMenuClick }: Props) 
           <span className="font-medium" style={{ color: "#8B5CF6" }}>Transformers</span>
         </div>
 
-        <span className="text-[10px] text-white/20 font-mono hidden lg:block">L16 of 20</span>
+        <span className="text-[10px] text-white/20 font-mono hidden lg:block">L16 of 36</span>
 
         <div className="flex-1" />
 

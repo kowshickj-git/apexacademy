@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -22,7 +22,7 @@ export default function LogicComplete({ xp, onClose }: Props) {
           <div className="text-center mb-5">
             <motion.div initial={{scale:0}} animate={{scale:1}} transition={{type:"spring",damping:14,stiffness:200,delay:0.15}} className="text-4xl mb-3">🟢</motion.div>
             <h2 className="text-xl font-black mb-1" style={{background:"linear-gradient(135deg,#84CC16,#A3E635)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>Logic Gates Mastered!</h2>
-            <p className="text-xs text-white/40 font-mono">Logic Gates — L19 of 20</p>
+            <p className="text-xs text-white/40 font-mono">Logic Gates — L19 of 36</p>
           </div>
           <div className="rounded-2xl p-4 mb-4 text-center border" style={{borderColor:"rgba(132,204,22,0.25)",background:"rgba(132,204,22,0.06)"}}>
             <p className="text-[10px] text-white/30 uppercase tracking-widest mb-1 font-mono">Total XP Earned</p>

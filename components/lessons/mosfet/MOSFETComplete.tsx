@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -22,7 +22,7 @@ export default function MOSFETComplete({ xp, onClose }: Props) {
           <div className="text-center mb-5">
             <motion.div initial={{scale:0}} animate={{scale:1}} transition={{type:"spring",damping:14,stiffness:200,delay:0.15}} className="text-4xl mb-3">🔵</motion.div>
             <h2 className="text-xl font-black mb-1" style={{background:"linear-gradient(135deg,#3B82F6,#60A5FA)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>MOSFET Mastered!</h2>
-            <p className="text-xs text-white/40 font-mono">MOSFET Fundamentals — L18 of 20</p>
+            <p className="text-xs text-white/40 font-mono">MOSFET Fundamentals — L18 of 36</p>
           </div>
           <div className="rounded-2xl p-4 mb-4 text-center border" style={{borderColor:"rgba(59,130,246,0.25)",background:"rgba(59,130,246,0.06)"}}>
             <p className="text-[10px] text-white/30 uppercase tracking-widest mb-1 font-mono">Total XP Earned</p>

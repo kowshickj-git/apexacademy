@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -48,7 +48,7 @@ export default function BottomCTA() {
           </Link>
 
           <div className="flex items-center gap-2">
-            <span className="text-[10px] text-white/15 font-mono">L15 of 20</span>
+            <span className="text-[10px] text-white/15 font-mono">L15 of 36</span>
             <div className="flex gap-1">
               {Array.from({ length: 20 }).map((_, i) => (
                 <div

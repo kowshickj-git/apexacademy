@@ -20,7 +20,7 @@ export default function ArduinoNav({ xp, milestones, onMenuClick }: Props) {
         <span style={{color:"rgba(240,240,245,0.2)"}}>/</span>
         <span className="font-semibold truncate" style={{color:"#059669"}}>Arduino Fundamentals</span>
       </div>
-      <span className="hidden sm:inline-block text-xs font-mono px-2 py-0.5 rounded-full flex-shrink-0" style={{background:"rgba(5,150,105,0.1)",color:"rgba(5,150,105,0.7)",border:"1px solid rgba(5,150,105,0.2)"}}>L20 of 20 🏆</span>
+      <span className="hidden sm:inline-block text-xs font-mono px-2 py-0.5 rounded-full flex-shrink-0" style={{background:"rgba(5,150,105,0.1)",color:"rgba(5,150,105,0.7)",border:"1px solid rgba(5,150,105,0.2)"}}>L20 of 36</span>
       <div className="flex-1"/>
       <div className="hidden md:flex items-center gap-1.5">
         {PIPS.map(pip=>{ const done=milestones[pip.key]; return <div key={pip.key} title={pip.label} className="w-2 h-2 rounded-full transition-all duration-300" style={{background:done?"#10B981":"rgba(255,255,255,0.1)",boxShadow:done?"0 0 6px rgba(16,185,129,0.6)":"none"}}/>; })}
@@ -30,7 +30,7 @@ export default function ArduinoNav({ xp, milestones, onMenuClick }: Props) {
         {xp} XP
       </div>
       <Link href="/electronics/logic-gates" className="hidden sm:inline-flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-lg transition-colors" style={{color:"rgba(240,240,245,0.45)",border:"1px solid rgba(255,255,255,0.08)"}}>← Logic Gates</Link>
-      <div className="hidden sm:inline-flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-lg" style={{color:"rgba(255,255,255,0.2)",border:"1px solid rgba(255,255,255,0.05)"}}>Sensors Soon</div>
+      <Link href="/electronics/sensors" className="hidden sm:inline-flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-lg transition-colors" style={{color:"rgba(240,240,245,0.45)",border:"1px solid rgba(255,255,255,0.08)"}}>Sensors →</Link>
       <button onClick={onMenuClick} className="flex flex-col gap-1 p-2 rounded-lg transition-colors hover:bg-white/5" aria-label="Open menu">
         <span className="block w-4 h-0.5 bg-white/50 rounded"/><span className="block w-4 h-0.5 bg-white/50 rounded"/><span className="block w-3 h-0.5 bg-white/50 rounded self-end"/>
       </button>

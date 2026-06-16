@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -20,7 +20,7 @@ export default function LogicNav({ xp, milestones, onMenuClick }: Props) {
         <span style={{color:"rgba(240,240,245,0.2)"}}>/</span>
         <span className="font-semibold truncate" style={{color:"#84CC16"}}>Logic Gates</span>
       </div>
-      <span className="hidden sm:inline-block text-xs font-mono px-2 py-0.5 rounded-full flex-shrink-0" style={{background:"rgba(132,204,22,0.1)",color:"rgba(132,204,22,0.7)",border:"1px solid rgba(132,204,22,0.2)"}}>L19 of 20</span>
+      <span className="hidden sm:inline-block text-xs font-mono px-2 py-0.5 rounded-full flex-shrink-0" style={{background:"rgba(132,204,22,0.1)",color:"rgba(132,204,22,0.7)",border:"1px solid rgba(132,204,22,0.2)"}}>L19 of 36</span>
       <div className="flex-1"/>
       <div className="hidden md:flex items-center gap-1.5">
         {PIPS.map(pip=>{ const done=milestones[pip.key]; return <div key={pip.key} title={pip.label} className="w-2 h-2 rounded-full transition-all duration-300" style={{background:done?"#10B981":"rgba(255,255,255,0.1)",boxShadow:done?"0 0 6px rgba(16,185,129,0.6)":"none"}}/>; })}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { motion } from "framer-motion";
 
 export default function LessonHeader() {
@@ -14,7 +14,7 @@ export default function LessonHeader() {
           Zero gate current. Voltage-controlled. The transistor that powers everything from your phone to electric cars.
         </p>
         <div className="flex flex-wrap gap-3">
-          {[{label:"200 XP",icon:"⚡"},{label:"5 Simulators",icon:"🎮"},{label:"20-Q Quiz",icon:"📝"},{label:"L18 of 20",icon:"📍"}].map((b)=>(
+          {[{label:"200 XP",icon:"⚡"},{label:"5 Simulators",icon:"🎮"},{label:"20-Q Quiz",icon:"📝"},{label:"L18 of 36",icon:"📍"}].map((b)=>(
             <div key={b.label} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border"
               style={{borderColor:"rgba(59,130,246,0.25)",background:"rgba(59,130,246,0.06)",color:"rgba(59,130,246,0.8)"}}>
               <span>{b.icon}</span><span>{b.label}</span>

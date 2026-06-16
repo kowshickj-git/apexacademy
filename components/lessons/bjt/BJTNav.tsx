@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -71,7 +71,7 @@ export default function BJTNav({ xp, milestones, onMenuClick }: BJTNavProps) {
         </span>
       </div>
 
-      {/* L17 of 20 */}
+      {/* L17 of 36 */}
       <span
         className="hidden sm:inline-block text-xs font-mono px-2 py-0.5 rounded-full flex-shrink-0"
         style={{
@@ -80,7 +80,7 @@ export default function BJTNav({ xp, milestones, onMenuClick }: BJTNavProps) {
           border: "1px solid rgba(239,68,68,0.2)",
         }}
       >
-        L17 of 20
+        L17 of 36
       </span>
 
       <div className="flex-1" />

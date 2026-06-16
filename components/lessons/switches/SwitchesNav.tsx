@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -69,7 +69,7 @@ export default function SwitchesNav({ xp, milestones, onMenuClick }: Props) {
           <span className="font-medium" style={{ color: CYAN }}>Switches</span>
         </div>
 
-        <span className="text-[10px] text-white/20 font-mono hidden lg:block">L13 of 20</span>
+        <span className="text-[10px] text-white/20 font-mono hidden lg:block">L13 of 36</span>
 
         <div className="flex-1" />
 

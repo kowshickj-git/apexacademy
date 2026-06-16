@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -21,7 +21,7 @@ export default function BottomCTA() {
             <span className="group-hover:underline underline-offset-2">MOSFET</span>
           </Link>
           <div className="flex items-center gap-2">
-            <span className="text-[10px] text-white/15 font-mono">L19 of 20</span>
+            <span className="text-[10px] text-white/15 font-mono">L19 of 36</span>
             <div className="flex gap-1">{Array.from({length:20}).map((_,i)=><div key={i} className="w-1.5 h-1.5 rounded-full" style={{background:i<19?"rgba(132,204,22,0.5)":"rgba(255,255,255,0.1)"}}/>)}</div>
           </div>
           <Link href="/electronics/arduino" className="flex items-center gap-2 text-sm font-semibold transition-colors hover:opacity-80" style={{color:"#84CC16"}}>

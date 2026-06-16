@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -63,7 +63,7 @@ export default function BJTComplete({ xp, onClose }: Props) {
               style={{ background: "linear-gradient(135deg, #EF4444, #F87171)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               BJT Mastered!
             </h2>
-            <p className="text-xs text-white/40 font-mono">BJT Transistors — L17 of 20</p>
+            <p className="text-xs text-white/40 font-mono">BJT Transistors — L17 of 36</p>
           </div>
 
           <div className="rounded-2xl p-4 mb-4 text-center border"

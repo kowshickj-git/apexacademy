@@ -1,6 +1,6 @@
 "use client";
 import { useState, useCallback } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import UARTNav from "@/components/lessons/uart/UARTNav";
 import LearningPath from "@/components/lessons/uart/LearningPath";
 import WhatIsUART from "@/components/lessons/uart/WhatIsUART";
@@ -32,6 +32,7 @@ export default function UARTPage() {
     quizPassed: false, lessonFinished: false
   });
   const [showComplete, setShowComplete] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const earnXP = useCallback((amount: number, key: keyof Milestones) => {
     setMilestones(prev => {
@@ -48,7 +49,21 @@ export default function UARTPage() {
 
   return (
     <div style={{ background: "#050507", minHeight: "100vh" }}>
-      <UARTNav xp={xp} />
+      <UARTNav xp={xp} onMenuClick={() => setSidebarOpen(true)} />
+      <AnimatePresence>
+        {sidebarOpen && (
+          <>
+            <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="fixed inset-0 z-40 bg-black/60" onClick={() => setSidebarOpen(false)} />
+            <motion.aside initial={{x:"100%"}} animate={{x:0}} exit={{x:"100%"}} transition={{type:"spring",damping:28,stiffness:260}} className="fixed top-0 right-0 h-full w-72 z-50 border-l border-white/[0.08] overflow-y-auto" style={{background:"rgba(18,18,27,0.98)",backdropFilter:"blur(16px)"}}>
+              <div className="p-4 flex justify-between items-center border-b border-white/5">
+                <span className="text-sm font-bold text-white/70">Course Progress</span>
+                <button onClick={() => setSidebarOpen(false)} className="text-white/30 hover:text-white/60 text-lg leading-none">✕</button>
+              </div>
+              <LearningPath milestones={milestones} />
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
       <div className="flex">
         <aside className="hidden lg:block w-72 shrink-0 sticky top-0 h-screen overflow-y-auto" style={{ background: "rgba(255,255,255,0.02)", borderRight: "1px solid rgba(255,255,255,0.06)" }}>
           <LearningPath milestones={milestones} />

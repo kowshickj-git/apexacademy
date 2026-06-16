@@ -6,9 +6,10 @@ const COLOR = "#6366F1";
 
 interface Props {
   xp: number;
+  onMenuClick?: () => void;
 }
 
-export default function IoTNav({ xp }: Props) {
+export default function IoTNav({ xp, onMenuClick }: Props) {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -83,6 +84,11 @@ export default function IoTNav({ xp }: Props) {
       >
         ESP32 →
       </Link>
+
+      {/* Hamburger */}
+      <button onClick={onMenuClick} className="ml-1 p-2 rounded-lg text-white/30 hover:text-white/60 hover:bg-white/5 transition-colors" aria-label="Open course menu">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="1.5" rx="0.75" fill="currentColor"/><rect x="2" y="7.25" width="12" height="1.5" rx="0.75" fill="currentColor"/><rect x="2" y="10.5" width="12" height="1.5" rx="0.75" fill="currentColor"/></svg>
+      </button>
 
       {/* Scroll Progress Bar */}
       <div
