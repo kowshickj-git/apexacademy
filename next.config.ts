@@ -19,7 +19,8 @@ const strictCsp = [
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
   "img-src 'self' data: blob: https:",
-  "connect-src 'self' https://api.emailjs.com",
+  // Supabase auth/REST (login, signup, dashboard streak) + EmailJS contact form.
+  "connect-src 'self' https://api.emailjs.com https://*.supabase.co wss://*.supabase.co",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

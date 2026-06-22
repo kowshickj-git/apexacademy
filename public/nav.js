@@ -54,7 +54,7 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-ctas">
-      <a href="book-demo.html" class="btn btn-ghost">Book Demo</a>
+      <a href="login.html" class="btn btn-ghost" id="nav-login">Log in</a>
       <a href="enroll.html" class="btn btn-primary">Enroll Now</a>
     </div>
     <div class="nav-hamburger" id="nav-burger" aria-label="Menu" role="button" tabindex="0" aria-expanded="false">
@@ -101,6 +101,7 @@
   <div class="nav-mobile-sep"></div>
   <a href="contact.html">Contact</a>
   <div class="nav-mobile-ctas">
+    <a href="login.html" class="btn btn-ghost btn-full" id="nav-login-m" style="justify-content:center">Log in</a>
     <a href="book-demo.html" class="btn btn-ghost btn-full" style="justify-content:center">Book Demo</a>
     <a href="enroll.html" class="btn btn-primary btn-full" style="justify-content:center">Enroll Now</a>
   </div>
@@ -108,6 +109,30 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     document.body.insertAdjacentHTML('afterbegin', NAV);
+
+    /* ── Auth state: personalize the Login button when a Supabase session exists.
+       Reads the cached session from localStorage so we don't have to load the
+       full Supabase library on every page. ── */
+    (function applyAuthState() {
+      let user = null;
+      try {
+        for (let i = 0; i < localStorage.length; i++) {
+          const k = localStorage.key(i);
+          if (k && k.indexOf('sb-') === 0 && k.indexOf('-auth-token') !== -1) {
+            const raw = JSON.parse(localStorage.getItem(k));
+            const sess = raw && (raw.currentSession || raw);
+            if (sess && sess.user) { user = sess.user; break; }
+          }
+        }
+      } catch (e) { /* ignore parse errors → treat as logged out */ }
+      if (!user) return;
+      const meta = user.user_metadata || {};
+      const name = meta.first_name || meta.full_name || (user.email ? user.email.split('@')[0] : 'Dashboard');
+      ['nav-login', 'nav-login-m'].forEach(function (id) {
+        const el = document.getElementById(id);
+        if (el) { el.textContent = '👋 ' + name; el.setAttribute('href', 'dashboard.html'); }
+      });
+    })();
 
     /* ── Active state ── */
     const page = location.pathname.split('/').pop() || 'index.html';

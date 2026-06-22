@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dashboard – APEX Robotics Academy</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.dash-wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:calc(var(--nav-h) + 2.5rem) 1.25rem 4rem}
+.dash-loading{min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--muted)}
+.spinner{width:34px;height:34px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.dash-main{display:none}
+.dash-main.show{display:block;animation:fadeIn .35s ease both}
+.dash-hello-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:.5rem}
+.dash-hello{font-size:clamp(26px,4vw,38px);font-weight:700;letter-spacing:-.02em;color:var(--text);margin-bottom:.4rem}
+.dash-hello span{color:var(--primary)}
+.dash-sub{font-size:14.5px;color:var(--muted);margin-bottom:2.25rem}
+.dash-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:1.25rem;margin-bottom:1.25rem}
+@media(max-width:760px){.dash-grid{grid-template-columns:1fr}}
+.dash-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:1.75rem;position:relative;overflow:hidden}
+.streak-card{background:linear-gradient(135deg,rgba(251,146,60,.12),rgba(239,68,68,.06));border-color:rgba(251,146,60,.25)}
+.streak-flame{font-size:46px;line-height:1;filter:drop-shadow(0 0 18px rgba(251,146,60,.5))}
+.streak-num{font-size:64px;font-weight:800;letter-spacing:-.03em;color:#fb923c;line-height:1;font-variant-numeric:tabular-nums}
+.streak-label{font-size:14px;color:var(--muted);margin-top:.25rem}
+.streak-msg{font-size:13px;color:var(--text);margin-top:1rem;padding:.7rem .9rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px}
+.week-row{display:flex;gap:.45rem;margin-top:1.4rem}
+.week-day{flex:1;text-align:center}
+.week-dot{width:100%;aspect-ratio:1;max-width:42px;margin:0 auto .35rem;border-radius:11px;background:rgba(255,255,255,.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:15px;transition:transform .15s}
+.week-dot.on{background:linear-gradient(135deg,#fb923c,#ef4444);border-color:transparent;box-shadow:0 4px 14px rgba(251,146,60,.35)}
+.week-dot.today{outline:2px solid var(--primary);outline-offset:2px}
+.week-lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;color:var(--dim);text-transform:uppercase}
+.stat-row{display:flex;flex-direction:column;gap:1rem;justify-content:center;height:100%}
+.stat-item{display:flex;align-items:center;gap:.9rem}
+.stat-ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.stat-val{font-size:22px;font-weight:700;color:var(--text);line-height:1;font-variant-numeric:tabular-nums}
+.stat-cap{font-size:12px;color:var(--muted);margin-top:.2rem}
+.dash-cta-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.5rem}
+.dash-logout{background:none;border:1px solid var(--border);color:var(--muted);padding:.6rem 1.1rem;border-radius:var(--r-ctrl);font-size:13.5px;font-weight:500;cursor:pointer;transition:color .15s,border-color .15s}
+.dash-logout:hover{color:#f87171;border-color:rgba(239,68,68,.4)}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+<script src="webgl.js" defer></script>
+<script src="nav.js" defer></script>
+
+<!-- Supabase + auth -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="auth.js"></script>
+
+<div class="dash-wrap">
+
+  <div class="dash-loading" id="dash-loading">
+    <div class="spinner"></div>
+    <p>Loading your dashboard…</p>
+  </div>
+
+  <div class="dash-main" id="dash-main">
+    <p class="dash-hello-eyebrow">Student Portal</p>
+    <h1 class="dash-hello">Welcome back, <span id="hello-name">there</span> 👋</h1>
+    <p class="dash-sub" id="dash-date"></p>
+
+    <div class="dash-grid">
+      <!-- Streak -->
+      <div class="dash-card streak-card">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <span class="streak-flame">🔥</span>
+          <div>
+            <div class="streak-num" id="streak-num">0</div>
+            <div class="streak-label" id="streak-label">day streak</div>
+          </div>
+        </div>
+        <div class="week-row" id="week-row"></div>
+        <div class="streak-msg" id="streak-msg">Keep it going — visit every day to grow your streak!</div>
+      </div>
+
+      <!-- Stats -->
+      <div class="dash-card">
+        <div class="stat-row">
+          <div class="stat-item">
+            <div class="stat-ico" style="background:rgba(251,146,60,.14);color:#fb923c">🏆</div>
+            <div><div class="stat-val" id="stat-longest">0</div><div class="stat-cap">Longest streak (days)</div></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-ico" style="background:rgba(16,185,129,.14);color:#10B981">📅</div>
+            <div><div class="stat-val" id="stat-active">—</div><div class="stat-cap">Last active</div></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-ico" style="background:rgba(14,165,233,.14);color:#0EA5E9">⭐</div>
+            <div><div class="stat-val" id="stat-member">—</div><div class="stat-cap">Member since</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-card" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem">
+      <div>
+        <div style="font-size:16px;font-weight:600;color:var(--text);margin-bottom:.2rem">Ready to learn?</div>
+        <div style="font-size:13px;color:var(--muted)">Continue a lesson today to extend your streak.</div>
+      </div>
+      <div class="dash-cta-row">
+        <a href="/lessons/voltage" class="btn btn-primary">⚡ Continue Learning</a>
+        <a href="/lab" class="btn btn-ghost">🔬 Circuit Lab</a>
+        <button class="dash-logout" id="logout-btn" type="button">Log out</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  /* Auth guard: must be signed in. */
+  if (!apexConfigured()) { window.location.replace('login.html'); return; }
+
+  apexGetSession().then(async function (session) {
+    if (!session) { window.location.replace('login.html'); return; }
+
+    var fallbackName = (session.user && session.user.user_metadata && session.user.user_metadata.first_name)
+      || (session.user && session.user.email ? session.user.email.split('@')[0] : 'there');
+
+    var profile;
+    try {
+      profile = await apexTouchStreak();   // updates + returns streak/profile
+    } catch (e) {
+      try { profile = await apexGetProfile(); } catch (e2) { profile = null; }
+    }
+
+    render(profile, session, fallbackName);
+  });
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c];
+    });
+  }
+
+  function fmtDate(d) {
+    if (!d) return '—';
+    try { return new Date(d).toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' }); }
+    catch (e) { return '—'; }
+  }
+
+  function render(profile, session, fallbackName) {
+    var first   = (profile && profile.first_name) || fallbackName || 'there';
+    var current = (profile && profile.current_streak) || 1;
+    var longest = (profile && profile.longest_streak) || current;
+
+    document.getElementById('hello-name').textContent = esc(first);
+    document.getElementById('streak-num').textContent  = current;
+    document.getElementById('streak-label').textContent = (current === 1 ? 'day streak' : 'day streak');
+    document.getElementById('stat-longest').textContent = longest;
+    document.getElementById('stat-active').textContent  = 'Today';
+    document.getElementById('stat-member').textContent  =
+      fmtDate((profile && profile.created_at) || (session.user && session.user.created_at));
+
+    document.getElementById('dash-date').textContent =
+      new Date().toLocaleDateString(undefined, { weekday:'long', month:'long', day:'numeric' });
+
+    var msg = current >= 7 ? "🚀 Incredible! A full week and counting. You're on fire!"
+            : current >= 3 ? "💪 Nice momentum — keep showing up daily!"
+            : "Welcome! Come back tomorrow to start building your streak.";
+    document.getElementById('streak-msg').textContent = msg;
+
+    /* Week strip: fill the trailing days covered by the current streak. */
+    var labels = ['S','M','T','W','T','F','S'];
+    var todayIdx = new Date().getDay();
+    var filled = Math.min(current, 7);
+    var row = document.getElementById('week-row');
+    var html = '';
+    for (var i = 6; i >= 0; i--) {
+      var dayIdx = (todayIdx - i + 7) % 7;
+      var on = i < filled;              // i=0 is today
+      var isToday = i === 0;
+      html += '<div class="week-day">'
+            +   '<div class="week-dot' + (on ? ' on' : '') + (isToday ? ' today' : '') + '">' + (on ? '🔥' : '') + '</div>'
+            +   '<div class="week-lab">' + labels[dayIdx] + '</div>'
+            + '</div>';
+    }
+    row.innerHTML = html;
+
+    document.getElementById('dash-loading').style.display = 'none';
+    document.getElementById('dash-main').classList.add('show');
+  }
+
+  document.addEventListener('click', function (e) {
+    if (e.target && e.target.id === 'logout-btn') {
+      e.target.disabled = true; e.target.textContent = 'Logging out…';
+      apexSignOut().catch(function () { window.location.href = 'login.html'; });
+    }
+  });
+})();
+</script>
+</body>
+</html>
