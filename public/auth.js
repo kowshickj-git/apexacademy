@@ -9,8 +9,8 @@
    The anon key is SAFE to ship in the browser AS LONG AS Row-Level Security
    (RLS) is enabled on every table. Run docs/SUPABASE-AUTH-SETUP.sql first.
    ============================================================================ */
-const SUPABASE_URL  = 'https://YOUR-PROJECT-REF.supabase.co';
-const SUPABASE_ANON = 'YOUR-ANON-PUBLIC-KEY';
+const SUPABASE_URL  = 'https://oowaubhssrojxoxvharz.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_UVswH8wGu5tnwLIjku4qwg_d1dPj-Fg';
 
 /* True once real values are filled in (used by pages to show a friendly notice). */
 function apexConfigured() {
