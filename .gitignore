@@ -12,6 +12,7 @@ node_modules/
 
 # Build
 npm-debug.log*
+*.tsbuildinfo
 
 # IDE
 .vscode/

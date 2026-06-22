@@ -3,16 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/clean-next.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "@wokwi/elements": "^1.9.2",
+    "avr8js": "^0.21.0",
+    "framer-motion": "^11.18.2",
     "next": "^15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "framer-motion": "^11.18.2"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
