@@ -326,6 +326,13 @@ function goStep(n) {
   currentStep = n;
 }
 
+// Escape HTML special chars so user-entered values can never inject markup.
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
 function buildSummary() {
   var html = [
     ['Student', document.getElementById('student-name').value],
@@ -334,7 +341,7 @@ function buildSummary() {
     ['Email', document.getElementById('email').value],
     ['Date', document.getElementById('pref-date').value],
     ['Time', selectedTime || 'Not selected']
-  ].map(function(r){ return '<div class="flex justify-between"><span>'+r[0]+'</span><span style="color:var(--text);font-weight:500">'+r[1]+'</span></div>'; }).join('');
+  ].map(function(r){ return '<div class="flex justify-between"><span>'+esc(r[0])+'</span><span style="color:var(--text);font-weight:500">'+esc(r[1])+'</span></div>'; }).join('');
   document.getElementById('summary-content').innerHTML = html;
 }
 

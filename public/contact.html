@@ -173,6 +173,8 @@
         <p class="t-small" style="margin-bottom:1.75rem">Fill out the form below and we'll get back to you within 24 hours.</p>
 
         <form id="contact-form" novalidate="">
+          <!-- Honeypot: hidden from humans, bots tend to fill it. Submissions with this set are silently dropped. -->
+          <input type="text" id="cwebsite" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
           <div style="display:flex;flex-direction:column;gap:1.25rem">
 
             <div class="form-grid">
@@ -311,6 +313,15 @@
 
   document.getElementById('contact-form').addEventListener('submit', function (e) {
     e.preventDefault();
+
+    // Honeypot: if a bot filled the hidden field, pretend success and send nothing.
+    var hp = document.getElementById('cwebsite');
+    if (hp && hp.value) {
+      var sBot = document.getElementById('contact-success');
+      document.getElementById('contact-form').style.display = 'none';
+      if (sBot) { sBot.style.display = 'block'; sBot.classList.add('show'); }
+      return;
+    }
 
     // Rate-limit guard
     var now = Date.now();
