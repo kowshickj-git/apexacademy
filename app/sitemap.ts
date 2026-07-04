@@ -40,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/electronics/pcb-design",
     "/electronics/embedded-projects",
     "/electronics/robotics",
+    "/electronics/line-follower",
     "/electronics/computer-vision",
     "/electronics/ai-robotics",
   ];

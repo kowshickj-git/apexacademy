@@ -23,13 +23,22 @@ export default function RoboticsPage() {
         <p className="text-white/45 text-sm leading-relaxed mb-8">
           Build autonomous robots from scratch. This lesson covers motor control, encoder feedback, PID controllers, kinematics, and integrating sensors to navigate the physical world.
         </p>
-        <div className="grid grid-cols-2 gap-3 mb-8 text-left">
+        <div className="grid grid-cols-2 gap-3 mb-6 text-left">
           {TOPICS.map(t => (
             <div key={t} className="flex items-center gap-2 text-xs text-white/35 p-3 rounded-xl border border-white/5" style={{background:"rgba(255,255,255,0.02)"}}>
               <span style={{color:COLOR}}>○</span>{t}
             </div>
           ))}
         </div>
+        <Link href="/electronics/line-follower" className="block mb-8 p-4 rounded-2xl border text-left transition-all hover:scale-[1.02]"
+          style={{borderColor:"rgba(245,158,11,0.4)",background:"linear-gradient(120deg, rgba(245,158,11,0.12), rgba(34,211,238,0.08))"}}>
+          <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest mb-1" style={{color:COLOR}}>
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{background:COLOR}} />
+            Available now · Interactive Project Lab
+          </div>
+          <div className="text-sm font-black text-white mb-0.5">🏁 Build a Line Follower Robot From Scratch</div>
+          <div className="text-[11px] text-white/40">17 interactive labs: assemble, wire, code, simulate, tune PID, and earn a certificate — all in your browser →</div>
+        </Link>
         <div className="flex gap-3 justify-center">
           <Link href="/electronics/embedded-projects" className="px-5 py-2.5 rounded-xl font-semibold text-sm border transition-all hover:bg-white/5"
             style={{borderColor:"rgba(255,255,255,0.1)",color:"rgba(255,255,255,0.5)"}}>← Embedded Projects</Link>
