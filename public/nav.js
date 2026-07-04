@@ -50,6 +50,7 @@
       </li>
       <li><a href="/lab" style="display:inline-flex;align-items:center;gap:.4rem;color:#0EA5E9;font-weight:700;font-size:13.5px;padding:.45rem .9rem;border-radius:999px;background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.28);letter-spacing:.01em;transition:background .18s,border-color .18s" onmouseover="this.style.background='rgba(14,165,233,.18)';this.style.borderColor='rgba(14,165,233,.45)'" onmouseout="this.style.background='rgba(14,165,233,.1)';this.style.borderColor='rgba(14,165,233,.28)'"><span style="font-size:13px">🔬</span>Circuit Lab<span style="font-size:8.5px;font-weight:700;letter-spacing:.08em;padding:.1rem .4rem;border-radius:999px;background:rgba(14,165,233,.18);color:#0EA5E9;border:1px solid rgba(14,165,233,.35)">NEW</span></a></li>
       <li><a href="/electronics/playground" style="display:inline-flex;align-items:center;gap:.4rem;color:#10B981;font-weight:700;font-size:13.5px;padding:.45rem .9rem;border-radius:999px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.28);letter-spacing:.01em;transition:background .18s,border-color .18s" onmouseover="this.style.background='rgba(16,185,129,.18)';this.style.borderColor='rgba(16,185,129,.45)'" onmouseout="this.style.background='rgba(16,185,129,.1)';this.style.borderColor='rgba(16,185,129,.28)'"><span style="font-size:13px">🔌</span>Playground<span style="font-size:8.5px;font-weight:700;letter-spacing:.08em;padding:.1rem .4rem;border-radius:999px;background:rgba(16,185,129,.18);color:#10B981;border:1px solid rgba(16,185,129,.35)">NEW</span></a></li>
+      <li><a href="/electronics/line-follower" style="display:inline-flex;align-items:center;gap:.4rem;color:#F59E0B;font-weight:700;font-size:13.5px;padding:.45rem .9rem;border-radius:999px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.28);letter-spacing:.01em;transition:background .18s,border-color .18s" onmouseover="this.style.background='rgba(245,158,11,.18)';this.style.borderColor='rgba(245,158,11,.45)'" onmouseout="this.style.background='rgba(245,158,11,.1)';this.style.borderColor='rgba(245,158,11,.28)'"><span style="font-size:13px">🤖</span>Robot Lab<span style="font-size:8.5px;font-weight:700;letter-spacing:.08em;padding:.1rem .4rem;border-radius:999px;background:rgba(245,158,11,.18);color:#F59E0B;border:1px solid rgba(245,158,11,.35)">NEW</span></a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -95,6 +96,13 @@
     <span>
       <span style="display:block;font-size:14px;font-weight:600;color:#fff">Arduino Playground</span>
       <span style="display:block;font-size:11px;color:rgba(255,255,255,.4);font-family:'JetBrains Mono',monospace">Code &amp; simulate · <span style="color:#10B981">NEW</span></span>
+    </span>
+  </a>
+  <a href="/electronics/line-follower" style="display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border-radius:10px">
+    <span style="font-size:18px;flex-shrink:0">🤖</span>
+    <span>
+      <span style="display:block;font-size:14px;font-weight:600;color:#fff">Line Follower Robot Lab</span>
+      <span style="display:block;font-size:11px;color:rgba(255,255,255,.4);font-family:'JetBrains Mono',monospace">17 labs · build &amp; certify · <span style="color:#F59E0B">NEW</span></span>
     </span>
   </a>
   <a href="projects.html">Projects</a>
